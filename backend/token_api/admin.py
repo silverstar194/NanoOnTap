@@ -1,23 +1,27 @@
 # Register your token_models here.
 from django.contrib import admin
 
-from .models.account import Account
-from .models.node import Node
-from .models.transaction import Transaction
-from .models.wallet import Wallet
-from .models.action import Action
-from .models.action_policy import ActionPolicy
-from .models.account_policy import AccountPolicy
-from .models.device import Device
-from .models.token import Token
-from .models.application import Application
-
+from .models.nano_models.account import Account
+from .models.nano_models.node import Node
+from .models.nano_models.transaction import Transaction
+from .models.nano_models.wallet import Wallet
+from .models.token_models.action import Action
+from .models.token_models.action_policy import ActionPolicy
+from .models.token_models.account_policy import AccountPolicy
+from .models.token_models.device import Device
+from .models.token_models.token import Token
+from .models.token_models.application import Application
+from .models.custom_action_policies.example_custom_action_policy import CustomActionPolicy
 
 
 class AccountAdmin(admin.ModelAdmin):
     exclude = ('POW', 'in_use', )
 
 admin.site.register(Account, AccountAdmin)
+
+class ExampleCustomActionPolicyAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(CustomActionPolicy, ExampleCustomActionPolicyAdmin)
 
 class ApplicationAdmin(admin.ModelAdmin):
     pass

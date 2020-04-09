@@ -1,8 +1,6 @@
-from django.db import models
-
 from django.utils import timezone
 
-from ..models.action_history import ActionHistory
+from backend.token_api.models.token_models.action_history import ActionHistory
 
 
 def audit_execution(action, policy):
