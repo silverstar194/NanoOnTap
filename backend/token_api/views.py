@@ -4,8 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .token_services.template import export_template, import_template
-from .token_services.application import application_exists, clean_up_failed_template
-
+from .token_services.application import clean_up_failed_template, application_exists
 
 @csrf_exempt
 def import_template_view(request):
@@ -16,17 +15,17 @@ def import_template_view(request):
         if "application" not in json_data:
             return JsonResponse({'message': "No application provided"})
 
-        application = json_data["application"]
-        if application_exists(application):
-            return JsonResponse({'message': "Application {} already exists".format(application)})
-
+        application = json_data["application"][0]["fields"]["application_id"]
         result = import_template(data)
 
         if not result:
             clean_up_failed_template(application)
-            return JsonResponse({'message': "Application {} failed".format(application)})
+            return JsonResponse({'message': "Application {0} failed".format(application)})
 
-        return JsonResponse({'message': "Template accepted and created"}, status=200)
+        if application_exists(application):
+            return JsonResponse({'message': "Application {0} already exists. Template changes applied.".format(application)})
+
+        return JsonResponse({'message': "Application {0} accepted and created".format(application)}, status=200)
 
     return JsonResponse({'message': "Post only requests for application creation"}, status=403)
 

@@ -10,3 +10,7 @@ def get_token(token_id):
 
 def get_token_action_policies(token):
     return models.ActionPolicy.objects.filter(token=token).order_by("priority")
+
+def get_token_custom_action_policies(token):
+    return models.CustomActionPolicy.objects.filter(token=token).order_by("priority")
+

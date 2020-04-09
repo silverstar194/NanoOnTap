@@ -1,12 +1,12 @@
-from ..models.device import Device
-from ..models.token import Token
-from ..models.action_policy import ActionPolicy
-from ..models.account import Account
-from ..models.account import AccountPolicy
-from ..models.action import Action
-from ..models.wallet import Wallet
-from ..models.node import Node
-from ..models.application import Application
+from ..models.token_models.device import Device
+from ..models.token_models.token import Token
+from ..models.token_models.action_policy import ActionPolicy
+from ..models.nano_models.account import Account
+from ..models.token_models.account_policy import AccountPolicy
+from ..models.token_models.action import Action
+from ..models.nano_models.wallet import Wallet
+from ..models.nano_models.node import Node
+from ..models.token_models.application import Application
 
 import json
 import re
@@ -52,11 +52,11 @@ def export_template(application):
 def import_template(json_data):
     application_setup = json.loads(json_data)
 
-    #try:
-    # if "application" in application_setup:
-    #     application_setup["application"] = add_text(application_setup["application"], r'"model": "application"', r'"model": "token_api.application"')
-    #     for obj in serializers.deserialize('python',  application_setup["application"], use_natural_foreign_keys=True, use_natural_primary_keys=True):
-    #         obj.save()
+   # try:
+    if "application" in application_setup:
+        application_setup["application"] = add_text(application_setup["application"], r'"model": "application"', r'"model": "token_api.application"')
+        for obj in serializers.deserialize('python',  application_setup["application"], use_natural_foreign_keys=True, use_natural_primary_keys=True):
+            obj.save()
 
     if "devices" in application_setup:
         application_setup["devices"] = add_text(application_setup["devices"], r'"model": "device"', r'"model": "token_api.device"')
