@@ -6,6 +6,7 @@ from ..models.account import AccountPolicy
 from ..models.action import Action
 from ..models.wallet import Wallet
 from ..models.node import Node
+from ..models.application import Application
 
 import json
 import re
@@ -14,17 +15,18 @@ from django.core import serializers
 
 
 def export_template(application):
-
-    devices = Device.objects.filter(application=application)
-    tokens = Token.objects.filter(application=application)
-    actions = Action.objects.filter(application=application)
-    action_policies = ActionPolicy.objects.filter(application=application)
-    accounts = Account.objects.filter(application=application)
-    account_policies = AccountPolicy.objects.filter(application=application)
-    wallets = Wallet.objects.filter(application=application)
-    nodes = Node.objects.filter(application=application)
+    application_ouput = Application.objects.select_related().filter(application_id=application)
+    devices = Device.objects.select_related().filter(application__application_id=application)
+    tokens = Token.objects.select_related().filter(application__application_id=application)
+    actions = Action.objects.select_related().filter(application__application_id=application)
+    action_policies = ActionPolicy.objects.select_related().filter(application__application_id=application)
+    accounts = Account.objects.select_related().filter(application__application_id=application)
+    account_policies = AccountPolicy.objects.select_related().filter(application__application_id=application)
+    wallets = Wallet.objects.select_related().filter(application__application_id=application)
+    nodes = Node.objects.select_related().filter(application__application_id=application)
 
     template = {}
+    application_output_text = serializers.serialize('python', application_ouput, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     devices_output = serializers.serialize('python', devices, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     tokens_output = serializers.serialize('python', tokens, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     action_policies_output = serializers.serialize('python', action_policies, use_natural_foreign_keys=True, use_natural_primary_keys=True)
@@ -34,8 +36,7 @@ def export_template(application):
     wallet_output = serializers.serialize('python', wallets, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     node_output = serializers.serialize('python', nodes, use_natural_foreign_keys=True, use_natural_primary_keys=True)
 
-    template["application"] = application
-
+    template["application"] = strip_text(application_output_text, "token_api.")
     template["devices"] = strip_text(devices_output, "token_api.")
     template["tokens"] = strip_text(tokens_output, "token_api.")
     template["actions"] = strip_text(action_output, "token_api.")
@@ -50,6 +51,12 @@ def export_template(application):
 
 def import_template(json_data):
     application_setup = json.loads(json_data)
+
+    #try:
+    # if "application" in application_setup:
+    #     application_setup["application"] = add_text(application_setup["application"], r'"model": "application"', r'"model": "token_api.application"')
+    #     for obj in serializers.deserialize('python',  application_setup["application"], use_natural_foreign_keys=True, use_natural_primary_keys=True):
+    #         obj.save()
 
     if "devices" in application_setup:
         application_setup["devices"] = add_text(application_setup["devices"], r'"model": "device"', r'"model": "token_api.device"')
@@ -86,6 +93,13 @@ def import_template(json_data):
         application_setup["nodes"] = add_text(application_setup["nodes"], r'"model": "node"', r'"model": "token_api.node"')
         for obj in serializers.deserialize('python', application_setup["nodes"],  use_natural_foreign_keys=True, use_natural_primary_keys=True):
             obj.save()
+    # except Exception as E:
+    #     print("Failed to import template")
+    #     print(E)
+    #     return False
+
+    return True
+
 
 def strip_text(before, value):
     obj_str = json.dumps(before).replace(value, "") # remove token_api

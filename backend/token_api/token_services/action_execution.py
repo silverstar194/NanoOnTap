@@ -1,6 +1,6 @@
 from ..token_services.device import *
 from ..token_services.token import *
-from ..token_services.actionhistory import *
+from ..token_services.action_history import *
 
 def action_execution(device_id, token_id):
     device = get_device(device_id)
