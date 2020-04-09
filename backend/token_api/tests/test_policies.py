@@ -18,6 +18,3 @@ class TestVaildPolicy(TestCase):
         assert (Device.objects.filter(device_id="device_one").count() == 1)
         assert (Device.objects.filter(device_id="device_two").count() == 1)
         assert (Device.objects.filter(device_id="device_three").count() == 1)
-
-
-
