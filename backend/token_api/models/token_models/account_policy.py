@@ -19,6 +19,9 @@ class AccountPolicy(models.Model):
     class Meta:
         unique_together = [['policy_name', 'application']]
 
+    """
+    Custom logic around when an account can be used
+    """
     def allow_account_usage(self):
         return True
 

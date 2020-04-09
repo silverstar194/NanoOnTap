@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b11b510-8150-4a4d-8d60-3c537d510a4c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/nano_models/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/account_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/action_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/action_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/device.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/device.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/nano_models/node.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/nano_models/transaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/nano_models/wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_load_template.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_policies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_templates/load_devices.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_templates/test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/action_execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/action_execution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/action_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/action_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/template.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/template.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,11 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom_action_policy_base.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom_action_policy_base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account_policy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -119,18 +106,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#35#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="example_custom_action_policy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/token_api/models/custom_action_policies/example_custom_action_policy.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action_execution.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="action_execution.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/action_execution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="60">
+              <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <marker date="1586470517188" expanded="true" signature="1282:1285" ph="..." />
@@ -226,7 +201,6 @@
         <option value="$PROJECT_DIR$/backend/token_api/models/nano_models/node.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/nano_models/transaction.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/nano_models/wallet.py" />
-        <option value="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/token_models/action_history.py" />
         <option value="$PROJECT_DIR$/backend/token_api/token_services/template.py" />
@@ -242,6 +216,7 @@
         <option value="$PROJECT_DIR$/backend/token_api/token_services/action_execution.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" />
         <option value="$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py" />
+        <option value="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" />
       </list>
     </option>
   </component>
@@ -349,11 +324,11 @@
       <recent name="$PROJECT_DIR$/backend" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/token_api/models/token_models" />
       <recent name="$PROJECT_DIR$/backend/token_api/models" />
       <recent name="$PROJECT_DIR$/backend/token_api/tests" />
       <recent name="$PROJECT_DIR$/backend/token_api/token_services" />
       <recent name="$PROJECT_DIR$/backend/token_api" />
-      <recent name="$PROJECT_DIR$/backend/nano_api/models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -488,7 +463,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/nano_api/apps.py" />
     <entry file="file://$PROJECT_DIR$/backend/nano_api/models.py" />
     <entry file="file://$PROJECT_DIR$/backend/nano_api/models/account.py" />
     <entry file="file://$PROJECT_DIR$/backend/nano_api/models/node.py" />
@@ -691,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/models/nano_models/account.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -785,16 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="99" lean-forward="true" selection-start-line="36" selection-start-column="99" selection-end-line="36" selection-end-column="99" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/device.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -808,17 +762,6 @@
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/action_execution.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <marker date="1586470517188" expanded="true" signature="1282:1285" ph="..." />
           </folding>
         </state>
       </provider>
@@ -843,12 +786,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/custom_account_policy_base.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="99" lean-forward="true" selection-start-line="36" selection-start-column="99" selection-end-line="36" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/action_execution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <marker date="1586470517188" expanded="true" signature="1282:1285" ph="..." />
           </folding>
         </state>
       </provider>
