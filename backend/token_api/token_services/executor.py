@@ -22,4 +22,7 @@ class Executor:
             if valid_policy:
                 logger.info("Running action set '{0}'".format(action_set.action_set_name, valid_policy))
                 logger.info("Using action policy '{0}' \n {1}".format(valid_policy.policy_name, valid_policy))
+                return action_set, valid_policy
+
+        return None, None
 
