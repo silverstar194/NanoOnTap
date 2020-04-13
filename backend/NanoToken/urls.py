@@ -20,5 +20,6 @@ from token_api import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('template/import', views.import_template_view),
-    path('template/export', views.export_template_view)
+    path('template/export', views.export_template_view),
+    path('action/execute', views.attempt_action)
 ]

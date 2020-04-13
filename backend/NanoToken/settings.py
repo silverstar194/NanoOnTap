@@ -81,6 +81,47 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+            'datefmt': '%Y-%m-%d %H:%M',
+        },
+    },
+    'handlers': {
+        'application': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'application.log',
+            'backupCount': 1, # keep at most 1 log files
+            'maxBytes': 52428800, # 50*1024*1024 bytes (50MB)
+            'formatter': 'verbose',
+        },
+        'django': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'django.log',
+            'backupCount': 1,  # keep at most 1 log files
+            'maxBytes': 52428800,  # 50*1024*1024 bytes (50MB)
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['django'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'token_api': {
+            'handlers': ['application'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

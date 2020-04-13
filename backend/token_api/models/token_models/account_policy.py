@@ -14,10 +14,21 @@ class AccountPolicy(models.Model):
 
     application = models.ForeignKey(Application, related_name="account_policy_application", on_delete=models.PROTECT)
 
+    send_action_limit = models.IntegerField(default=-1)
+
+    receive_action_limit = models.IntegerField(default=-1)
+
+    send_amount_limit = models.IntegerField(default=-1)
+
+    receive_amount_limit = models.IntegerField(default=-1)
+
+    priority = models.IntegerField()
+
     objects = AccountPolicyManager()
 
     class Meta:
         unique_together = [['policy_name', 'application']]
+        ordering = ['priority']
 
     """
     Custom logic around when an account can be used
@@ -29,4 +40,4 @@ class AccountPolicy(models.Model):
         return "Policy: "+str(self.policy_name)
 
     def natural_key(self):
-        return (self.policy_name,)
+        return (self.policy_name, )
