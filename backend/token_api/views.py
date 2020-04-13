@@ -6,6 +6,14 @@ from django.views.decorators.csrf import csrf_exempt
 from .token_services.template import export_template, import_template
 from .token_services.application import clean_up_failed_template, application_exists
 
+from .token_services.device import get_device
+from .token_services.token import get_token
+
+from .token_services.executor import Executor
+
+import logging
+logger = logging.getLogger(__name__)
+
 @csrf_exempt
 def import_template_view(request):
     if request.method == 'POST':
@@ -43,3 +51,26 @@ def export_template_view(request):
          return JsonResponse({'message': "No application in request"}, status=403)
 
     return JsonResponse({'message': "Post only requests"}, status=403)
+
+@csrf_exempt
+def attempt_action(request):
+    if request.method == 'POST':
+         data = request.body.decode('utf-8')
+         received_json_data = json.loads(data)
+
+         application_id = received_json_data["application"]
+         device_id = received_json_data["device"]
+         token_id = received_json_data["token"]
+
+         device = get_device(device_id, application_id)
+         token = get_token(token_id, application_id)
+
+         action_set_executor = Executor(device, token)
+         action_set_executor.run_action_set()
+
+         logging.info("")
+         return JsonResponse({'message': "Action complete"}, status=403)
+
+
+    return JsonResponse({'message': "Post requests only"}, status=403)
+

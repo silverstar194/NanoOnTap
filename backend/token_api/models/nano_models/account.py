@@ -20,6 +20,7 @@ class Account(models.Model):
     current_balance = models.IntegerField(default=0)  # Measured in RAW
 
     POW = models.CharField(max_length=16, null=True, default=None)
+
     in_use = models.BooleanField(default=False)
 
     application = models.ForeignKey(Application, related_name="account_application", on_delete=models.PROTECT)

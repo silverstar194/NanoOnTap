@@ -21,9 +21,7 @@ class Token(models.Model):
 
     action_polices = models.ManyToManyField(ActionPolicy, related_name="action_polices")
 
-    custom_action_polices = models.ManyToManyField(CustomActionPolicy, related_name="custom_action_polices")
-
-    accounts = models.ManyToManyField(Account, related_name="accounts")
+    custom_action_polices = models.ManyToManyField(CustomActionPolicy, related_name="custom_action_polices", blank=True)
 
     objects = TokenManager()
 

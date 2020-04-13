@@ -6,6 +6,7 @@ from .models.nano_models.node import Node
 from .models.nano_models.transaction import Transaction
 from .models.nano_models.wallet import Wallet
 from .models.token_models.action import Action
+from .models.token_models.action_set import ActionSet
 from .models.token_models.action_policy import ActionPolicy
 from .models.token_models.account_policy import AccountPolicy
 from .models.token_models.device import Device
@@ -42,6 +43,10 @@ admin.site.register(Wallet, WalletAdmin)
 class ActionAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Action, ActionAdmin)
+
+class ActionSetAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(ActionSet, ActionAdmin)
 
 class AllowedActionPolicyAdmin(admin.ModelAdmin):
     pass

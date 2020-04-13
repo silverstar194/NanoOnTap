@@ -1,6 +1,6 @@
 from django.db import models
 
-from .action import Action
+from .action_set import ActionSet
 
 from .application import Application
 
@@ -15,7 +15,7 @@ class Device(models.Model):
 
     application = models.ForeignKey(Application, related_name="device_application", on_delete=models.PROTECT)
 
-    actions = models.ManyToManyField(Action, related_name="action")
+    action_sets = models.ManyToManyField(ActionSet, related_name="action")
 
     objects = DeviceManager()
 

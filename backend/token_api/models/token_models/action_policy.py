@@ -28,6 +28,10 @@ class ActionPolicy(models.Model):
 
     application = models.ForeignKey(Application, related_name="action_policy_application", on_delete=models.PROTECT)
 
+    action_limit = models.IntegerField(default=-1)
+
+    send_limit = models.IntegerField(default=-1)
+
     objects = ActionPolicyManager()
 
     class Meta:
