@@ -28,6 +28,5 @@ class TestExportImportTemplate(TestCase):
         executor = Executor(device, token)
         action_set, valid_policy = executor.run_action_set()
 
-        assert action_set != None
-        assert valid_policy != None
-
+        assert action_set.action_set_name == "Pay Single Account"
+        assert valid_policy.policy_name == "Allow All"
