@@ -15,7 +15,7 @@ class Device(models.Model):
 
     application = models.ForeignKey(Application, related_name="device_application", on_delete=models.PROTECT)
 
-    action_sets = models.ManyToManyField(ActionSet, related_name="action")
+    action_sets = models.ManyToManyField(ActionSet, related_name="device_action_sets")
 
     objects = DeviceManager()
 

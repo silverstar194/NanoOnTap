@@ -4,8 +4,6 @@ from .action_policy import ActionPolicy
 
 from ..custom_action_policies.example_custom_action_policy import CustomActionPolicy
 
-from ..nano_models.account import Account
-
 from .application import Application
 
 

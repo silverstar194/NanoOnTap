@@ -19,11 +19,9 @@ class ValidateActionSet:
         self.action_set_send_amount = sum(action.amount for action in self.actions)
 
     def validate_action_set(self):
-        logger.info("Starting action set validation for action set {0}".format(self.action_set.action_set_name))
-
         valid_action_set = False
-        # validate actions
         for action in self.actions:
+            logger.info("Validating action '{0}'".format(action.action_name))
             valid_policy, valid_to_account, valid_from_account = self.validate_action(action)
 
             if valid_policy and valid_to_account and valid_from_account:
@@ -37,14 +35,19 @@ class ValidateActionSet:
         valid_to_policy = False
         for action in self.actions:
             for policy in action.to_account.account_policies.all():
-                valid_to_account = self.validate_account_limits(action.to_account, policy)
-                valid_to_policy = valid_to_account or valid_to_policy
+                if not valid_to_policy:
+                    valid_to_account = self.validate_account_limits(action.to_account, policy)
+                    valid_to_policy = valid_to_account or valid_to_policy
+                    logger.info("Validating action '{0}' against to_account '{1}' policy as {2}".format(action.action_name, policy.policy_name, valid_to_policy))
+
 
         valid_from_policy = False
         for action in self.actions:
             for policy in action.from_account.account_policies.all():
-                valid_from_account = self.validate_account_limits(action.from_account, policy)
-                valid_from_policy = valid_from_account or valid_from_policy
+                if not valid_from_policy:
+                    valid_from_account = self.validate_account_limits(action.from_account, policy)
+                    valid_from_policy = valid_from_account or valid_from_policy
+                    logger.info("Validating action '{0}' against from_account '{1}' policy as {2}".format(action.action_name, policy.policy_name, valid_to_policy))
 
 
         if not valid_from_policy or not valid_to_policy:
@@ -65,8 +68,10 @@ class ValidateActionSet:
         valid_policy = self.validate_action_inner(action)
 
         valid_to_account = self.valid_to_account(action)
+        logger.info("Validating action '{0}' to_account account policies isvalid={1}".format(action.action_name, valid_to_account != None))
 
         valid_from_account = self.valid_from_account(action)
+        logger.info("Validating action '{0}' from_account account policies isvalid={1}".format(action.action_name, valid_from_account != None))
 
         return (valid_policy, valid_to_account, valid_from_account)
 
@@ -78,30 +83,20 @@ class ValidateActionSet:
     def valid_to_account(self, action):
         to_account_validator = ValidateAccountsWithAccountPolices(action, action.to_account)
         valid_to_account = to_account_validator.validate_accounts_against_account_polices()
-
-        logger.info("ValidateActionSet: Action {0} to_account {1} is allowed {2}".format(action.action_name, action.to_account, valid_to_account))
-
         return valid_to_account
 
     def valid_from_account(self, action):
         from_account_validator = ValidateAccountsWithAccountPolices(action, action.from_account)
         valid_from_account = from_account_validator.validate_accounts_against_account_polices()
-
-        logger.info("ValidateActionSet: Action {0} valid_from_account {1} is allowed {2}".format(action.action_name, action.from_account, valid_from_account))
-
         return valid_from_account
 
     # action set limits
     def validate_action_policy_action_limit(self, action_policy):
-
-        logger.info("ValidateActionSet: ActionSet {0} action_policy action count {1} action_policy.action_limit {2}".format(self.action_set.action_set_name, self.action_set_action_count, action_policy.action_limit))
-
+        logger.info("Validating action policy action limit: {0} <= {1} isvalid={2}".format(self.action_set_action_count, action_policy.action_limit,  self.action_set_action_count <= action_policy.action_limit or action_policy.action_limit == -1))
         return self.action_set_action_count <= action_policy.action_limit or action_policy.action_limit == -1
 
     def validate_action_policy_send_limit(self, action_policy):
-
-        logger.info("ValidateActionSet: ActionSet {0} action_policy action_set_send_amount {1} action_policy.send_limit {2}".format(self.action_set.action_set_name, self.action_set_send_amount, action_policy.send_limit))
-
+        logger.info("Validating action policy send limit: {0} <= {1} isvalid={2}".format(self.action_set_send_amount, action_policy.send_limit, self.action_set_send_amount <= action_policy.send_limit or action_policy.send_limit == -1))
         return self.action_set_send_amount <= action_policy.send_limit or action_policy.send_limit == -1
 
     def validate_account_limits(self, account, policy):

@@ -34,23 +34,17 @@ class AccountValidation:
 
     def validate_account_against_action_set_limits(self):
         valid_address =self.validate_account_send_action_limit() and self.validate_account_send_amount_limit() and self.validate_account_receive_action_limit() and self.validate_account_receive_amount_limit()
-        logger.info("AccountValidation: Policy {0} account {2}".format(self.account_policy.policy_name,  self.account.address, valid_address))
         return valid_address
 
     def validate_account_send_action_limit(self):
-        logger.info("AccountValidation: Policy {0} self.send_count  {1} self.account_policy.send_action_limit  {2}".format(self.account_policy.policy_name,  self.send_count ,self.account_policy.send_action_limit ))
         return self.send_count <= self.account_policy.send_action_limit or self.account_policy.send_action_limit == -1
 
     def validate_account_send_amount_limit(self):
-        logger.info("AccountValidation: Policy {0} self.send_amount {1} self.account_policy.send_amount_limit  {2}".format(self.account_policy.policy_name, self.send_amount, self.account_policy.send_amount_limit))
-
         return self.send_amount <= self.account_policy.send_amount_limit or self.account_policy.send_amount_limit == -1
 
     def validate_account_receive_action_limit(self):
-        logger.info("AccountValidation: Policy {0} receive_count {1} receive_action_limit {2}".format(self.account_policy.policy_name, self.receive_count, self.account_policy.receive_action_limit))
         return self.receive_count <= self.account_policy.receive_action_limit or self.account_policy.receive_action_limit  == -1
 
     def validate_account_receive_amount_limit(self):
-        logger.info("AccountValidation: Policy {0} receive_amount {1} receive_amount_limit {2}".format(self.account_policy.policy_name, self.receive_amount, self.account_policy.receive_amount_limit))
         return self.receive_amount <= self.account_policy.receive_amount_limit or self.account_policy.receive_amount_limit == -1
 

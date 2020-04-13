@@ -18,6 +18,8 @@ class Executor:
 
         for action_set in action_sets:
             action_set_validator = ValidateActionSet(action_set, self.device, action_policies)
-            valid_action_set = action_set_validator.validate_action_set()
-            if valid_action_set:
-                logger.info("Running action set {0}".format(valid_action_set.action_set_name))
+            valid_policy, valid_to_account, valid_from_account = action_set_validator.validate_action_set()
+            if valid_policy:
+                logger.info("Running action set '{0}'".format(action_set.action_set_name, valid_policy))
+                logger.info("Using action policy '{0}' \n {1}".format(valid_policy.policy_name, valid_policy))
+
