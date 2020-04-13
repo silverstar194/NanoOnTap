@@ -4,6 +4,7 @@ from .application import Application
 
 from .action import Action
 
+
 class ActionSetPolicyManager(models.Manager):
     def get_by_natural_key(self, action_set_name):
         return self.get(action_set_name=action_set_name)

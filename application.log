@@ -1,371 +1,84 @@
-INFO 2020-04-11 19:18 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:18 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:18 Starting action validation for action Send 1 Nano
-INFO 2020-04-11 19:20 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:20 Starting action validation for action Send 1 Nano
-INFO 2020-04-11 19:21 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:21 Starting action validation for action Send 1 Nano
-INFO 2020-04-11 19:21 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-11 19:23 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:23 Starting action validation for action Send 1 Nano
-INFO 2020-04-11 19:23 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-11 19:23 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-11 19:24 Starting action set validation for action set Pay Single Account
-INFO 2020-04-11 19:24 Starting action validation for action Send 1 Nano
-INFO 2020-04-11 19:24 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-11 19:24 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-11 19:24 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:39 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:39 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:39 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:39 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:39 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:41 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:41 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:41 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:41 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:41 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:42 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:42 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:42 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:42 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:42 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:43 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:43 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:43 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:43 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:43 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:44 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:44 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:44 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:44 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:44 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:48 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:48 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:48 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:48 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:48 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:52 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:52 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:52 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:52 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:52 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:54 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:54 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:54 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:54 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:54 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:55 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:55 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:55 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:55 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:55 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:58 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:58 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:58 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:58 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:58 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:59 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:59 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:59 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 20:59 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 20:59 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:00 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:00 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:00 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:00 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:00 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:01 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:01 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:01 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:01 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:01 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:02 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:02 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:02 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:02 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:03 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:03 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:03 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:04 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:04 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:04 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:04 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:04 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:05 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:05 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:05 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10ef792e8>
-INFO 2020-04-13 21:05 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:07 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:07 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10846a208>
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:07 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:07 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b987208>
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:07 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b987208>
-INFO 2020-04-13 21:07 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:08 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:08 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:08 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:08 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:08 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:08 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10ed35080>
-INFO 2020-04-13 21:08 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:08 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:08 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10ed0a390>
-INFO 2020-04-13 21:08 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:08 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:09 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:09 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:09 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:09 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:09 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:09 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10885c080>
-INFO 2020-04-13 21:09 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:09 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:09 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x108832668>
-INFO 2020-04-13 21:09 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:09 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:14 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:14 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:14 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:14 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:14 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:14 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e259390>
-INFO 2020-04-13 21:14 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:14 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:14 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e259390>
-INFO 2020-04-13 21:14 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:14 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:16 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:16 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:16 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:16 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:16 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:16 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10230e2e8>
-INFO 2020-04-13 21:16 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:16 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:16 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x1022d8860>
-INFO 2020-04-13 21:16 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:16 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:17 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:17 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e76c2e8>
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:17 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e74a860>
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:17 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:17 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:17 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10cbf8390>
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:17 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10cbf8390>
-INFO 2020-04-13 21:17 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:17 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:19 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:19 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:19 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:19 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:19 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:19 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b373390>
-INFO 2020-04-13 21:19 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:19 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:19 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b373390>
-INFO 2020-04-13 21:19 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:19 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:20 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:20 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:20 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:20 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:20 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:20 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b357208>
-INFO 2020-04-13 21:20 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:20 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:20 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10b304f28>
-INFO 2020-04-13 21:20 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:20 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:21 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:21 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:21 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:21 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:21 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:21 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x107251358>
-INFO 2020-04-13 21:21 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:21 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:21 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10723d908>
-INFO 2020-04-13 21:21 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:21 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:23 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:23 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:23 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:23 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:23 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:23 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x106c28080>
-INFO 2020-04-13 21:23 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:23 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:23 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x106c28080>
-INFO 2020-04-13 21:23 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:23 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:23 AccountValidation: Policy Allow All self.send_count  0 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:23 AccountValidation: Policy Allow All self.send_amount 0 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:23 AccountValidation: Policy Allow All receive_count 0 receive_action_limit -1
-INFO 2020-04-13 21:23 AccountValidation: Policy Allow All receive_amount 1 receive_amount_limit -1
-INFO 2020-04-13 21:24 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:24 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x110d1e438>
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:24 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x110d1e438>
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:24 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_count  0 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_amount 0 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_count 0 receive_action_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_amount 1 receive_amount_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:24 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:24 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x1086145f8>
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:24 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x1086145f8>
-INFO 2020-04-13 21:24 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:24 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_count  0 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_amount 0 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_count 0 receive_action_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_amount 1 receive_amount_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_count  1 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All self.send_amount 1 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_count 1 receive_action_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All receive_amount 0 receive_amount_limit -1
-INFO 2020-04-13 21:24 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:25 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:25 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:25 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:25 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:25 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:25 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10f211588>
-INFO 2020-04-13 21:25 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:25 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:25 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10f211588>
-INFO 2020-04-13 21:25 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:25 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All self.send_count  0 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All self.send_amount 0 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All receive_count 0 receive_action_limit -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All receive_amount 1 receive_amount_limit -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All self.send_count  1 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All self.send_amount 1 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All receive_count 1 receive_action_limit -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All receive_amount 0 receive_amount_limit -1
-INFO 2020-04-13 21:25 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:30 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:30 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:30 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:30 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:30 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:30 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10de615f8>
-INFO 2020-04-13 21:30 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:30 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:30 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10de615f8>
-INFO 2020-04-13 21:30 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:30 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All self.send_count  0 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All self.send_amount 0 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All receive_count 0 receive_action_limit -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All receive_amount 1 receive_amount_limit -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All self.send_count  1 self.account_policy.send_action_limit  -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All self.send_amount 1 self.account_policy.send_amount_limit  -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All receive_count 1 receive_action_limit -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All receive_amount 0 receive_amount_limit -1
-INFO 2020-04-13 21:30 AccountValidation: Policy Allow All account True
-INFO 2020-04-13 21:31 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:31 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x1089a85f8>
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:31 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x1089a85f8>
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:31 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:31 Starting action set validation for action set Pay Single Account
-INFO 2020-04-13 21:31 Starting action validation for action Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano on device Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano to_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 Action Send 1 Nano from_account Send 1 Nano is allowed Send 1 Nano
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e7d1080>
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:31 ValidateActionSet: Action Send 1 Nano to_account account_two is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano to_account account_two valid_to_account_policy <token_api.token_services.validation.account_validation.AccountValidation object at 0x10e7d1080>
-INFO 2020-04-13 21:31 ValidateAccountsWithAccountPolices: Action Send 1 Nano from_account account_one valid_from_account_policy Policy: Allow All
-INFO 2020-04-13 21:31 ValidateActionSet: Action Send 1 Nano valid_from_account account_one is allowed (<AccountPolicy: Policy: Allow All>, <AccountPolicy: Policy: Allow All>)
+INFO 2020-04-13 22:27 Validating action 'Send 1 Nano'
+INFO 2020-04-13 22:27 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:27 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:27 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:27 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 22:27 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 22:27 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 22:27 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 22:27 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:27 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:27 Running action set Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0
+INFO 2020-04-13 22:28 Validating action 'Send 1 Nano'
+INFO 2020-04-13 22:28 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:28 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:28 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:28 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 22:28 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 22:28 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 22:28 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 22:28 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:28 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:29 Validating action 'Send 1 Nano'
+INFO 2020-04-13 22:29 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:29 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:29 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:29 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 22:29 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 22:29 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 22:29 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 22:29 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:29 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:29 Running action set Pay Single Account
+INFO 2020-04-13 22:29 using action policy Allow All 
+ Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano'
+INFO 2020-04-13 22:30 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 22:30 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:30 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:30 Running action set Pay Single Account
+INFO 2020-04-13 22:30 Using action policy Allow All 
+ Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano'
+INFO 2020-04-13 22:30 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 22:30 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 22:30 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:30 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 22:30 Running action set 'Pay Single Account'
+INFO 2020-04-13 22:30 Using action policy 'Allow All' 
+ Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0

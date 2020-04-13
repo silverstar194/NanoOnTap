@@ -68,7 +68,6 @@ def attempt_action(request):
          action_set_executor = Executor(device, token)
          action_set_executor.run_action_set()
 
-         logging.info("")
          return JsonResponse({'message': "Action complete"}, status=403)
 
 

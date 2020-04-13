@@ -12,8 +12,6 @@ class ValidateActionWithActionPolicies:
 
     def validate_action_against_policies(self):
         for action_policy in self.action_polices:
-            logger.info("Starting action validation for action {0}".format(self.action.action_name))
-
             valid_device = self.validate_device_against_policy(action_policy)
             valid_to_account = self.validate_allowed_to_account_against_policy(action_policy)
             valid_from_account = self.validate_allowed_from_account_against_policy(action_policy)
@@ -25,34 +23,41 @@ class ValidateActionWithActionPolicies:
 
     def validate_device_against_policy(self, policy):
 
-        allowed_devices = policy.allowed_devices if isinstance(policy.allowed_devices, Iterable) else [policy.allowed_devices]
-        denied_devices = policy.denied_devices if isinstance(policy.denied_devices, Iterable) else [policy.denied_devices]
+        allowed_devices = policy.allowed_devices.all()
+        denied_devices = policy.denied_devices.all()
+        allowed_devices = allowed_devices if isinstance(allowed_devices, Iterable) else [allowed_devices]
+        denied_devices = denied_devices if isinstance(denied_devices, Iterable) else [denied_devices]
 
         allowed = (self.device in allowed_devices or not policy.allowed_devices)
-        not_allowed = (self.device, denied_devices)
+        not_allowed = (self.device in denied_devices)
 
-        logger.info("Action {0} on device {0} is allowed {0}".format(self.action.action_name, self.device, str(allowed and not not_allowed)))
+        logger.info("{0} isvalid={1} for action '{2}'".format(self.device, allowed and not not_allowed, self.action.action_name))
 
         return allowed and not not_allowed
 
     def validate_allowed_to_account_against_policy(self, policy):
-        allowed_accounts = policy.allowed_to_accounts if isinstance(policy.allowed_to_accounts, Iterable) else [policy.allowed_to_accounts]
-        denied_accounts = policy.allowed_to_accounts if isinstance(policy.denied_to_accounts, Iterable) else [policy.denied_to_accounts]
+        allowed_accounts = policy.allowed_to_accounts .all()
+        denied_accounts = policy.denied_to_accounts.all()
+        allowed_accounts = allowed_accounts if isinstance(allowed_accounts, Iterable) else [allowed_accounts]
+        denied_accounts = denied_accounts if isinstance(denied_accounts, Iterable) else [denied_accounts]
 
         allowed = (self.action.to_account in allowed_accounts or not policy.allowed_to_accounts)
         not_allowed = (self.action.to_account in denied_accounts)
 
-        logger.info("Action {0} to_account {0} is allowed {0}".format(self.action.action_name, self.action.to_account, str(allowed and not not_allowed)))
+        logger.info("to_account '{0}' isvalid={1} for action '{2}'".format(self.action.to_account, allowed and not not_allowed, self.action.action_name))
 
         return allowed and not not_allowed
 
     def validate_allowed_from_account_against_policy(self, policy):
-        allowed_accounts = policy.allowed_to_accounts if isinstance(policy.allowed_from_accounts, Iterable) else [policy.allowed_from_accounts]
-        denied_accounts = policy.allowed_to_accounts if isinstance(policy.denied_from_accounts, Iterable) else [policy.denied_from_accounts]
+        allowed_accounts = policy.allowed_from_accounts.all()
+        denied_accounts = policy.denied_from_accounts.all()
+        allowed_accounts = allowed_accounts if isinstance(allowed_accounts, Iterable) else [allowed_accounts]
+        denied_accounts = denied_accounts if isinstance(denied_accounts, Iterable) else [denied_accounts]
 
+        print(allowed_accounts)
         allowed = (self.action.from_account in allowed_accounts or not policy.allowed_from_accounts)
         not_allowed = (self.action.from_account in denied_accounts)
 
-        logger.info("Action {0} from_account {0} is allowed {0}".format(self.action.action_name, self.action.from_account, str(allowed and not not_allowed)))
+        logger.info("from_account '{0}' isvalid={1} for action '{2}'".format(self.action.to_account, allowed and not not_allowed, self.action.action_name))
 
         return allowed and not not_allowed

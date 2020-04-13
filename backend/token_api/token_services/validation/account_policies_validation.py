@@ -18,11 +18,9 @@ class ValidateAccountsWithAccountPolices:
     def validate_to_account_against_policy(self):
         to_account_validator = AccountValidation(self.action.to_account, action=self.action)
         valid_to_account_policy = to_account_validator.validate_account_against_account_policies()
-        logger.info("ValidateAccountsWithAccountPolices: Action {0} to_account {1} valid_to_account_policy {2}".format(self.action.action_name,  self.action.to_account, to_account_validator))
         return valid_to_account_policy
 
     def validate_from_account_against_policy(self):
         from_account_validator = AccountValidation(self.action.from_account, action=self.action)
         valid_from_account_policy = from_account_validator.validate_account_against_account_policies()
-        logger.info("ValidateAccountsWithAccountPolices: Action {0} from_account {1} valid_from_account_policy {2}".format(self.action.action_name,  self.action.from_account, valid_from_account_policy))
         return valid_from_account_policy

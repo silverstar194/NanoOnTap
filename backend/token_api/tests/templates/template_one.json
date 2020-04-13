@@ -1,0 +1,200 @@
+{
+    "application": [
+        {
+            "model": "application",
+            "fields": {
+                "application_id": "app_one"
+            }
+        }
+    ],
+    "devices": [
+        {
+            "model": "device",
+            "fields": {
+                "device_id": "device_one",
+                "application": [
+                    "app_one"
+                ],
+                "action_sets": [
+                    [
+                        "Pay Single Account"
+                    ]
+                ]
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "model": "token",
+            "fields": {
+                "token_id": "token_one",
+                "application": [
+                    "app_one"
+                ],
+                "action_polices": [
+                    [
+                        "Allow All"
+                    ]
+                ],
+                "custom_action_polices": []
+            }
+        }
+    ],
+    "action_set": [
+        {
+            "model": "actionset",
+            "fields": {
+                "action_set_name": "Pay Single Account",
+                "priority": 100,
+                "application": [
+                    "app_one"
+                ],
+                "actions": [
+                    "Send 1 Nano"
+                ]
+            }
+        }
+    ],
+    "actions": [
+        {
+            "model": "action",
+            "fields": {
+                "action_name": "Send 1 Nano",
+                "from_account": [
+                    "account_one"
+                ],
+                "to_account": [
+                    "account_two"
+                ],
+                "amount": 1,
+                "application": [
+                    "app_one"
+                ]
+            }
+        }
+    ],
+    "action_policies": [
+        {
+            "model": "actionpolicy",
+            "fields": {
+                "policy_name": "Allow All",
+                "priority": 100,
+                "application": [
+                    "app_one"
+                ],
+                "action_limit": -1,
+                "send_limit": -1,
+                "allowed_from_accounts": [
+                    [
+                        "account_one"
+                    ],
+                    [
+                        "account_two"
+                    ]
+                ],
+                "allowed_to_accounts": [
+                    [
+                        "account_one"
+                    ],
+                    [
+                        "account_two"
+                    ]
+                ],
+                "denied_from_accounts": [],
+                "denied_to_accounts": [],
+                "allowed_devices": [
+                    [
+                        "device_one"
+                    ]
+                ],
+                "denied_devices": []
+            }
+        }
+    ],
+    "accounts": [
+        {
+            "model": "account",
+            "fields": {
+                "wallet": [
+                    "test_wallet"
+                ],
+                "address": "account_one",
+                "current_balance": 1,
+                "POW": null,
+                "in_use": false,
+                "application": [
+                    "app_one"
+                ],
+                "account_policies": [
+                    [
+                        "Allow All"
+                    ]
+                ]
+            }
+        },
+        {
+            "model": "account",
+            "fields": {
+                "wallet": [
+                    "test_wallet"
+                ],
+                "address": "account_two",
+                "current_balance": 1,
+                "POW": null,
+                "in_use": false,
+                "application": [
+                    "app_one"
+                ],
+                "account_policies": [
+                    [
+                        "Allow All"
+                    ]
+                ]
+            }
+        }
+    ],
+    "account_policies": [
+        {
+            "model": "accountpolicy",
+            "fields": {
+                "policy_name": "Allow All",
+                "application": [
+                    "app_one"
+                ],
+                "send_action_limit": -1,
+                "receive_action_limit": -1,
+                "send_amount_limit": -1,
+                "receive_amount_limit": -1,
+                "priority": 100
+            }
+        }
+    ],
+    "wallets": [
+        {
+            "model": "wallet",
+            "fields": {
+                "node": [
+                    "node_one"
+                ],
+                "wallet_id": "test_wallet",
+                "application": [
+                    "app_one"
+                ]
+            }
+        }
+    ],
+    "nodes": [
+        {
+            "model": "node",
+            "fields": {
+                "URL": "http://localhost:000",
+                "IP_ADD": "127.0.0.1",
+                "node_id": "node_one",
+                "enabled": true,
+                "application": [
+                    "app_one"
+                ]
+            }
+        }
+    ]
+}
