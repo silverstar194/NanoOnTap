@@ -3,9 +3,11 @@ from django.test import TestCase
 
 from token_api.token_services.template import import_template, export_template
 
-from token_api.token_services.executor import run_action_set
+from token_api.token_services.executor import Executor
 
-from token_api.token_models.device import Device
+from token_api.models.token_models.device import Device
+
+from token_api.models.token_models.token import Token
 
 class TestExportImportTemplate(TestCase):
     """
@@ -17,8 +19,15 @@ class TestExportImportTemplate(TestCase):
             import_template(data)
 
     def test_simple_send(self):
-        device = Device.objects.get(application__application_id="app_one").first();
-        token = ActionSet.objects.get(application__application_id="app_one").first();
+        device = Device.objects.get(application__application_id="app_one")
+        token = Token.objects.get(application__application_id="app_one")
 
-        assert action_set.action_set_name === "Pay Single Account"
-        run_action_set(action_set, )
+        assert device.device_id == "device_one"
+        assert token.token_id == "token_one"
+
+        executor = Executor(device, token)
+        action_set, valid_policy = executor.run_action_set()
+
+        assert action_set != None
+        assert valid_policy != None
+

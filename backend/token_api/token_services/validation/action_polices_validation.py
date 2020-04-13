@@ -54,7 +54,6 @@ class ValidateActionWithActionPolicies:
         allowed_accounts = allowed_accounts if isinstance(allowed_accounts, Iterable) else [allowed_accounts]
         denied_accounts = denied_accounts if isinstance(denied_accounts, Iterable) else [denied_accounts]
 
-        print(allowed_accounts)
         allowed = (self.action.from_account in allowed_accounts or not policy.allowed_from_accounts)
         not_allowed = (self.action.from_account in denied_accounts)
 

@@ -82,3 +82,41 @@ INFO 2020-04-13 22:30 Using action policy 'Allow All'
  Denied to accounts: 0 
  Allowed devices: 1 
  Denied devices: 0
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano'
+INFO 2020-04-13 23:40 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 23:40 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 23:40 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 23:40 Running action set 'Pay Single Account'
+INFO 2020-04-13 23:40 Using action policy 'Allow All' 
+ Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano'
+INFO 2020-04-13 23:40 Device device_one isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 to_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 from_account 'account_two' isvalid=True for action 'Send 1 Nano'
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' to_account account policies isvalid=True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' from_account account policies isvalid=True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' against to_account 'Allow All' policy as True
+INFO 2020-04-13 23:40 Validating action 'Send 1 Nano' against from_account 'Allow All' policy as True
+INFO 2020-04-13 23:40 Validating action policy action limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 23:40 Validating action policy send limit: 1 <= -1 isvalid=True
+INFO 2020-04-13 23:40 Running action set 'Pay Single Account'
+INFO 2020-04-13 23:40 Using action policy 'Allow All' 
+ Priority: 100 
+ Allowed from accounts: 2 
+ Denied from account: 0 
+ Allowed to accounts: 2 
+ Denied to accounts: 0 
+ Allowed devices: 1 
+ Denied devices: 0
