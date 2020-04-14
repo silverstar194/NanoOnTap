@@ -22,13 +22,10 @@ class AccountPolicy(models.Model):
 
     receive_amount_limit = models.IntegerField(default=-1)
 
-    priority = models.IntegerField()
-
     objects = AccountPolicyManager()
 
     class Meta:
         unique_together = [['policy_name', 'application']]
-        ordering = ['priority']
 
     """
     Custom logic around when an account can be used

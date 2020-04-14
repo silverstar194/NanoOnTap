@@ -24,8 +24,6 @@ class ActionPolicy(models.Model):
     allowed_devices = models.ManyToManyField(Device, related_name="allowed_devices", blank=True)
     denied_devices = models.ManyToManyField(Device, related_name="denied_devices", blank=True)
 
-    priority = models.IntegerField()
-
     application = models.ForeignKey(Application, related_name="action_policy_application", on_delete=models.PROTECT)
 
     action_limit = models.IntegerField(default=-1)
@@ -36,7 +34,6 @@ class ActionPolicy(models.Model):
 
     class Meta:
         unique_together = [['policy_name', 'application']]
-        ordering = ['priority']
 
     def device_allowed(self, device):
         return not self.allowed_devices or (device in self.allowed_devices.all() and device not in self.denied_devices)
