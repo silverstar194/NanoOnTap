@@ -29,7 +29,7 @@ class ValidateActionSet:
                 break
 
         if not valid_policy and valid_to_account and valid_from_account:
-            return None
+            return None, None, None
 
         # validate accounts
         valid_to_policy = False
@@ -60,7 +60,7 @@ class ValidateActionSet:
             valid_action_set = False
 
         if not valid_action_set:
-            return None
+            return None, None, None
 
         return valid_policy, valid_to_account, valid_from_account
 

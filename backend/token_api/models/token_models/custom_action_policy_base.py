@@ -9,7 +9,6 @@ class CustomActionPolicyBaseManager(models.Manager):
 
 
 class CustomActionPolicyBase(models.Model):
-
     custom_policy_name = models.CharField(max_length=64)
 
     priority = models.IntegerField()

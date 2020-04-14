@@ -15,6 +15,7 @@ class Action(models.Model):
     action_name = models.CharField(max_length=64)
 
     from_account = models.ForeignKey(Account, on_delete=models.PROTECT, related_name="from_account")
+
     to_account = models.ForeignKey(Account, on_delete=models.PROTECT, related_name="to_account")
 
     amount = models.IntegerField(default=0)  # Measured in RAW
@@ -23,8 +24,11 @@ class Action(models.Model):
 
     objects = ActionPolicyManager()
 
+    priority = models.IntegerField()
+
     class Meta:
         unique_together = [['action_name', 'application']]
+        ordering = ['priority']
 
     def natural_key(self):
         return (self.action_name, )
