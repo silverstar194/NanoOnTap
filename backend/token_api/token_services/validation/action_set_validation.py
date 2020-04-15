@@ -106,7 +106,7 @@ class ValidateActionSet:
         receive_amount = sum(x.amount for x in filter(lambda action: action.to_account == account, self.actions))
         receive_count = len(list(filter(lambda action: action.from_account == account,  self.actions)))
 
-        validater_to_account = AccountValidation(account, account_policy=policy, send_amount=send_amount, send_count=send_count, receive_amount=receive_amount, receive_count=receive_count)
-        return validater_to_account.validate_account_against_action_set_limits()
+        validator_to_account = AccountValidation(account, account_policy=policy, send_amount=send_amount, send_count=send_count, receive_amount=receive_amount, receive_count=receive_count)
+        return validator_to_account.validate_account_against_action_set_limits()
 
 

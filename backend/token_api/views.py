@@ -10,6 +10,7 @@ from .token_services.device import get_device
 from .token_services.token import get_token
 
 from .token_services.executor import Executor
+from .token_services.bootstrap import Bootstrap
 
 import logging
 logger = logging.getLogger(__name__)
@@ -33,6 +34,8 @@ def import_template_view(request):
         if application_exists(application):
             return JsonResponse({'message': "Application {0} already exists. Template changes applied.".format(application)})
 
+        bootstrapper = Bootstrap(application)
+        bootstrapper.bootstrap_application(application_id=application)
         return JsonResponse({'message': "Application {0} accepted and created".format(application)}, status=200)
 
     return JsonResponse({'message': "Post only requests for application creation"}, status=403)

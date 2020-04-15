@@ -35,9 +35,9 @@ def export_template(application):
     action_policies_output = serializers.serialize('python', action_policies, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     action_set_output = serializers.serialize('python', action_set, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     action_output = serializers.serialize('python', actions, use_natural_foreign_keys=True, use_natural_primary_keys=True)
-    account_output = serializers.serialize('python', accounts, use_natural_foreign_keys=True, use_natural_primary_keys=True)
+    account_output = serializers.serialize('python', accounts, use_natural_foreign_keys=True, use_natural_primary_keys=True, fields=('account_id', 'wallet', 'application', 'account_policies'))
     account_policies_output = serializers.serialize('python', account_policies, use_natural_foreign_keys=True, use_natural_primary_keys=True)
-    wallet_output = serializers.serialize('python', wallets, use_natural_foreign_keys=True, use_natural_primary_keys=True)
+    wallet_output = serializers.serialize('python', wallets, use_natural_foreign_keys=True, use_natural_primary_keys=True, fields=('node', 'wallet_name', 'application'))
     node_output = serializers.serialize('python', nodes, use_natural_foreign_keys=True, use_natural_primary_keys=True)
 
     template["application"] = strip_text(application_output_text, "token_api.")

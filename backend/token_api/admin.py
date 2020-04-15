@@ -37,6 +37,7 @@ class TransactionAdmin(admin.ModelAdmin):
 admin.site.register(Transaction, TransactionAdmin)
 
 class WalletAdmin(admin.ModelAdmin):
+    exclude = ('wallet_id',)
     pass
 admin.site.register(Wallet, WalletAdmin)
 
