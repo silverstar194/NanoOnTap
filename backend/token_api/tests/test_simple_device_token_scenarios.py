@@ -10,7 +10,7 @@ from token_api.models.token_models.device import Device
 from token_api.models.token_models.token import Token
 
 
-class TestExportImportTemplate(TestCase):
+class TestSimple(TestCase):
     """
     Test valid setup between account_one and account_two. One device, one token, sending allowed.
     """
@@ -77,7 +77,7 @@ class TestExportImportTemplate(TestCase):
 
         # Remove allowed to_account (aka all accounts are now allowed)
         to_accounts = token.action_polices.get(policy_name="Allow All").allowed_to_accounts
-        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(address="account_two")
+        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         to_accounts.remove(to_account)
 
         executor = Executor(device, token)
@@ -95,7 +95,7 @@ class TestExportImportTemplate(TestCase):
 
         # Remove allowed to_account (aka all accounts are not allowed)
         denied_to_accounts = token.action_polices.get(policy_name="Allow All").denied_to_accounts
-        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(address="account_two")
+        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         denied_to_accounts.add(to_account)
 
         executor = Executor(device, token)
@@ -113,7 +113,7 @@ class TestExportImportTemplate(TestCase):
 
         # Remove allowed from_account (aka all accounts are now allowed)
         allowed_from_accounts = token.action_polices.get(policy_name="Allow All").allowed_from_accounts
-        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(address="account_one")
+        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         allowed_from_accounts.remove(from_account)
 
         executor = Executor(device, token)
@@ -130,7 +130,7 @@ class TestExportImportTemplate(TestCase):
 
         # Remove allowed to_account (aka all accounts are not allowed)
         denied_from_accounts = token.action_polices.get(policy_name="Allow All").denied_from_accounts
-        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(address="account_one")
+        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         denied_from_accounts.add(from_account)
 
         executor = Executor(device, token)
@@ -178,7 +178,7 @@ class TestExportImportTemplate(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(address="account_one")
+        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         from_account_policy = from_account.account_policies.first()
         from_account_policy.send_amount_limit = 0
         from_account_policy.save()
@@ -196,7 +196,7 @@ class TestExportImportTemplate(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(address="account_one")
+        from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         from_account_policy = from_account.account_policies.first()
         from_account_policy.send_action_limit = 0
         from_account_policy.save()
@@ -214,7 +214,7 @@ class TestExportImportTemplate(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(address="account_two")
+        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         to_account_policy = to_account.account_policies.first()
         to_account_policy.receive_amount_limit = 0
         to_account_policy.save()
@@ -232,7 +232,7 @@ class TestExportImportTemplate(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(address="account_two")
+        to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         to_account_policy = to_account.account_policies.first()
         to_account_policy.receive_action_limit = 0
         to_account_policy.save()

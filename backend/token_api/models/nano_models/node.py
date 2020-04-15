@@ -10,11 +10,7 @@ class NodeManager(models.Manager):
 class Node(models.Model):
     URL = models.CharField(max_length=512)
 
-    IP_ADD = models.CharField(max_length=512)
-
     node_id = models.CharField(max_length=256, default=None)
-
-    enabled = models.BooleanField(default=True)
 
     application = models.ForeignKey(Application, related_name="node_application", on_delete=models.PROTECT)
 

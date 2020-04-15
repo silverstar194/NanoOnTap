@@ -14,7 +14,7 @@ from token_api.models.token_models.action_set import ActionSet
 from token_api.models.token_models.application import Application
 
 
-class TestExportImportTemplate(TestCase):
+class TestPriority(TestCase):
 
     """
     Test valid setup between account_one and account_two. One device, one token, sending allowed.

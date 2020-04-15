@@ -115,10 +115,13 @@
         {
             "model": "account",
             "fields": {
-                "wallet": [
-                    "test_wallet"
-                ],
                 "account_id": "account_one",
+                "wallet": [
+                    "AD0X8"
+                ],
+                "address": "1xb..",
+                "current_balance": 1,
+                "POW": null,
                 "application": [
                     "app_one"
                 ],
@@ -132,10 +135,13 @@
         {
             "model": "account",
             "fields": {
-                "wallet": [
-                    "test_wallet"
-                ],
                 "account_id": "account_two",
+                "wallet": [
+                    "AD0X8"
+                ],
+                "address": "2xb..",
+                "current_balance": 1,
+                "POW": null,
                 "application": [
                     "app_one"
                 ],
@@ -169,8 +175,8 @@
                 "node": [
                     "node_one"
                 ],
-                "wallet_id": "AD0X8",
                 "wallet_name": "test_wallet",
+                "wallet_id": "AD0X8",
                 "application": [
                     "app_one"
                 ]

@@ -5,12 +5,14 @@ from .node import Node
 from ..token_models.application import Application
 
 class WalletManager(models.Manager):
-    def get_by_natural_key(self, wallet_id):
-        return self.get(wallet_id=wallet_id)
+    def get_by_natural_key(self, wallet_name):
+        return self.get(wallet_name=wallet_name)
 
 
 class Wallet(models.Model):
     node = models.ForeignKey(Node, on_delete=models.PROTECT)
+
+    wallet_name = models.CharField(max_length=64, null=True)
 
     wallet_id = models.CharField(max_length=64)
 
@@ -19,7 +21,7 @@ class Wallet(models.Model):
     objects = WalletManager()
 
     def __str__(self):
-        return u'%s' % (self.wallet_id)
+        return u'%s' % (self.wallet_name)
 
     def natural_key(self):
-        return (self.wallet_id,)
+        return (self.wallet_name,)
