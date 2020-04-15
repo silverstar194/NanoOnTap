@@ -2,16 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b11b510-8150-4a4d-8d60-3c537d510a4c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_polices_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_polices_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_set_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_set_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django.log" beforeDir="false" afterPath="$PROJECT_DIR$/django.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NanoToken.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/NanoToken/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/NanoToken/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/NanoToken/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/NanoToken/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/driver/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/driver/action_execution.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/0002_remove_token_accounts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/0003_auto_20200413_2255.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/0004_auto_20200414_2311.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/custom_action_policies/example_custom_action_policy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/nano_models/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/nano_models/node.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/nano_models/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/nano_models/wallet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_history.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_set.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/application.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/custom_action_policy_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/device.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/templates/template_one.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_export_import.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_priority.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/action_history.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/application.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/device.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/executor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/template.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/account_policies_validation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/account_validation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_polices_validation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/token_services/validation/action_set_validation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django.log.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_template.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,18 +73,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_priority.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_priority.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
-              <folding>
-                <element signature="e#1#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="token.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/token.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,6 +80,18 @@
               <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_simple_device_token_scenarios.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2494">
+              <caret line="31" column="65" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="65" />
+              <folding>
+                <element signature="e#1#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,7 +166,7 @@
       <file leaf-file-name="action_policy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="371">
               <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -767,10 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_priority.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="65" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="65" />
+        <state relative-caret-position="701">
+          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
@@ -806,7 +854,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="371">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -861,10 +909,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_priority.py">
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
+        <state relative-caret-position="-2494">
+          <caret line="31" column="65" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="65" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
