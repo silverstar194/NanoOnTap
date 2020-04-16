@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+DPOW_API_KEY = os.environ["NANO_ST__DPOW__API_KEY"]
+DPOW_API_USER = os.environ["NANO_ST__DPOW__API_USER"]
+DPOW_ENDPOINT = os.environ["NANO_ST__DPOW__ENDPOINT"]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -37,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'token_api'
+    'token_api.apps.TokenApiConfig',
 ]
 
 MIDDLEWARE = [
