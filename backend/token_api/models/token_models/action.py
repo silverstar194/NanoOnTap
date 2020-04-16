@@ -34,6 +34,5 @@ class Action(models.Model):
         return (self.action_name, )
 
     def __str__(self):
-        return "Action {0}: Sending {1} from {2} to {3}".format(self.action_name, self.from_account.address,
-                                                               self.to_account.address,
-                                                               self.amount)
+        return "{0}: {1} NANO from {2} to {3}".format(self.action_name, self.amount, self.from_account.address,
+                                                               self.to_account.address)

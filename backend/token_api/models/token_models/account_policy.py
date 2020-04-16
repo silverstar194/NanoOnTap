@@ -34,7 +34,7 @@ class AccountPolicy(models.Model):
         return True
 
     def __str__(self):
-        return "Policy: "+str(self.policy_name)
+        return "{0}: Send Action Limit {1} Receive Action Limit {1} Send Amount Limit {3} Receive Amount Limit {4}".format(self.policy_name, self.send_action_limit, self.receive_action_limit, self.send_amount_limit, self.receive_amount_limit)
 
     def natural_key(self):
         return (self.policy_name, )

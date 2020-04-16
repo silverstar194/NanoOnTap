@@ -23,7 +23,7 @@ class Device(models.Model):
         unique_together = [['device_id', 'application']]
 
     def __str__(self):
-        return "Device {0}".format(self.device_id)
+        return "{0}".format(self.device_id)
 
     def natural_key(self):
         return (self.device_id,)

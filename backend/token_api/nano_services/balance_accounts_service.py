@@ -10,16 +10,14 @@ logger = logging.getLogger(__name__)
 
 class BalanceAccount:
 
-    def __init__(self):
-        self.thread_pool = ThreadPool(processes=4)
-
     def sync_accounts(self):
+        thread_pool = ThreadPool(processes=4)
         all_accounts = Account.objects.all()
         for account in all_accounts:
-            self.thread_pool.apply_async(self.check_account_balance_async, (account,))
+            thread_pool.apply_async(self.check_account_balance_async, (account,))
 
-        self.thread_pool.close()
-        self.thread_pool.join()
+        thread_pool.close()
+        thread_pool.join()
 
     def check_account_balance_async(self, account):
         """

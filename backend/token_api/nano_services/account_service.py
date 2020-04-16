@@ -1,5 +1,6 @@
 import logging
 
+from multiprocessing.pool import ThreadPool
 
 import nano
 
@@ -42,12 +43,7 @@ class AccountService:
         return models.Account.objects.all().count()
 
     def clear_receive_accounts():
-        """
-        Fetches all receive block with the nano network across accounts.
-
-        @raise RPCException: RPC Failure
-        """
-        accounts_list = get_accounts() # Not great all threads will vaildate TODO
+        accounts_list = AccountService.get_accounts() # Not great all threads will vaildate TODO
 
         thread_pool = ThreadPool(processes=4)
         for account in accounts_list:
@@ -56,92 +52,35 @@ class AccountService:
         thread_pool.join()
 
 
-    def unlock_all_accounts():
-        """
-        Unlock all the account at once for speed at DB layer
-        """
+    def unlock_all_accounts(self):
         retry(lambda: models.Account.objects.all().update(in_use=False))
 
 
-    def lock_all_accounts():
-        """
-        Lock all the account at once for speed at DB layer
-        """
+    def lock_all_accounts(self):
         retry(lambda: models.Account.objects.all().update(in_use=True))
-    #
-    #
-    # def clear_frontier_async(account):
-    #     """
-    #     Clears out any pending receive blocks node does not auto process.
-    #     :param account:
-    #     """
-    #     logger.info('Clearing possible receive blocks from account %s' % account.address)
-    #
-    #     pending_blocks = None
-    #     try:
-    #         rpc = nano.rpc.Client(account.wallet.node.URL)
-    #         address_nano = account.address.replace("xrb", "nano")
-    #         pending_blocks = retry(lambda: rpc.accounts_pending([account.address])[address_nano])
-    #     except Exception as e:
-    #         logger.exception('RCP call failed during receive %s' % str(e.message))
-    #
-    #     for block in pending_blocks:
-    #         logger.info("Found block %s to receive for %s " % (block, account.address))
-    #
-    #         if not validate_or_regenerate_PoW(account):
-    #             logger.error('Total faliure of dPoW. Aborting receive account %s' % account.address)
-    #             continue
-    #
-    #         if len(pending_blocks) > 1:
-    #             time.sleep(1)  ## Allow frontier to refresh
-    #
-    #         try:
-    #             received_block = retry(lambda: rpc.receive(wallet=account.wallet.wallet_id, account=account.address, work=account.POW, block=block))
-    #             logger.info('Received block %s to %s' % (received_block, account.address))
-    #         except nano.rpc.RPCException as e:
-    #             logger.exception('Error during clean up receive account %s block %s ' % (account.address, block, str(e)))
-    #
-    #
-    # def validate_or_regenerate_PoW(account):
-    #     """
-    #     Check for valid PoW and regenerates if needed.
-    #     :param account:
-    #     :returns PoW valid on account
-    #     """
-    #
-    #     rpc = nano.rpc.Client(account.wallet.node.URL)
-    #     valid_PoW = validate_PoW(account)
-    #
-    #     # Make sure the POW is there (not in the POW regen queue) if not wait for it and its valid
-    #     count = 0
-    #     while not valid_PoW and count < 3:
-    #         try:
-    #             account.POW = None
-    #             retry(lambda: account.save())
-    #             address_nano = account.address.replace("xrb", "nano")
-    #             frontier = retry(lambda: rpc.frontiers(account=account.address, count=1)[address_nano])
-    #             POWService.enqueue_account(address=account.address, frontier=frontier, urgent=True)
-    #             logger.info('Generating PoW during validate_PoW for: %s' % account.address)
-    #             count += 1
-    #         except Exception as e:
-    #             count += 1
-    #             if count >= 3:
-    #                 logger.error('Error adding address, frontier pair to POWService: %s' % e)
-    #
-    #         wait_on_PoW = 0
-    #         while not valid_PoW and wait_on_PoW < 7:
-    #             wait_on_PoW += 1
-    #             account = get_account(account.address)
-    #             valid_PoW = validate_PoW(account)
-    #             time.sleep(1)
-    #
-    #     ##Still no dPoW....
-    #     if not valid_PoW:
-    #         logger.error('Total failure of dPoW. Aborting transaction account %s' % account.address)
-    #         account.POW = None
-    #         retry(lambda: account.save())
-    #
-    #     return valid_PoW
+
+    def clear_frontier_async(self, account):
+        logger.info('Clearing possible receive blocks from account %s' % account.address)
+
+        pending_blocks = None
+        try:
+            rpc = nano.rpc.Client(account.wallet.node.URL)
+            pending_blocks = retry(lambda: rpc.accounts_pending([account.address])[account.address])
+        except Exception as e:
+            logger.exception('RCP call failed during receive %s' % str(e.message))
+
+        for block in pending_blocks:
+            logger.info("Found block %s to receive for %s " % (block, account.address))
+
+            if not AccountService.validate_PoW(account):
+                logger.error('Total faliure of dPoW. Aborting receive account %s' % account.address)
+                continue
+
+            try:
+                received_block = retry(lambda: rpc.receive(wallet=account.wallet.wallet_id, account=account.address, work=account.POW, block=block))
+                logger.info('Received block %s to %s' % (received_block, account.address))
+            except nano.rpc.RPCException as e:
+                logger.exception('Error during clean up receive account %s block %s ' % (account.address, block, str(e)))
 
 
     @staticmethod
@@ -172,7 +111,7 @@ class AccountService:
     @staticmethod
     def ad_hoc_validation_or_regeneration(account):
         from .pow_service import POWService
-        if not AccountService.validate_PoW(account):
+        if not AccountService.validate_PoW(account)[0]:
             try:
                 POWService.ad_hoc_pow(account)
             except Exception:
