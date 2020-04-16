@@ -48,13 +48,12 @@ class NoAccountsException(Exception):
     def __init__(self, node='NA'):
         Exception.__init__(self, "The specified node (%s) does not have any accounts." % node)
 
-
 class TransactionService:
 
     def __init__(self):
         self.pow_service = POWService()
 
-    def new_transaction(self, origin_account, destination_account, amount):
+    def new_transaction(self, application, origin_account, destination_account, amount):
 
         if amount < 0:
             logger.exception("Cannot send negative amount %s." % amount)
@@ -67,6 +66,7 @@ class TransactionService:
             origin=origin_account,
             destination=destination_account,
             amount=amount,
+            application=application
         )
 
         transaction.save()
@@ -84,7 +84,7 @@ class TransactionService:
             logger.info("InsufficientNanoException %s" % transaction.origin.address)
             raise InsufficientNanoException()
 
-        if not AccountService.validate_PoW(transaction.origin):
+        if not AccountService.ad_hoc_validation_or_regeneration(transaction.origin):
             logger.error('Total faliure of dPoW. Aborting transaction account %s' % transaction.origin.address)
             transaction.origin.unlock()
             transaction.destination.unlock()
@@ -131,7 +131,7 @@ class TransactionService:
 
     def send_receive_block_async(self, transaction, rpc_destination_node):
 
-        if not AccountService.validate_PoW(transaction.destination):
+        if not AccountService.ad_hoc_validation_or_regeneration(transaction.destination):
             logger.error('Total failure of dPoW. Aborting transaction account %s' % transaction.destination.address)
             transaction.origin.unlock()
             transaction.destination.unlock()

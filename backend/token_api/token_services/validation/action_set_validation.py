@@ -16,7 +16,7 @@ class ValidateActionSet:
         self.device = device
         self.action_polices = action_polices
         self.action_set_action_count = len(self.actions)
-        self.action_set_send_amount = sum(action.amount for action in self.actions)
+        self.action_set_transaction_amount = sum(action.amount for action in self.actions)
 
     def validate_action_set(self):
         valid_action_set = False
@@ -54,9 +54,9 @@ class ValidateActionSet:
             valid_action_set = False
 
         within_action_policy_action_limit = self.validate_action_policy_action_limit(valid_policy)
-        within_action_policy_send_limit = self.validate_action_policy_send_limit(valid_policy)
+        within_action_policy_transaction_limit = self.validate_action_policy_transaction_limit(valid_policy)
 
-        if not within_action_policy_action_limit or not within_action_policy_send_limit:
+        if not within_action_policy_action_limit or not within_action_policy_transaction_limit:
             valid_action_set = False
 
         if not valid_action_set:
@@ -95,9 +95,9 @@ class ValidateActionSet:
         logger.info("Validating action policy action limit: {0} <= {1} isvalid={2}".format(self.action_set_action_count, action_policy.action_limit,  self.action_set_action_count <= action_policy.action_limit or action_policy.action_limit == -1))
         return self.action_set_action_count <= action_policy.action_limit or action_policy.action_limit == -1
 
-    def validate_action_policy_send_limit(self, action_policy):
-        logger.info("Validating action policy send limit: {0} <= {1} isvalid={2}".format(self.action_set_send_amount, action_policy.send_limit, self.action_set_send_amount <= action_policy.send_limit or action_policy.send_limit == -1))
-        return self.action_set_send_amount <= action_policy.send_limit or action_policy.send_limit == -1
+    def validate_action_policy_transaction_limit(self, action_policy):
+        logger.info("Validating action policy send limit: {0} <= {1} isvalid={2}".format(self.action_set_transaction_amount, action_policy.transaction_limit, self.action_set_transaction_amount <= action_policy.transaction_limit or action_policy.transaction_limit == -1))
+        return self.action_set_transaction_amount <= action_policy.transaction_limit or action_policy.transaction_limit == -1
 
     def validate_account_limits(self, account, policy):
         send_amount = sum(x.amount for x in filter(lambda action: action.from_account == account, self.actions))

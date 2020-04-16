@@ -15,7 +15,7 @@ class Wallet(models.Model):
 
     wallet_name = models.CharField(max_length=64, null=True)
 
-    wallet_id = models.CharField(max_length=64)
+    wallet_id = models.CharField(max_length=256)
 
     application = models.ForeignKey(Application, related_name="wallet_application", on_delete=models.PROTECT)
 

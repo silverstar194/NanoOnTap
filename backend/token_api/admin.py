@@ -16,8 +16,7 @@ from .models.custom_action_policies.example_custom_action_policy import CustomAc
 
 
 class AccountAdmin(admin.ModelAdmin):
-    exclude = ('POW', 'in_use', )
-
+    readonly_fields = ('POW', 'address', 'current_balance')
 admin.site.register(Account, AccountAdmin)
 
 class ExampleCustomActionPolicyAdmin(admin.ModelAdmin):
@@ -37,7 +36,7 @@ class TransactionAdmin(admin.ModelAdmin):
 admin.site.register(Transaction, TransactionAdmin)
 
 class WalletAdmin(admin.ModelAdmin):
-    exclude = ('wallet_id',)
+    readonly_fields = ('wallet_id',)
     pass
 admin.site.register(Wallet, WalletAdmin)
 

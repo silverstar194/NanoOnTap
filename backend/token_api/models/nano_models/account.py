@@ -19,7 +19,7 @@ class Account(models.Model):
 
     wallet = models.ForeignKey(Wallet, on_delete=models.PROTECT)
 
-    address = models.CharField(max_length=64)
+    address = models.CharField(max_length=65)
 
     current_balance = models.IntegerField(default=0)  # Measured in RAW
 
@@ -38,7 +38,7 @@ class Account(models.Model):
            return (self.account_id, )
 
     def __str__(self):
-        return u'%s' % (self.account_id)
+        return "{0} : {1}".format(self.account_id, self.address)
 
     def lock(self):
         self.in_use = True

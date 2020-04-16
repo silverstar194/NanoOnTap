@@ -30,4 +30,4 @@ class ActionSet(models.Model):
         return (self.action_set_name, )
 
     def __str__(self):
-        return "Action Set {0} Priority {1}".format(self.action_set_name, self.priority)
+        return "{0}: Priority {1}".format(self.action_set_name, self.priority)

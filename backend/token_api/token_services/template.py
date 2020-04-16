@@ -90,6 +90,12 @@ def import_template(json_data):
             if current_account.address:
                 obj.__dict__['object'].address = current_account.address
 
+            if current_account.current_balance:
+                obj.__dict__['object'].current_balance = current_account.current_balance
+
+            if current_account.POW:
+                obj.__dict__['object'].POW = current_account.POW
+
             obj.save()
 
     if "actions" in application_setup:

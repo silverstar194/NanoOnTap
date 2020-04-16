@@ -28,7 +28,7 @@ class ActionPolicy(models.Model):
 
     action_limit = models.IntegerField(default=-1)
 
-    send_limit = models.IntegerField(default=-1)
+    transaction_limit = models.IntegerField(default=-1)
 
     objects = ActionPolicyManager()
 
@@ -45,8 +45,8 @@ class ActionPolicy(models.Model):
         return not self.allowed_to_accounts or (account in self.allowed_to_accounts.all() and account not in self.denied_to_accounts)
 
     def __str__(self):
-        return "\n Allowed from accounts: {0} \n Denied from account: {1} \n Allowed to accounts: {2} \n Denied to accounts: {3} \n Allowed devices: {4} \n Denied devices: {5}"\
-            .format(self.allowed_from_accounts.count(),
+        return "{0}: \n Allowed from accounts {1} \n Denied from account {2} \n Allowed to accounts {3} \n Denied to accounts {4} \n Allowed devices {5} \n Denied devices {6}"\
+            .format(self.policy_name, self.allowed_from_accounts.count(),
                     self.denied_from_accounts.count(),
                     self.allowed_to_accounts.count(),
                     self.denied_to_accounts.count(),

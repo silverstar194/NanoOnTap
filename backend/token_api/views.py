@@ -8,6 +8,7 @@ from .token_services.application import clean_up_failed_template, application_ex
 
 from .token_services.device import get_device
 from .token_services.token import get_token
+from .token_services.application import get_application
 
 from .token_services.executor import Executor
 from .token_services.bootstrap import Bootstrap
@@ -68,12 +69,12 @@ def attempt_action(request):
 
          device = get_device(device_id, application_id)
          token = get_token(token_id, application_id)
+         application = get_application(application_id)
 
-         action_set_executor = Executor(device, token)
+         action_set_executor = Executor(device, token, application)
          action_set_executor.run_action_set()
 
          return JsonResponse({'message': "Action complete"}, status=403)
-
 
     return JsonResponse({'message': "Post requests only"}, status=403)
 
