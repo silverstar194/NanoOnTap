@@ -31,11 +31,12 @@ def import_template_view(request):
             clean_up_failed_template(application)
             return JsonResponse({'message': "Application {0} failed".format(application)})
 
+        bootstrapper = Bootstrap(application)
+        bootstrapper.bootstrap_application()
+
         if application_exists(application):
             return JsonResponse({'message': "Application {0} already exists. Template changes applied.".format(application)})
 
-        bootstrapper = Bootstrap(application)
-        bootstrapper.bootstrap_application(application_id=application)
         return JsonResponse({'message': "Application {0} accepted and created".format(application)}, status=200)
 
     return JsonResponse({'message': "Post only requests for application creation"}, status=403)

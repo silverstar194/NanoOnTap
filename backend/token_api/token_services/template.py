@@ -57,7 +57,6 @@ def export_template(application):
 def import_template(json_data):
     application_setup = json.loads(json_data)
 
-   # try:
     if "application" in application_setup:
         application_setup["application"] = add_text(application_setup["application"], r'"model": "application"', r'"model": "token_api.application"')
         for obj in serializers.deserialize('python',  application_setup["application"], use_natural_foreign_keys=True, use_natural_primary_keys=True):
@@ -71,6 +70,11 @@ def import_template(json_data):
     if "wallets" in application_setup:
         application_setup["wallets"] = add_text(application_setup["wallets"], r'"model": "wallet"', r'"model": "token_api.wallet"')
         for obj in serializers.deserialize('python', application_setup["wallets"],  use_natural_foreign_keys=True, use_natural_primary_keys=True):
+            # merge with current model data
+            current_wallet = Wallet.objects.get(wallet_name=obj.__dict__['object'].wallet_name)
+            if current_wallet.wallet_id:
+                obj.__dict__['object'].wallet_id = current_wallet.wallet_id
+
             obj.save()
 
     if "account_policies" in application_setup:
@@ -81,6 +85,11 @@ def import_template(json_data):
     if "accounts" in application_setup:
         application_setup["accounts"] = add_text(application_setup["accounts"], r'"model": "account"', r'"model": "token_api.account"')
         for obj in serializers.deserialize('python', application_setup["accounts"],  use_natural_foreign_keys=True, use_natural_primary_keys=True):
+            # merge with current model data
+            current_account = Account.objects.get(account_id=obj.__dict__['object'].account_id)
+            if current_account.address:
+                obj.__dict__['object'].address = current_account.address
+
             obj.save()
 
     if "actions" in application_setup:
@@ -107,11 +116,6 @@ def import_template(json_data):
         application_setup["tokens"] = add_text(application_setup["tokens"], r'"model": "token"', r'"model": "token_api.token"')
         for obj in serializers.deserialize('python', application_setup["tokens"], use_natural_foreign_keys=True, use_natural_primary_keys=True):
             obj.save()
-
-    # except Exception as E:
-    #     print("Failed to import template")
-    #     print(E)
-    #     return False
 
     return True
 

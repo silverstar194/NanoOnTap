@@ -4,6 +4,7 @@ from .node import Node
 
 from ..token_models.application import Application
 
+
 class WalletManager(models.Manager):
     def get_by_natural_key(self, wallet_name):
         return self.get(wallet_name=wallet_name)
