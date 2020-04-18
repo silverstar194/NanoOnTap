@@ -11,13 +11,13 @@ class WalletManager(models.Manager):
 
 
 class Wallet(models.Model):
-    node = models.ForeignKey(Node, on_delete=models.PROTECT)
+    node = models.ForeignKey(Node, on_delete=models.SET_NULL, null=True)
 
     wallet_name = models.CharField(max_length=64, null=True)
 
     wallet_id = models.CharField(max_length=256)
 
-    application = models.ForeignKey(Application, related_name="wallet_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="wallet_application", on_delete=models.SET_NULL, null=True)
 
     objects = WalletManager()
 

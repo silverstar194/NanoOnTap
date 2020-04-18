@@ -3,6 +3,10 @@ from .validation.action_set_validation import ValidateActionSet
 
 from ..nano_services.transaction_service import TransactionService
 
+from ..nano_services.account_service import AccountService
+
+from ..nano_services.balance_accounts_service import BalanceAccount
+
 from collections.abc import Iterable
 
 import logging
@@ -17,9 +21,8 @@ class Executor:
 
 
     def run_action_set(self):
-
-        action_sets = self.device.action_sets.select_related().all()
-        action_policies = self.token.action_polices.select_related().all()
+        action_sets = self.device.action_sets.all()
+        action_policies = self.token.action_polices.all()
 
         for action_set in action_sets:
             action_set_validator = ValidateActionSet(action_set, self.device, action_policies)
@@ -29,11 +32,12 @@ class Executor:
                 logger.info("Using action policy '{0}' \n {1}".format(valid_policy.policy_name, valid_policy))
 
                 transaction_service = TransactionService()
-                actions = action_set.actions if isinstance(action_set.actions, Iterable) else [action_set.actions]
+                actions = action_set.actions.all() if isinstance(action_set.actions.all(), Iterable) else [action_set.actions]
                 for action in actions:
                     transaction = transaction_service.new_transaction(self.application, action.from_account, action.to_account, action.amount)
                     logger.info("Running transaction from {0} to {1} amount {2}".format(action.from_account, action.to_account, action.amount))
                     transaction_service.send_transaction(transaction)
+
 
                 return action_set, valid_policy
 

@@ -11,6 +11,8 @@ from ..common.constants import DPOW_DELAY
 from ..common.retry import retry
 
 from .account_service import AccountService
+from django.db.utils import OperationalError
+
 
 
 logger = logging.getLogger(__name__)
@@ -73,8 +75,7 @@ class POWService:
             logger.error('dPoW failure account %s' % account.address)
 
         if POW is None:
-            account.unlock()
-            logger.exception('dPoW get failure account %s unlocked without PoW' % account.address)
+            logger.exception('dPoW get failure account %s without PoW' % account.address)
             raise Exception()
 
         return POW
@@ -107,18 +108,15 @@ class POWService:
                     account.POW = cls.get_pow(account=account, hash_value=frontier)
                     logger.info('Generated POW: %s for account %s' % (account.POW, account.address))
                     time.sleep(.1)  ## Don't spam dPoW
-
-                    account.unlock()
+                    account.save()
                 except Exception as e:
                     logger.exception('Exception in POW thread: %s ' % e)
-                    logger.exception('dPoW failure account %s unlocked without PoW' % account.address)
-                    account.unlock()
+                    logger.exception('dPoW failure account %s without PoW' % account.address)
             time.sleep(.1)
 
     @classmethod
     def enqueue_account(cls, account, frontier):
         logger.info('Enqueuing address %s frontier %s' % (account.address, frontier))
-        account.lock()
         cls.put_account(account, frontier)
 
     @classmethod
@@ -153,13 +151,16 @@ class POWService:
     @classmethod
     def POW_accounts(cls, daemon=True):
         all_accounts = AccountService.get_accounts()
-
         if not cls._running:
             cls.start(daemon=daemon)
 
-        for account in all_accounts:
-            if not cls.in_queue(account):
-                cls.thread_pool.apply_async(cls.POW_account_thread_asyc, (account))
+        try:
+            for account in all_accounts:
+                if not cls.in_queue(account):
+                    cls.thread_pool.apply_async(cls.POW_account_thread_asyc, (account,))
+        except OperationalError as e:
+            logging.error(e)
+
 
         if not daemon:
             cls.thread_pool.close()
@@ -175,4 +176,4 @@ class POWService:
     def ad_hoc_pow(cls, account):
         valid, frontier = AccountService.validate_PoW(account)
         account.POW = cls.get_pow(account=account, hash_value=frontier)
-        account.unlock()
+        account.save()

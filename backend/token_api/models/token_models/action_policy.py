@@ -24,11 +24,11 @@ class ActionPolicy(models.Model):
     allowed_devices = models.ManyToManyField(Device, related_name="allowed_devices", blank=True)
     denied_devices = models.ManyToManyField(Device, related_name="denied_devices", blank=True)
 
-    application = models.ForeignKey(Application, related_name="action_policy_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="action_policy_application", on_delete=models.SET_NULL, null=True)
 
     action_limit = models.IntegerField(default=-1)
 
-    transaction_limit = models.IntegerField(default=-1)
+    transaction_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
 
     objects = ActionPolicyManager()
 

@@ -9,6 +9,7 @@ from .token_models.action_policy import ActionPolicy
 from .token_models.device import Device
 from .token_models.token import Token
 from .token_models.application import Application
+from .token_models.action_set import ActionSet
 from .custom_action_policies.example_custom_action_policy import CustomActionPolicy
 
-__all__ = ['examplecustomactionpolicy', 'account', 'node', 'transaction', 'wallet', 'action', 'account_policy', 'action_policy', 'device', 'token', 'application']
+__all__ = ['examplecustomactionpolicy', 'account', 'node', 'transaction', 'wallet', 'action', 'account_policy', 'action_policy', 'device', 'token', 'application', 'action_set']

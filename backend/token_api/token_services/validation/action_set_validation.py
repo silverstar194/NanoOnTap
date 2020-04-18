@@ -12,7 +12,7 @@ class ValidateActionSet:
 
     def __init__(self, action_set, device, action_polices):
         self.action_set = action_set
-        self.actions = action_set.actions if isinstance(action_set.actions, Iterable) else [action_set.actions]
+        self.actions = action_set.actions.all() if isinstance(action_set.actions.all(), Iterable) else [action_set.actions]
         self.device = device
         self.action_polices = action_polices
         self.action_set_action_count = len(self.actions)

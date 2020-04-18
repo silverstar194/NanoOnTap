@@ -13,7 +13,7 @@ class DeviceManager(models.Manager):
 class Device(models.Model):
     device_id = models.CharField(max_length=64)
 
-    application = models.ForeignKey(Application, related_name="device_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="device_application", on_delete=models.SET_NULL, null=True)
 
     action_sets = models.ManyToManyField(ActionSet, related_name="device_action_sets")
 

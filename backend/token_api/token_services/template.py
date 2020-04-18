@@ -9,11 +9,18 @@ from ..models.nano_models.node import Node
 from ..models.token_models.application import Application
 from ..models.token_models.action_set import ActionSet
 
-
-import json
 import re
 
 from django.core import serializers
+
+import json
+from decimal import Decimal
+
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Decimal):
+            return float(obj)
+        return json.JSONEncoder.default(self, obj)
 
 
 def export_template(application):
@@ -34,8 +41,8 @@ def export_template(application):
     tokens_output = serializers.serialize('python', tokens, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     action_policies_output = serializers.serialize('python', action_policies, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     action_set_output = serializers.serialize('python', action_set, use_natural_foreign_keys=True, use_natural_primary_keys=True)
-    action_output = serializers.serialize('python', actions, use_natural_foreign_keys=True, use_natural_primary_keys=True)
-    account_output = serializers.serialize('python', accounts, use_natural_foreign_keys=True, use_natural_primary_keys=True, fields=('account_id', 'wallet', 'application', 'account_policies'))
+    action_output = serializers.serialize('python', actions, use_natural_foreign_keys=True, use_natural_primary_keys=True,  cls=DecimalEncoder)
+    account_output = serializers.serialize('python', accounts, use_natural_foreign_keys=True, use_natural_primary_keys=True, fields=('account_id', 'wallet', 'application', 'account_policies'),  cls=DecimalEncoder)
     account_policies_output = serializers.serialize('python', account_policies, use_natural_foreign_keys=True, use_natural_primary_keys=True)
     wallet_output = serializers.serialize('python', wallets, use_natural_foreign_keys=True, use_natural_primary_keys=True, fields=('node', 'wallet_name', 'application'))
     node_output = serializers.serialize('python', nodes, use_natural_foreign_keys=True, use_natural_primary_keys=True)
@@ -71,10 +78,12 @@ def import_template(json_data):
         application_setup["wallets"] = add_text(application_setup["wallets"], r'"model": "wallet"', r'"model": "token_api.wallet"')
         for obj in serializers.deserialize('python', application_setup["wallets"],  use_natural_foreign_keys=True, use_natural_primary_keys=True):
             # merge with current model data
-            current_wallet = Wallet.objects.get(wallet_name=obj.__dict__['object'].wallet_name)
-            if current_wallet.wallet_id:
-                obj.__dict__['object'].wallet_id = current_wallet.wallet_id
-
+            try:
+                current_wallet = Wallet.objects.get(wallet_name=obj.__dict__['object'].wallet_name)
+                if current_wallet.wallet_id:
+                    obj.__dict__['object'].wallet_id = current_wallet.wallet_id
+            except Exception:
+                pass
             obj.save()
 
     if "account_policies" in application_setup:
@@ -86,16 +95,18 @@ def import_template(json_data):
         application_setup["accounts"] = add_text(application_setup["accounts"], r'"model": "account"', r'"model": "token_api.account"')
         for obj in serializers.deserialize('python', application_setup["accounts"],  use_natural_foreign_keys=True, use_natural_primary_keys=True):
             # merge with current model data
-            current_account = Account.objects.get(account_id=obj.__dict__['object'].account_id)
-            if current_account.address:
-                obj.__dict__['object'].address = current_account.address
+            try:
+                current_account = Account.objects.get(account_id=obj.__dict__['object'].account_id)
+                if current_account.address:
+                    obj.__dict__['object'].address = current_account.address
 
-            if current_account.current_balance:
-                obj.__dict__['object'].current_balance = current_account.current_balance
+                if current_account.current_balance:
+                    obj.__dict__['object'].current_balance = current_account.current_balance
 
-            if current_account.POW:
-                obj.__dict__['object'].POW = current_account.POW
-
+                if current_account.POW:
+                    obj.__dict__['object'].POW = current_account.POW
+            except Exception:
+                pass
             obj.save()
 
     if "actions" in application_setup:
@@ -127,7 +138,7 @@ def import_template(json_data):
 
 
 def strip_text(before, value):
-    obj_str = json.dumps(before).replace(value, "") # remove token_api
+    obj_str = json.dumps(before,  cls=DecimalEncoder).replace(value, "") # remove token_api
     re.sub(r', \s +]', "]", obj_str) # remove trailing comma
     re.sub(r', \s +}', "}", obj_str)  # remove trailing comma
     obj = json.loads(obj_str)
