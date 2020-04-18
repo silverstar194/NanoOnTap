@@ -37,7 +37,6 @@ class BalanceAccount:
         new_balance = convert_raw_to_NANO(retry(lambda: rpc.account_balance(account=account.address)['balance']))
 
         if not account.current_balance == new_balance:
-            print('Updating balance %s from %s to %s' % (account.address, account.current_balance, new_balance))
             account.current_balance = new_balance
             account.POW = None
         account.save()

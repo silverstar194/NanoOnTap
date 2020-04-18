@@ -10,6 +10,8 @@ from token_api.models.token_models.device import Device
 from token_api.models.token_models.token import Token
 
 from token_api.models.token_models.action_set import ActionSet
+from token_api.models.token_models.action import Action
+
 
 from token_api.models.token_models.application import Application
 
@@ -32,13 +34,14 @@ class TestPriority(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        action = device.action_sets.first().actions
+        action = device.action_sets.first().actions.first()
 
-        action_set_hi_pri = ActionSet.objects.create(action_set_name="High Pri", priority=0, application=application, actions=action)
+        action_set_hi_pri = ActionSet.objects.create(action_set_name="High Pri", priority=0, application=application)
+        action_set_hi_pri.actions.add(action)
 
         device.action_sets.add(action_set_hi_pri)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set.action_set_name == action_set_hi_pri.action_set_name
@@ -53,13 +56,14 @@ class TestPriority(TestCase):
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        action = device.action_sets.first().actions
+        action = device.action_sets.first().actions.first()
 
-        action_set_hi_pri = ActionSet.objects.create(action_set_name="High Pri", priority=1000, application=application, actions=action)
+        action_set_hi_pri = ActionSet.objects.create(action_set_name="High Pri", priority=1000, application=application)
+        action_set_hi_pri.actions.add(action)
 
         device.action_sets.add(action_set_hi_pri)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set.action_set_name == "Pay Single Account"

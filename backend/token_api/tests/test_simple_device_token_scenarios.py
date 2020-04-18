@@ -9,6 +9,7 @@ from token_api.models.token_models.device import Device
 
 from token_api.models.token_models.token import Token
 
+from token_api.models.token_models.application import Application
 
 class TestSimple(TestCase):
     """
@@ -22,11 +23,12 @@ class TestSimple(TestCase):
     def test_simple_send(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set.action_set_name == "Pay Single Account"
@@ -36,6 +38,7 @@ class TestSimple(TestCase):
     def test_remove_allowed_device(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -44,7 +47,7 @@ class TestSimple(TestCase):
         allowed_device = token.action_polices.get(policy_name="Allow All").allowed_devices.get(device_id="device_one")
         allowed_device.delete()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -54,6 +57,7 @@ class TestSimple(TestCase):
     def test_add_denied_device(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -62,7 +66,7 @@ class TestSimple(TestCase):
         denied_devices = token.action_polices.get(policy_name="Allow All").denied_devices
         denied_devices.add(device)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -71,6 +75,7 @@ class TestSimple(TestCase):
     def test_remove_allowed_to_account(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -80,7 +85,7 @@ class TestSimple(TestCase):
         to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         to_accounts.remove(to_account)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -89,6 +94,7 @@ class TestSimple(TestCase):
     def test_add_denied_to_account(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -98,7 +104,7 @@ class TestSimple(TestCase):
         to_account = token.action_polices.get(policy_name="Allow All").allowed_to_accounts.get(account_id="account_two")
         denied_to_accounts.add(to_account)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -107,6 +113,7 @@ class TestSimple(TestCase):
     def test_remove_allowed_from_account(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -116,7 +123,7 @@ class TestSimple(TestCase):
         from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         allowed_from_accounts.remove(from_account)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
         assert action_set == None
         assert valid_policy == None
@@ -124,6 +131,7 @@ class TestSimple(TestCase):
     def test_add_denied_from_account(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -133,7 +141,7 @@ class TestSimple(TestCase):
         from_account = token.action_polices.get(policy_name="Allow All").allowed_from_accounts.get(account_id="account_one")
         denied_from_accounts.add(from_account)
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
         assert action_set == None
         assert valid_policy == None
@@ -141,6 +149,7 @@ class TestSimple(TestCase):
     def test_action_set_action_limit(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -149,7 +158,7 @@ class TestSimple(TestCase):
         action_policy.action_limit = 0
         action_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
         assert action_set == None
         assert valid_policy == None
@@ -157,15 +166,16 @@ class TestSimple(TestCase):
     def test_action_set_send_limit(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
 
         action_policy = token.action_polices.get(policy_name="Allow All")
-        action_policy.send_limit = 0
+        action_policy.action_limit = 0
         action_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -174,6 +184,7 @@ class TestSimple(TestCase):
     def test_account_send_amount(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -183,7 +194,7 @@ class TestSimple(TestCase):
         from_account_policy.send_amount_limit = 0
         from_account_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -192,6 +203,7 @@ class TestSimple(TestCase):
     def test_account_send_limit(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -201,7 +213,7 @@ class TestSimple(TestCase):
         from_account_policy.send_action_limit = 0
         from_account_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -210,6 +222,7 @@ class TestSimple(TestCase):
     def test_account_receive_amount(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -219,7 +232,7 @@ class TestSimple(TestCase):
         to_account_policy.receive_amount_limit = 0
         to_account_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
@@ -228,6 +241,7 @@ class TestSimple(TestCase):
     def test_account_receive_limit(self):
         device = Device.objects.get(application__application_id="app_one")
         token = Token.objects.get(application__application_id="app_one")
+        application = Application.objects.get(application_id="app_one")
 
         assert device.device_id == "device_one"
         assert token.token_id == "token_one"
@@ -237,7 +251,7 @@ class TestSimple(TestCase):
         to_account_policy.receive_action_limit = 0
         to_account_policy.save()
 
-        executor = Executor(device, token)
+        executor = Executor(device, token, application, debug=True)
         action_set, valid_policy = executor.run_action_set()
 
         assert action_set == None
