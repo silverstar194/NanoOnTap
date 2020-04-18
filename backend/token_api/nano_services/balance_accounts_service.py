@@ -1,8 +1,10 @@
 import nano
 from ..common.retry import retry
-from multiprocessing.pool import ThreadPool
 
 from ..models.nano_models.account import Account
+from django.db.utils import OperationalError
+from decimal import *
+from ..common.util import convert_raw_to_NANO
 
 import logging
 logger = logging.getLogger(__name__)
@@ -10,30 +12,32 @@ logger = logging.getLogger(__name__)
 
 class BalanceAccount:
 
-    def sync_accounts(self):
-        thread_pool = ThreadPool(processes=4)
+    @staticmethod
+    def sync_accounts():
         all_accounts = Account.objects.all()
-        for account in all_accounts:
-            thread_pool.apply_async(self.check_account_balance_async, (account,))
 
-        thread_pool.close()
-        thread_pool.join()
+        try:
+            for account in all_accounts:
+                BalanceAccount.check_account_balance(account)
+        except OperationalError:
+            pass
 
-    def check_account_balance_async(self, account):
+    @staticmethod
+    def check_account_balance(account):
         """
         Check for correct balance with node.
         :param account:
         :returns PoW valid on account
         """
-        account.lock()
         logger.info('Syncing account balance: %s' % account)
+        account = Account.objects.get(address=account.address)
 
         rpc = retry(lambda: nano.rpc.Client(account.wallet.node.URL))
 
-        new_balance = retry(lambda: rpc.account_balance(account=account.address)['balance'])
+        new_balance = convert_raw_to_NANO(retry(lambda: rpc.account_balance(account=account.address)['balance']))
 
         if not account.current_balance == new_balance:
-            logger.error('Updating balance %s' % (account.address))
+            print('Updating balance %s from %s to %s' % (account.address, account.current_balance, new_balance))
             account.current_balance = new_balance
             account.POW = None
-        account.unlock()
+        account.save()

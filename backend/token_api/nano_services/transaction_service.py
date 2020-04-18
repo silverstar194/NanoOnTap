@@ -8,6 +8,8 @@ from .account_service import AccountService
 from .pow_service import POWService
 from ..common.retry import retry
 
+from ..common.util import convert_NANO_to_RAW
+
 from ..models.nano_models.transaction import Transaction
 
 import logging
@@ -59,9 +61,6 @@ class TransactionService:
             logger.exception("Cannot send negative amount %s." % amount)
             raise ValueError("Amount sent must be positive.")
 
-        origin_account.lock()
-        destination_account.lock()
-
         transaction = Transaction(
             origin=origin_account,
             destination=destination_account,
@@ -79,24 +78,20 @@ class TransactionService:
         rpc_destination_node = nano.rpc.Client(transaction.destination.wallet.node.URL)
 
         if (transaction.origin.current_balance - transaction.amount < 0):
-            transaction.origin.unlock()
-            transaction.destination.unlock()
             logger.info("InsufficientNanoException %s" % transaction.origin.address)
             raise InsufficientNanoException()
 
         if not AccountService.ad_hoc_validation_or_regeneration(transaction.origin):
             logger.error('Total faliure of dPoW. Aborting transaction account %s' % transaction.origin.address)
-            transaction.origin.unlock()
-            transaction.destination.unlock()
             raise InvalidPOWException()
 
-        transaction.origin = self.get_account(transaction.origin.address)
+        transaction.origin = AccountService.get_account(transaction.origin.address)
 
         try:
             logger.info("Transaction for send block status before_send")
             account_info = retry(lambda: rpc_origin_node.account_info(transaction.origin.address, representative=True))
 
-            sent_done, hash_value = self.create_and_process(transaction, account_info, "send")
+            sent_done, hash_value = self.create_and_process(transaction, transaction.origin.current_balance, account_info, "send")
 
             if not sent_done:
                 logger.error("Error in create and process send")
@@ -111,9 +106,7 @@ class TransactionService:
 
         except nano.rpc.RPCException as e:
             logger.exception("RPCException one %s" % e)
-            transaction.origin.unlock()
-            transaction.destination.unlock()
-            raise nano.rpc.RPCException()
+            raise nano.rpc.RPCException(e)
 
         retry(lambda: transaction.origin.save())
         retry(lambda: transaction.destination.save())
@@ -125,7 +118,7 @@ class TransactionService:
         t.start()
 
         # Regenerate PoW
-        POWService.enqueue_account(address=transaction.origin.address, frontier=transaction.transaction_hash_sending)
+        POWService.enqueue_account(account=transaction.origin, frontier=transaction.transaction_hash_sending)
         return transaction
 
 
@@ -133,18 +126,16 @@ class TransactionService:
 
         if not AccountService.ad_hoc_validation_or_regeneration(transaction.destination):
             logger.error('Total failure of dPoW. Aborting transaction account %s' % transaction.destination.address)
-            transaction.origin.unlock()
-            transaction.destination.unlock()
             raise InvalidPOWException()
 
-        transaction.destination = self.get_account(transaction.destination.address)
+        transaction.destination = AccountService.get_account(transaction.destination.address)
 
         try:
             logger.info("Transaction for receive block status before_receive")
             account_info = retry(lambda: rpc_destination_node.account_info(transaction.destination.address, representative=True))
 
             ##Create and process block work around
-            receive_done, hash_value = self.create_and_process(transaction, account_info, "receive")
+            receive_done, hash_value = self.create_and_process(transaction, transaction.destination.current_balance, account_info, "receive")
             if not receive_done:
                 logger.exception("Error in create and process receive")
                 raise nano.rpc.RPCException()
@@ -152,12 +143,9 @@ class TransactionService:
         except nano.rpc.RPCException as e:
             logger.exception("RPCException two %s" % e)
 
-            transaction.origin.unlock()
-            transaction.destination.unlock()
-
             transaction.destination.POW = None
             frontier = retry(lambda: rpc_destination_node.frontiers(account=transaction.destination.address, count=1)[transaction.destination.address])
-            POWService.enqueue_account(address=transaction.destination.address, frontier=frontier)
+            POWService.enqueue_account(account=transaction.destination, frontier=frontier)
 
             raise nano.rpc.RPCException()
 
@@ -165,7 +153,7 @@ class TransactionService:
 
         retry(lambda: transaction.destination.save())
         retry(lambda: transaction.save())
-        POWService.enqueue_account(address=transaction.destination.address, frontier=transaction.transaction_hash_receiving)
+        POWService.enqueue_account(account=transaction.destination, frontier=transaction.transaction_hash_receiving)
 
     def get_transaction(self, id):
         """
@@ -183,7 +171,7 @@ class TransactionService:
         except MultipleObjectsReturned:
             raise MultipleObjectsReturned()
 
-    def create_and_process(self, transaction, account_info, type):
+    def create_and_process(self, transaction, account_balance, account_info, type):
 
         if not type == "receive" and not type == "send":
             return False
@@ -194,7 +182,7 @@ class TransactionService:
             wallet = transaction.origin.wallet.wallet_id
             account = transaction.origin.address
             link = transaction.destination.address
-            amount = str(int(account_info['balance']) - int(transaction.amount))
+            amount = convert_NANO_to_RAW(account_balance - transaction.amount)
 
         if type == "receive":
             node_url = transaction.destination.wallet.node.URL
@@ -207,8 +195,7 @@ class TransactionService:
                 link = transaction.transaction_hash_sending
                 transaction = self.get_transaction(transaction.id)
                 time.sleep(.1)
-
-            amount = str(int(account_info['balance']) + int(transaction.amount))
+            amount = convert_NANO_to_RAW(account_balance)
 
         headers = {
             'Content-Type': 'application/json',
@@ -226,7 +213,7 @@ class TransactionService:
             "work": work,
             "id": str(transaction.id),
         }
-
+        print(json.dumps(data_create_block))
         logger.info(data_create_block)
         sent_successful = False
 
@@ -236,6 +223,7 @@ class TransactionService:
             sent_successful = True
 
         create_block_response = json.loads(response.text)
+        print(create_block_response)
         block_for_proccessing = {
             "action": "process",
             "block": create_block_response['block'],
@@ -244,6 +232,7 @@ class TransactionService:
 
         response = retry(lambda: requests.post(node_url, headers=headers, data=json.dumps(block_for_proccessing)), retries=5)
         response_json = json.loads(response.text)
+        print(response_json)
         hash_value = response_json['hash']
 
         if type == "send":

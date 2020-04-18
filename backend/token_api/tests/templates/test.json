@@ -50,7 +50,9 @@
                     "app_one"
                 ],
                 "actions": [
-                    "Send 1 Nano"
+                    [
+                        "Send 1 Nano"
+                    ]
                 ]
             }
         }
@@ -66,7 +68,7 @@
                 "to_account": [
                     "account_two"
                 ],
-                "amount": 1,
+                "amount": 0,
                 "application": [
                     "app_one"
                 ],
@@ -83,7 +85,7 @@
                     "app_one"
                 ],
                 "action_limit": -1,
-                "send_limit": -1,
+                "transaction_limit": -1,
                 "allowed_from_accounts": [
                     [
                         "account_one"
@@ -117,11 +119,8 @@
             "fields": {
                 "account_id": "account_one",
                 "wallet": [
-                    "AD0X8"
+                    "wallet_one"
                 ],
-                "address": "1xb..",
-                "current_balance": 1,
-                "POW": null,
                 "application": [
                     "app_one"
                 ],
@@ -137,11 +136,8 @@
             "fields": {
                 "account_id": "account_two",
                 "wallet": [
-                    "AD0X8"
+                    "wallet_one"
                 ],
-                "address": "2xb..",
-                "current_balance": 1,
-                "POW": null,
                 "application": [
                     "app_one"
                 ],
@@ -175,8 +171,7 @@
                 "node": [
                     "node_one"
                 ],
-                "wallet_name": "test_wallet",
-                "wallet_id": "AD0X8",
+                "wallet_name": "wallet_one",
                 "application": [
                     "app_one"
                 ]
@@ -188,7 +183,6 @@
             "model": "node",
             "fields": {
                 "URL": "https://frankfurt.rcp.nanospeed.live/",
-                "IP_ADD": "127.0.0.1",
                 "node_id": "node_one",
                 "application": [
                     "app_one"

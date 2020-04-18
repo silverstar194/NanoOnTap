@@ -15,7 +15,7 @@ class TokenManager(models.Manager):
 class Token(models.Model):
     token_id = models.CharField(max_length=64)
 
-    application = models.ForeignKey(Application, related_name="token_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="token_application", on_delete=models.SET_NULL, null=True)
 
     action_polices = models.ManyToManyField(ActionPolicy, related_name="action_polices")
 

@@ -12,15 +12,15 @@ class AccountPolicy(models.Model):
 
     policy_name = models.CharField(max_length=64)
 
-    application = models.ForeignKey(Application, related_name="account_policy_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="account_policy_application", on_delete=models.SET_NULL, null=True)
 
     send_action_limit = models.IntegerField(default=-1)
 
     receive_action_limit = models.IntegerField(default=-1)
 
-    send_amount_limit = models.IntegerField(default=-1)
+    send_amount_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
 
-    receive_amount_limit = models.IntegerField(default=-1)
+    receive_amount_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
 
     objects = AccountPolicyManager()
 

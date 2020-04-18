@@ -8,6 +8,8 @@ from .. import models as models
 from ..common.retry import retry
 
 logger = logging.getLogger(__name__)
+from django.db.utils import OperationalError
+
 
 
 class AccountService:
@@ -39,15 +41,25 @@ class AccountService:
         return retry(lambda: models.Account.objects.all())
 
     @staticmethod
+    def get_account(address):
+        return retry(lambda: models.Account.objects.get(address=address))
+
+    @staticmethod
     def number_accounts(self):
         return models.Account.objects.all().count()
 
+    @staticmethod
     def clear_receive_accounts():
         accounts_list = AccountService.get_accounts() # Not great all threads will vaildate TODO
 
         thread_pool = ThreadPool(processes=4)
-        for account in accounts_list:
-            thread_pool.apply_async(clear_frontier_async, (account,))
+
+        try:
+            for account in accounts_list:
+                thread_pool.apply_async(AccountService.clear_frontier_async, (account,))
+        except OperationalError:
+            pass
+
         thread_pool.close()
         thread_pool.join()
 
@@ -59,6 +71,7 @@ class AccountService:
     def lock_all_accounts(self):
         retry(lambda: models.Account.objects.all().update(in_use=True))
 
+    @staticmethod
     def clear_frontier_async(self, account):
         logger.info('Clearing possible receive blocks from account %s' % account.address)
 

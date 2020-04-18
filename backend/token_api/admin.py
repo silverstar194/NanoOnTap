@@ -16,7 +16,8 @@ from .models.custom_action_policies.example_custom_action_policy import CustomAc
 
 
 class AccountAdmin(admin.ModelAdmin):
-    readonly_fields = ('POW', 'address', 'current_balance')
+    #readonly_fields = ('POW', 'address', 'current_balance')
+    pass
 admin.site.register(Account, AccountAdmin)
 
 class ExampleCustomActionPolicyAdmin(admin.ModelAdmin):

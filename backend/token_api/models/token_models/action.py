@@ -18,9 +18,9 @@ class Action(models.Model):
 
     to_account = models.ForeignKey(Account, on_delete=models.PROTECT, related_name="to_account")
 
-    amount = models.IntegerField(default=0)  # Measured in RAW
+    amount = models.DecimalField(default=0, decimal_places=16, max_digits=64)
 
-    application = models.ForeignKey(Application, related_name="action_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="action_application", on_delete=models.SET_NULL, null=True)
 
     objects = ActionPolicyManager()
 
@@ -30,9 +30,9 @@ class Action(models.Model):
         unique_together = [['action_name', 'application']]
         ordering = ['priority']
 
-    def natural_key(self):
-        return (self.action_name, )
-
     def __str__(self):
         return "{0}: {1} NANO from {2} to {3}".format(self.action_name, self.amount, self.from_account.address,
                                                                self.to_account.address)
+
+    def natural_key(self):
+        return (self.action_name,)

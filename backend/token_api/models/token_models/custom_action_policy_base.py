@@ -13,7 +13,7 @@ class CustomActionPolicyBase(models.Model):
 
     priority = models.IntegerField()
 
-    application = models.ForeignKey(Application, related_name="custom_action_policy_application", on_delete=models.PROTECT)
+    application = models.ForeignKey(Application, related_name="custom_action_policy_application", on_delete=models.SET_NULL, null=True)
 
     objects = CustomActionPolicyBaseManager()
 
@@ -22,8 +22,7 @@ class CustomActionPolicyBase(models.Model):
         ordering = ['priority']
 
     def __str__(self):
-        return self.custom_policy_name
-        return "{0} Priority: {6}".format(custom_policy_name, str(self.priority))
+        return "{0} Priority: {6}".format(self.custom_policy_name, str(self.priority))
 
     def policy_passed(self, device):
        raise NotImplemented("Implement your custom action policy")
