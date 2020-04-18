@@ -14,10 +14,11 @@ logger = logging.getLogger(__name__)
 
 class Executor:
 
-    def __init__(self, device, token, application):
+    def __init__(self, device, token, application, debug=False):
         self.device = device
         self.token = token
         self.application = application
+        self.debug = debug
 
 
     def run_action_set(self):
@@ -36,8 +37,9 @@ class Executor:
                 for action in actions:
                     transaction = transaction_service.new_transaction(self.application, action.from_account, action.to_account, action.amount)
                     logger.info("Running transaction from {0} to {1} amount {2}".format(action.from_account, action.to_account, action.amount))
-                    transaction_service.send_transaction(transaction)
 
+                    if not self.debug:
+                        transaction_service.send_transaction(transaction)
 
                 return action_set, valid_policy
 

@@ -213,7 +213,7 @@ class TransactionService:
             "work": work,
             "id": str(transaction.id),
         }
-        print(json.dumps(data_create_block))
+
         logger.info(data_create_block)
         sent_successful = False
 
@@ -223,7 +223,7 @@ class TransactionService:
             sent_successful = True
 
         create_block_response = json.loads(response.text)
-        print(create_block_response)
+
         block_for_proccessing = {
             "action": "process",
             "block": create_block_response['block'],
@@ -232,7 +232,7 @@ class TransactionService:
 
         response = retry(lambda: requests.post(node_url, headers=headers, data=json.dumps(block_for_proccessing)), retries=5)
         response_json = json.loads(response.text)
-        print(response_json)
+
         hash_value = response_json['hash']
 
         if type == "send":
