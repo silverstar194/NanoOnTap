@@ -8,6 +8,3 @@ def audit_execution(action, policy):
     action_history.executed_time = timezone.now()
     action_history.executed = True
     action_history.save()
-
-    print("Executing " + str(action))
-    print("With Action Policy: " + str(policy))

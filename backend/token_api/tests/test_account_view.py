@@ -1,11 +1,12 @@
 from django.test import TestCase
-
-from token_api.token_services.template_deserializer import import_template
-
 from django.test import Client
 from django.urls import reverse
 
+
 import json
+
+
+from token_api.token_services.template_deserializer import import_template
 
 
 class TestAccountView(TestCase):
@@ -86,7 +87,6 @@ class TestAccountView(TestCase):
         assert content_changed[0]['model'] == 'account'
         assert content_changed[0]['fields']['account_name'] == 'account_changed'
         assert content_changed[0]['fields']['wallet'][0] == 'wallet_one'
-
 
     def test_remove_account(self):
         with open('backend/token_api/tests/templates/template_one.json') as json_file:

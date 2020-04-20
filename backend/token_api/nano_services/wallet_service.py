@@ -1,8 +1,8 @@
 import nano
+import logging
 
 from ..common.retry import retry
 
-import logging
 logger = logging.getLogger(__name__)
 
 

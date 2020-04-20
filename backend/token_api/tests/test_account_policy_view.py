@@ -1,11 +1,12 @@
 from django.test import TestCase
-
-from token_api.token_services.template_deserializer import import_template
-
 from django.test import Client
 from django.urls import reverse
 
+
 import json
+
+
+from token_api.token_services.template_deserializer import import_template
 
 
 class TestAccountPolicyView(TestCase):
@@ -33,7 +34,6 @@ class TestAccountPolicyView(TestCase):
         assert 'model' in content[0]
         assert content[0]['model'] == 'accountpolicy'
         assert content[0]['fields']['policy_name'] == "Allow All"
-
 
     def test_get_account_policy(self):
         client = Client()

@@ -1,3 +1,5 @@
+import logging
+
 from ..nano_services.node_service import NodeService
 from ..nano_services.wallet_service import WalletService
 from ..models.nano_models.node import Node
@@ -6,7 +8,6 @@ from ..models.token_models.application import Application
 from ..models.nano_models.account import Account
 from ..nano_services.account_service import AccountService
 
-import logging
 logger = logging.getLogger(__name__)
 
 

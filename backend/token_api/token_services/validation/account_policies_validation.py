@@ -1,6 +1,7 @@
 from .account_validation import AccountValidation
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 

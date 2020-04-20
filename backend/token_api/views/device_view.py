@@ -1,13 +1,14 @@
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+from django.db.models.deletion import ProtectedError
+from django.core.exceptions import ObjectDoesNotExist
+
 
 from ..models.token_models.device import Device
 from ..token_services.template_serializer import serialize_devices
 from ..token_services.template_deserializer import deserializer_devices
 from ..common.util import *
-from django.views.decorators.http import require_http_methods
 
-from django.db.models.deletion import ProtectedError
-from django.core.exceptions import ObjectDoesNotExist
 
 @csrf_exempt
 @require_http_methods(["POST"])

@@ -1,10 +1,10 @@
 from django.test import TestCase
 
+
 from token_api.token_services.bootstrap import Bootstrap
-
 from token_api.token_services.template_deserializer import import_template
-
 from token_api.models.token_models.application import Application
+
 
 class TestBootstrap(TestCase):
 

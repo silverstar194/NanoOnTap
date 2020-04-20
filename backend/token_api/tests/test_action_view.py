@@ -1,11 +1,12 @@
 from django.test import TestCase
-
-from token_api.token_services.template_deserializer import import_template
-
 from django.test import Client
 from django.urls import reverse
 
+
 import json
+
+
+from token_api.token_services.template_deserializer import import_template
 
 
 class TestActiontView(TestCase):
@@ -70,7 +71,6 @@ class TestActiontView(TestCase):
         assert 'model' in content_changed[0]
         assert content_changed[0]['model'] == 'action'
         assert content_changed[0]['fields']['amount'] == 0
-
 
     def test_remove_action(self):
         with open('backend/token_api/tests/templates/template_one.json') as json_file:

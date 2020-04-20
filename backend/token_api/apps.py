@@ -1,7 +1,9 @@
 from django.apps import AppConfig
 
 import logging
+
 logger = logging.getLogger(__name__)
+
 
 class TokenApiConfig(AppConfig):
     name = 'token_api'

@@ -1,7 +1,7 @@
 from django.db import models
 
-from .action_set import ActionSet
 
+from .action_set import ActionSet
 from .application import Application
 
 

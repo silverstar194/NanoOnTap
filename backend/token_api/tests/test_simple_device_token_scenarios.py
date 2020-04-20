@@ -1,15 +1,11 @@
-
 from django.test import TestCase
 
 from token_api.token_services.template_deserializer import import_template
-
 from token_api.token_services.executor import Executor
-
 from token_api.models.token_models.device import Device
-
 from token_api.models.token_models.token import Token
-
 from token_api.models.token_models.application import Application
+
 
 class TestSimple(TestCase):
     """
@@ -34,7 +30,6 @@ class TestSimple(TestCase):
         assert action_set.action_set_name == "Pay Single Account"
         assert valid_policy.policy_name == "Allow All"
 
-
     def test_remove_allowed_device(self):
         device = Device.objects.get(application__application_name="app_one")
         token = Token.objects.get(application__application_name="app_one")
@@ -52,7 +47,6 @@ class TestSimple(TestCase):
 
         assert action_set == None
         assert valid_policy == None
-
 
     def test_add_denied_device(self):
         device = Device.objects.get(application__application_name="app_one")

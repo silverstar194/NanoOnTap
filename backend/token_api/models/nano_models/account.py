@@ -1,12 +1,10 @@
 from django.db import models
 
-from .wallet import Wallet
-
-from ..token_models.account_policy import AccountPolicy
-
-from ..token_models.application import Application
-
 from rest_framework import serializers
+
+from .wallet import Wallet
+from ..token_models.account_policy import AccountPolicy
+from ..token_models.application import Application
 
 
 class AccountManager(models.Manager):
@@ -39,6 +37,7 @@ class Account(models.Model):
 
     def __str__(self):
         return "{0} : {1}".format(self.account_name, self.address)
+
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,11 +1,15 @@
+from django.db.utils import OperationalError
+
+
 import nano
 from ..common.retry import retry
+import logging
+
 
 from ..models.nano_models.account import Account
-from django.db.utils import OperationalError
 from ..common.util import convert_raw_to_NANO
 
-import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -23,11 +27,6 @@ class BalanceAccount:
 
     @staticmethod
     def check_account_balance(account):
-        """
-        Check for correct balance with node.
-        :param account:
-        :returns PoW valid on account
-        """
         logger.info('Syncing account balance: %s' % account)
         account = Account.objects.get(address=account.address)
 

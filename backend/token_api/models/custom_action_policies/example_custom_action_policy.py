@@ -1,6 +1,6 @@
-from ..token_models.custom_action_policy_base import CustomActionPolicyBase
-
 import random
+
+from ..token_models.custom_action_policy_base import CustomActionPolicyBase
 
 
 class CustomActionPolicy(CustomActionPolicyBase):

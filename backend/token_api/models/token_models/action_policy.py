@@ -1,8 +1,8 @@
 from django.db import models
 
+
 from ..nano_models.account import Account
 from .device import Device
-
 from .application import Application
 
 

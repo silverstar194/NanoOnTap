@@ -8,8 +8,10 @@ from ..models.nano_models.wallet import Wallet
 from ..models.nano_models.node import Node
 from ..models.token_models.application import Application
 
+
 def application_exists(application):
     return Application.objects.filter(application_name=application).count() > 0 or Token.objects.filter(application__application_id=application).count() > 0 or Device.objects.filter(application__application_id=application).count() > 0
+
 
 def clean_up_failed_template(application):
     Token.objects.filter(application__application_name=application).delete()
@@ -20,6 +22,7 @@ def clean_up_failed_template(application):
     Action.objects.filter(application__application_name=application).delete()
     Wallet.objects.filter(application__application_name=application).delete()
     Node.objects.filter(application__application_name=application).delete()
+
 
 def get_application(application):
     return Application.objects.get(application_name=application)

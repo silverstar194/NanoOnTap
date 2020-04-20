@@ -1,7 +1,7 @@
 from django.db import models
 
-from ..nano_models.account import Account
 
+from ..nano_models.account import Account
 from .application import Application
 
 

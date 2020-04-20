@@ -1,11 +1,12 @@
 from django.test import TestCase
-
-from token_api.token_services.template_deserializer import import_template
-
 from django.test import Client
 from django.urls import reverse
 
+
 import json
+
+
+from token_api.token_services.template_deserializer import import_template
 
 
 class TestNodeView(TestCase):
@@ -32,7 +33,6 @@ class TestNodeView(TestCase):
         assert 'model' in content[0]
         assert content[0]['model'] == 'node'
         assert content[0]['fields']['node_name'] == 'node_one'
-
 
     def test_get_node_not_exists(self):
         client = Client()
@@ -83,7 +83,6 @@ class TestNodeView(TestCase):
         assert content_changed[0]['model'] == 'node'
         assert content_changed[0]['fields']['node_name'] == 'node_changed'
         assert content_changed[0]['fields']['URL'] == 'https://frankfurt.rcp.nanospeed.live/'
-
 
     def test_remove_node(self):
         with open('backend/token_api/tests/templates/template_one.json') as json_file:

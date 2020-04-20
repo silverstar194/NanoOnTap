@@ -1,9 +1,8 @@
 from django.db import models
 
+
 from .action_policy import ActionPolicy
-
 from ..custom_action_policies.example_custom_action_policy import CustomActionPolicy
-
 from .application import Application
 
 
