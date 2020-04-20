@@ -3,7 +3,6 @@ from ..common.retry import retry
 
 from ..models.nano_models.account import Account
 from django.db.utils import OperationalError
-from decimal import *
 from ..common.util import convert_raw_to_NANO
 
 import logging

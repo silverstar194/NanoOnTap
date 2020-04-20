@@ -1,11 +1,11 @@
 from .. import models as models
 
-def get_device(device_id, application_id):
+def get_device(device_name, application_name):
     """
     Get device by id
 
     """
-    return models.Device.objects.get(device_id = device_id, application__application_id=application_id)
+    return models.Device.objects.get(device_name = device_name, application__application_name=application_name)
 
 
 def get_device_actions(device):

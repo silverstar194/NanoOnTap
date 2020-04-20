@@ -10,12 +10,12 @@ from rest_framework import serializers
 
 
 class AccountManager(models.Manager):
-    def get_by_natural_key(self, account_id):
-        return self.get(account_id=account_id)
+    def get_by_natural_key(self, account_name):
+        return self.get(account_name=account_name)
 
 
 class Account(models.Model):
-    account_id = models.CharField(max_length=64)
+    account_name = models.CharField(max_length=64)
 
     wallet = models.ForeignKey(Wallet, on_delete=models.SET_NULL, null=True)
 
@@ -32,13 +32,13 @@ class Account(models.Model):
     objects = AccountManager()
 
     class Meta:
-        unique_together = [['account_id', 'application',]]
+        unique_together = [['account_name', 'application',]]
 
     def natural_key(self):
-        return (self.account_id, )
+        return (self.account_name, )
 
     def __str__(self):
-        return "{0} : {1}".format(self.account_id, self.address)
+        return "{0} : {1}".format(self.account_name, self.address)
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:

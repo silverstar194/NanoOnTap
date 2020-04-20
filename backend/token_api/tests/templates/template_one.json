@@ -3,7 +3,7 @@
         {
             "model": "application",
             "fields": {
-                "application_id": "app_one"
+                "application_name": "app_one"
             }
         }
     ],
@@ -11,7 +11,7 @@
         {
             "model": "device",
             "fields": {
-                "device_id": "device_one",
+                "device_name": "device_one",
                 "application": [
                     "app_one"
                 ],
@@ -27,7 +27,7 @@
         {
             "model": "token",
             "fields": {
-                "token_id": "token_one",
+                "token_name": "token_one",
                 "application": [
                     "app_one"
                 ],
@@ -117,7 +117,7 @@
         {
             "model": "account",
             "fields": {
-                "account_id": "account_one",
+                "account_name": "account_one",
                 "wallet": [
                     "wallet_one"
                 ],
@@ -134,7 +134,7 @@
         {
             "model": "account",
             "fields": {
-                "account_id": "account_two",
+                "account_name": "account_two",
                 "wallet": [
                     "wallet_one"
                 ],
@@ -183,7 +183,7 @@
             "model": "node",
             "fields": {
                 "URL": "https://frankfurt.rcp.nanospeed.live/",
-                "node_id": "node_one",
+                "node_name": "node_one",
                 "application": [
                     "app_one"
                 ]

@@ -1,7 +1,7 @@
 
 from django.test import TestCase
 
-from token_api.token_services.template import import_template, export_template
+from token_api.token_services.template_deserializer import import_template
 
 from token_api.token_services.executor import Executor
 
@@ -27,12 +27,12 @@ class TestPriority(TestCase):
             import_template(data)
 
     def test_action_set_high_priority(self):
-        device = Device.objects.get(application__application_id="app_one")
-        token = Token.objects.get(application__application_id="app_one")
-        application = Application.objects.get(application_id="app_one")
+        device = Device.objects.get(application__application_name="app_one")
+        token = Token.objects.get(application__application_name="app_one")
+        application = Application.objects.get(application_name="app_one")
 
-        assert device.device_id == "device_one"
-        assert token.token_id == "token_one"
+        assert device.device_name == "device_one"
+        assert token.token_name == "token_one"
 
         action = device.action_sets.first().actions.first()
 
@@ -49,12 +49,12 @@ class TestPriority(TestCase):
 
 
     def test_action_set_low_priority(self):
-        device = Device.objects.get(application__application_id="app_one")
-        token = Token.objects.get(application__application_id="app_one")
-        application = Application.objects.get(application_id="app_one")
+        device = Device.objects.get(application__application_name="app_one")
+        token = Token.objects.get(application__application_name="app_one")
+        application = Application.objects.get(application_name="app_one")
 
-        assert device.device_id == "device_one"
-        assert token.token_id == "token_one"
+        assert device.device_name == "device_one"
+        assert token.token_name == "token_one"
 
         action = device.action_sets.first().actions.first()
 

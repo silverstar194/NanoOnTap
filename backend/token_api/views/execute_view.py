@@ -3,15 +3,16 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .token_services.template import export_template, import_template
-from .token_services.application import clean_up_failed_template, application_exists
+from ..token_services.template_serializer import export_template
+from ..token_services.template_deserializer import import_template
+from ..token_services.application import clean_up_failed_template, application_exists
 
-from .token_services.device import get_device
-from .token_services.token import get_token
-from .token_services.application import get_application
+from ..token_services.device import get_device
+from ..token_services.token import get_token
+from ..token_services.application import get_application
 
-from .token_services.executor import Executor
-from .token_services.bootstrap import Bootstrap
+from ..token_services.executor import Executor
+from ..token_services.bootstrap import Bootstrap
 
 import logging
 logger = logging.getLogger(__name__)
@@ -25,7 +26,7 @@ def import_template_view(request):
         if "application" not in json_data:
             return JsonResponse({'message': "No application provided"})
 
-        application = json_data["application"][0]["fields"]["application_id"]
+        application = json_data["application"][0]["fields"]["application_name"]
         result = import_template(data)
 
         if not result:
@@ -57,19 +58,20 @@ def export_template_view(request):
 
     return JsonResponse({'message': "Post only requests"}, status=403)
 
+
 @csrf_exempt
 def attempt_action(request):
     if request.method == 'POST':
          data = request.body.decode('utf-8')
          received_json_data = json.loads(data)
 
-         application_id = received_json_data["application"]
-         device_id = received_json_data["device"]
-         token_id = received_json_data["token"]
+         application_name = received_json_data["application"]
+         device_name = received_json_data["device"]
+         token_name = received_json_data["token_name"]
 
-         device = get_device(device_id, application_id)
-         token = get_token(token_id, application_id)
-         application = get_application(application_id)
+         device = get_device(device_name, application_name)
+         token = get_token(token_name, application_name)
+         application = get_application(application_name)
 
          action_set_executor = Executor(device, token, application)
          action_set_executor.run_action_set()
