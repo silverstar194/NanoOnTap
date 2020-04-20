@@ -6,3 +6,8 @@ from .wallet_view import *
 from .account_policy_view import *
 from .action_view import *
 from .action_history_view import *
+from .action_policy_view import *
+from .action_set_view import *
+from .application_view import *
+from .device_view import *
+from .token_view import *

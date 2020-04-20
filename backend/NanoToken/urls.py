@@ -51,4 +51,29 @@ urlpatterns = [
     path('action/action/get/all', views.get_actions, name='action/action/get/all'),
     path('action/action/update', views.update_action, name='action/action/update'),
     path('action/action/remove', views.remove_action, name='action/action/remove'),
+
+    path('action/actionpolicy/get', views.get_action_policy, name='action/actionpolicy/get'),
+    path('action/actionpolicy/get/all', views.get_action_policies, name='action/actionpolicy/get/all'),
+    path('action/actionpolicy/update', views.update_action_policy, name='action/actionpolicy/update'),
+    path('action/actionpolicy/remove', views.remove_action_policy, name='action/actionpolicy/remove'),
+
+    path('action/actionset/get', views.get_action_set, name='action/actionset/get'),
+    path('action/actionset/get/all', views.get_action_sets, name='action/actionset/get/all'),
+    path('action/actionset/update', views.update_action_set, name='action/actionset/update'),
+    path('action/actionset/remove', views.remove_action_set, name='action/actionset/remove'),
+
+    path('action/application/get', views.get_application, name='action/application/get'),
+    path('action/application/get/all', views.get_applications, name='action/application/get/all'),
+    path('action/application/update', views.update_application, name='action/application/update'),
+    path('action/application/remove', views.remove_application, name='action/application/remove'),
+
+    path('action/device/get', views.get_device, name='action/device/get'),
+    path('action/device/get/all', views.get_devices, name='action/device/get/all'),
+    path('action/device/update', views.update_device, name='action/device/update'),
+    path('action/device/remove', views.remove_device, name='action/device/remove'),
+
+    path('action/token/get', views.get_token, name='action/token/get'),
+    path('action/token/get/all', views.get_tokens, name='action/token/get/all'),
+    path('action/token/update', views.update_token, name='action/token/update'),
+    path('action/token/remove', views.remove_token, name='action/token/remove'),
 ]
