@@ -11,8 +11,7 @@ def import_template(json_data):
     application_setup = json.loads(json_data)
 
     if "application" in application_setup:
-        application_setup["application"] = add_text(application_setup["application"], r'"model": "application"', r'"model": "token_api.application"')
-        deserializer_general(application_setup["application"])
+        deserializer_applications(application_setup["application"])
 
     if "nodes" in application_setup:
         deserializer_nodes(application_setup["nodes"])
@@ -30,22 +29,43 @@ def import_template(json_data):
         deserializer_actions(application_setup["actions"])
 
     if "action_set" in application_setup:
-        application_setup["action_set"] = add_text(application_setup["action_set"], r'"model": "actionset"', r'"model": "token_api.actionset"')
-        deserializer_general(application_setup["action_set"])
+        deserializer_action_set(application_setup["action_set"])
 
     if "devices" in application_setup:
-        application_setup["devices"] = add_text(application_setup["devices"], r'"model": "device"', r'"model": "token_api.device"')
-        deserializer_general(application_setup["devices"])
+        deserializer_devices(application_setup["devices"])
 
     if "action_policies" in application_setup:
-        application_setup["action_policies"] = add_text(application_setup["action_policies"], r'"model": "actionpolicy"', r'"model": "token_api.actionpolicy"')
-        deserializer_general(application_setup["action_policies"])
+        deserializer_action_polices(application_setup["action_policies"])
 
     if "tokens" in application_setup:
-        application_setup["tokens"] = add_text(application_setup["tokens"], r'"model": "token"', r'"model": "token_api.token"')
-        deserializer_general(application_setup["tokens"])
+        deserializer_tokens(application_setup["tokens"])
 
     return True
+
+
+def deserializer_tokens(tokens):
+    tokens = add_text(tokens, token_serialize_pre_string, token_serialize_post_string)
+    deserializer_general(tokens)
+
+
+def deserializer_devices(devices):
+    devices = add_text(devices, device_serialize_pre_string, device_serialize_post_string)
+    deserializer_general(devices)
+
+
+def deserializer_applications(applications):
+    applications = add_text(applications, application_set_serialize_pre_string, application_set_serialize_post_string)
+    deserializer_general(applications)
+
+
+def deserializer_action_set(action_set):
+    action_set = add_text(action_set, action_set_serialize_pre_string, action_set_serialize_post_string)
+    deserializer_general(action_set)
+
+
+def deserializer_action_polices(action_polices):
+    action_polices = add_text(action_polices, action_policy_serialize_pre_string, action_policy_serialize_post_string)
+    deserializer_general(action_polices)
 
 
 def deserializer_actions(actions):
