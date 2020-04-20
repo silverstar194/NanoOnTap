@@ -1,11 +1,12 @@
 from django.test import TestCase
-
-from token_api.token_services.template_deserializer import import_template
-
 from django.test import Client
 from django.urls import reverse
 
+
 import json
+
+
+from token_api.token_services.template_deserializer import import_template
 
 
 class TestApplicationView(TestCase):
@@ -33,7 +34,6 @@ class TestApplicationView(TestCase):
         assert 'model' in content[0]
         assert content[0]['model'] == 'application'
         assert content[0]['fields']['application_name'] == "app_one"
-
 
     def test_get_action_set(self):
         client = Client()

@@ -1,21 +1,22 @@
-import json
-
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+
+
+import json
+import logging
+
 
 from ..token_services.template_serializer import export_template
 from ..token_services.template_deserializer import import_template
 from ..token_services.application import clean_up_failed_template, application_exists
-
 from ..token_services.device import get_device
 from ..token_services.token import get_token
 from ..token_services.application import get_application
-
 from ..token_services.executor import Executor
 from ..token_services.bootstrap import Bootstrap
 
-import logging
 logger = logging.getLogger(__name__)
+
 
 @csrf_exempt
 def import_template_view(request):

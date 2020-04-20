@@ -3,16 +3,15 @@ import threading
 import json
 import time
 import nano
+import logging
+
 
 from .account_service import AccountService
 from .pow_service import POWService
 from ..common.retry import retry
-
 from ..common.util import convert_NANO_to_RAW
-
 from ..models.nano_models.transaction import Transaction
 
-import logging
 logger = logging.getLogger(__name__)
 
 

@@ -1,5 +1,6 @@
 from .. import models as models
 
+
 def get_device(device_name, application_name):
     """
     Get device by id

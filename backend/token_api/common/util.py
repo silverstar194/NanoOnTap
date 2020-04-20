@@ -1,5 +1,6 @@
-from decimal import *
 from django.http import JsonResponse
+
+from decimal import *
 import json
 
 
@@ -12,10 +13,12 @@ def convert_NANO_to_RAW(NANO_amount):
     raw_amount_to_one_nano = 1000000000000000000000000000000
     return "{:0f}".format(Decimal(Decimal(NANO_amount) * Decimal(raw_amount_to_one_nano)))
 
+
 def parse_json(request):
     data = request.body.decode()
     json_data = json.loads(data)
     return json_data
+
 
 def parse_arg(request, arg):
     json_data = parse_json(request)

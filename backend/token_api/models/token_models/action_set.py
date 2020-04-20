@@ -1,7 +1,7 @@
 from django.db import models
 
-from .application import Application
 
+from .application import Application
 from .action import Action
 
 

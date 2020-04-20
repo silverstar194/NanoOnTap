@@ -1,15 +1,15 @@
+from django.db.utils import OperationalError
+
+
 import logging
-
 from multiprocessing.pool import ThreadPool
-
 import nano
+
 
 from .. import models as models
 from ..common.retry import retry
 
 logger = logging.getLogger(__name__)
-from django.db.utils import OperationalError
-
 
 
 class AccountService:

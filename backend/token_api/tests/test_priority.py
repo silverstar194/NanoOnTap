@@ -1,18 +1,11 @@
-
 from django.test import TestCase
 
+
 from token_api.token_services.template_deserializer import import_template
-
 from token_api.token_services.executor import Executor
-
 from token_api.models.token_models.device import Device
-
 from token_api.models.token_models.token import Token
-
 from token_api.models.token_models.action_set import ActionSet
-from token_api.models.token_models.action import Action
-
-
 from token_api.models.token_models.application import Application
 
 
@@ -46,7 +39,6 @@ class TestPriority(TestCase):
 
         assert action_set.action_set_name == action_set_hi_pri.action_set_name
         assert valid_policy.policy_name == "Allow All"
-
 
     def test_action_set_low_priority(self):
         device = Device.objects.get(application__application_name="app_one")

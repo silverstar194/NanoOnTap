@@ -1,9 +1,10 @@
 from ..common.retry import retry
 import nano
-
 import logging
 
+
 logger = logging.getLogger(__name__)
+
 
 class NodeService:
     def __init__(self, node):

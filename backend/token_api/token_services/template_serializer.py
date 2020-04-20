@@ -1,3 +1,10 @@
+from django.core import serializers
+
+import re
+import json
+from decimal import Decimal
+
+
 from ..models.token_models.device import Device
 from ..models.token_models.token import Token
 from ..models.token_models.action_policy import ActionPolicy
@@ -8,13 +15,6 @@ from ..models.nano_models.wallet import Wallet
 from ..models.nano_models.node import Node
 from ..models.token_models.application import Application
 from ..models.token_models.action_set import ActionSet
-
-import re
-
-from django.core import serializers
-
-import json
-from decimal import Decimal
 
 
 class DecimalEncoder(json.JSONEncoder):

@@ -1,3 +1,7 @@
+from django.conf import settings as settings
+from django.db.utils import OperationalError
+
+
 from operator import itemgetter
 import logging
 import queue
@@ -6,14 +10,10 @@ from multiprocessing.pool import ThreadPool
 import time
 import threading
 
-from django.conf import settings as settings
+
 from ..common.constants import DPOW_DELAY
 from ..common.retry import retry
-
 from .account_service import AccountService
-from django.db.utils import OperationalError
-
-
 
 logger = logging.getLogger(__name__)
 

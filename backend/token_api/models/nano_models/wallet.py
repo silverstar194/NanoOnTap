@@ -1,7 +1,7 @@
 from django.db import models
 
-from .node import Node
 
+from .node import Node
 from ..token_models.application import Application
 
 

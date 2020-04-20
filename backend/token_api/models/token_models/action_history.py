@@ -3,8 +3,8 @@ from django.db import models
 
 from .action import Action
 from .action_policy import ActionPolicy
-
 from .application import Application
+
 
 class ActionHistory(models.Model):
     action = models.OneToOneField(Action, related_name="audit_action", on_delete=models.SET_NULL, null=True)

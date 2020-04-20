@@ -1,7 +1,8 @@
+from collections.abc import Iterable
 import logging
+
 logger = logging.getLogger(__name__)
 
-from collections.abc import Iterable
 
 class AccountValidation:
 
@@ -16,9 +17,6 @@ class AccountValidation:
         self.receive_amount = receive_amount
         self.receive_count = receive_count
 
-    """
-    Return the valid account policy for action or no policy
-    """
     def validate_account_against_account_policies(self):
         for account_policy in self.account_policies:
             if self.validate_account_against_account_policy(account_policy):
@@ -26,9 +24,6 @@ class AccountValidation:
 
         return None
 
-    """
-        Validate account limits against all action set limits
-    """
     def validate_account_against_account_policy(self, account_policy):
         return account_policy.allow_account_usage()
 
