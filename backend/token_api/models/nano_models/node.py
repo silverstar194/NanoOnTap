@@ -4,14 +4,14 @@ from ..token_models.application import Application
 
 
 class NodeManager(models.Manager):
-    def get_by_natural_key(self, node_id):
-        return self.get(node_id=node_id)
+    def get_by_natural_key(self, node_name):
+        return self.get(node_name=node_name)
 
 
 class Node(models.Model):
     URL = models.CharField(max_length=512)
 
-    node_id = models.CharField(max_length=256, default=None)
+    node_name = models.CharField(max_length=256, default=None)
 
     application = models.ForeignKey(Application, related_name="node_application", on_delete=models.SET_NULL, null=True)
 
@@ -21,4 +21,4 @@ class Node(models.Model):
         return u'%s' % (self.URL)
 
     def natural_key(self):
-        return (self.node_id,)
+        return (self.node_name,)

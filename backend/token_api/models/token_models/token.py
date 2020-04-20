@@ -8,12 +8,12 @@ from .application import Application
 
 
 class TokenManager(models.Manager):
-    def get_by_natural_key(self, token_id):
-        return self.get(token_id=token_id)
+    def get_by_natural_key(self, token_name):
+        return self.get(token_name=token_name)
 
 
 class Token(models.Model):
-    token_id = models.CharField(max_length=64)
+    token_name = models.CharField(max_length=64)
 
     application = models.ForeignKey(Application, related_name="token_application", on_delete=models.SET_NULL, null=True)
 
@@ -24,10 +24,10 @@ class Token(models.Model):
     objects = TokenManager()
 
     class Meta:
-        unique_together = [['token_id', 'application']]
+        unique_together = [['token_name', 'application']]
 
     def __str__(self):
-        return self.token_id
+        return self.token_name
 
     def natural_key(self):
-        return (self.token_id,)
+        return (self.token_name,)

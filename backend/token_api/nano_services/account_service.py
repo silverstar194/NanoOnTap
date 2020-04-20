@@ -25,15 +25,15 @@ class AccountService:
             address = retry(lambda: self.rpc.account_create(wallet=self.account.wallet.wallet_id))
             self.account.address = address
             self.account.save()
-            logger.info("Created account {0} address {1} in wallet {2}".format(self.account.account_id, self.account.address, self.wallet))
+            logger.info("Created account {0} address {1} in wallet {2}".format(self.account.account_name, self.account.address, self.wallet))
         else:
-            logger.info("Account {0} address {1} already exists in wallet {2}".format(self.account.account_id, self.account.address, self.wallet))
+            logger.info("Account {0} address {1} already exists in wallet {2}".format(self.account.account_name, self.account.address, self.wallet))
 
     def ping_account(self):
         try:
             return (self.rpc.wallet_contains(self.account.wallet.wallet_id, self.account.address), self.account.address)
         except Exception:
-            logger.info("Cannot ping account {0} address {1} in wallet {2}".format(self.account.account_id, self.account.address, self.wallet))
+            logger.info("Cannot ping account {0} address {1} in wallet {2}".format(self.account.account_name, self.account.address, self.wallet))
             return False
 
     @staticmethod

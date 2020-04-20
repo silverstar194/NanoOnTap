@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 class Bootstrap:
 
-    def __init__(self, application_id):
-        self.application = Application.objects.get(application_id=application_id)
+    def __init__(self, application_name):
+        self.application = Application.objects.get(application_name=application_name)
 
     def bootstrap_application(self):
         logger.info("=== Starting bootstrap ===")

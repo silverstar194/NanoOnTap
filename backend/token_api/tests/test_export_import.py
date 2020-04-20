@@ -1,6 +1,8 @@
 from django.test import TestCase
 
-from token_api.token_services.template import import_template, export_template
+from token_api.token_services.template_deserializer import import_template
+
+from token_api.token_services.template_serializer import export_template
 
 import json
 
