@@ -1,0 +1,10 @@
+djangorestframework==3.9.0
+gunicorn==19.6.0
+psycopg2==2.7.5
+Django==2.2.12
+django-cors-headers==3.2.1
+requests==2.20.1
+certifi==2017.11.5
+urllib3==1.22
+idna==2.6
+nano-python==2.0.1
