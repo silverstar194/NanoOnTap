@@ -77,7 +77,7 @@ def attempt_action(request):
          action_set_executor = Executor(device, token, application)
          action_set_executor.run_action_set()
 
-         return JsonResponse({'message': "Action complete"}, status=403)
+         return JsonResponse({'message': "Action complete"})
 
     return JsonResponse({'message': "Post requests only"}, status=403)
 

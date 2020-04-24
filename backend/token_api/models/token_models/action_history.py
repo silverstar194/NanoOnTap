@@ -17,3 +17,5 @@ class ActionHistory(models.Model):
 
     application = models.ForeignKey(Application, related_name="action_history_application", on_delete=models.SET_NULL, null=True)
 
+    class Meta:
+        ordering = ['-executed_time']

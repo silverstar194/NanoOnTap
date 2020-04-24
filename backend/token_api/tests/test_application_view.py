@@ -19,7 +19,7 @@ class TestApplicationView(TestCase):
             data = json_file.read()
             import_template(data)
 
-    def test_get_action_sets(self):
+    def test_get_applications(self):
         client = Client()
         response = client.post(reverse('action/application/get/all'), data=json.dumps({"application_name": "app_one"}), content_type='application/json')
         content = json.loads(response.content)
@@ -35,7 +35,7 @@ class TestApplicationView(TestCase):
         assert content[0]['model'] == 'application'
         assert content[0]['fields']['application_name'] == "app_one"
 
-    def test_get_action_set(self):
+    def test_get_application(self):
         client = Client()
         response = client.post(reverse('action/application/get'), data=json.dumps({"application_name": "app_one"}), content_type='application/json')
         content = json.loads(response.content)
@@ -50,7 +50,7 @@ class TestApplicationView(TestCase):
         assert content[0]['model'] == 'application'
         assert content[0]['fields']['application_name'] == "app_one"
 
-    def test_update_action_set(self):
+    def test_update_application(self):
         with open('backend/token_api/tests/templates/template_one.json') as json_file:
             data = json_file.read()
             import_template(data)
@@ -73,7 +73,7 @@ class TestApplicationView(TestCase):
         assert content_changed[0]['model'] == 'application'
         assert content_changed[0]['fields']['application_name'] == "app_one"
 
-    def test_remove_action_set(self):
+    def test_remove_application(self):
         with open('backend/token_api/tests/templates/template_one.json') as json_file:
             data = json_file.read()
             import_template(data)
