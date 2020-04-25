@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b11b510-8150-4a4d-8d60-3c537d510a4c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_action_history_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/tests/test_action_history_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_action_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/tests/test_action_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/tests/test_application_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/tests/test_application_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_api/views/execute_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/views/execute_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,53 +19,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/common/util.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="action_history_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/views/action_history_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/NanoToken/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_action_policy_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_action_policy_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_action_set_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_action_set_view.py">
+      <file leaf-file-name="test_simple_device_token_scenarios.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
@@ -80,32 +30,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_action_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_action_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_application_view.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_application_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_account_policy_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_account_policy_view.py">
+      <file leaf-file-name="test_token_view.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_token_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
@@ -115,8 +41,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_account_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_account_view.py">
+      <file leaf-file-name="test_transaction_view.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_transaction_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
@@ -126,13 +52,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_action_history_view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_action_history_view.py">
+      <file leaf-file-name="test_wallet_view.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_wallet_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="615">
+              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/NanoToken/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2490">
+              <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account_policy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/models/nano_models/account.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action_policy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -193,9 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/token_api/tests/test_bootstrap.py" />
-        <option value="$PROJECT_DIR$/backend/token_api/tests/test_device_view.py" />
-        <option value="$PROJECT_DIR$/backend/token_api/tests/test_export_import.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_node_view.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_token_view.py" />
@@ -220,7 +209,6 @@
         <option value="$PROJECT_DIR$/backend/token_api/views/node_view.py" />
         <option value="$PROJECT_DIR$/backend/token_api/views/token_view.py" />
         <option value="$PROJECT_DIR$/backend/token_api/views/wallet_view.py" />
-        <option value="$PROJECT_DIR$/backend/token_api/admin.py" />
         <option value="$PROJECT_DIR$/backend/token_api/nano_services/balance_accounts_service.py" />
         <option value="$PROJECT_DIR$/backend/token_api/nano_services/node_service.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_account_policy_view.py" />
@@ -244,6 +232,10 @@
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_action_history_view.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_action_view.py" />
         <option value="$PROJECT_DIR$/backend/token_api/tests/test_application_view.py" />
+        <option value="$PROJECT_DIR$/backend/token_api/admin.py" />
+        <option value="$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py" />
+        <option value="$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py" />
+        <option value="$PROJECT_DIR$/backend/token_api/models/token_models/action.py" />
       </list>
     </option>
   </component>
@@ -531,65 +523,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_priority.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3140" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_token_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_transaction_view.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_wallet_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-815" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/validation/account_policies_validation.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/validation/account_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/validation/action_polices_validation.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/validation/action_set_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-995" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/action_history.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/application.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/token_services/bootstrap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-185">
@@ -684,13 +617,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/management/super_account.py" />
     <entry file="file://$PROJECT_DIR$/backend/token_api/management/commands/createnewsuperuser.py" />
-    <entry file="file://$PROJECT_DIR$/backend/NanoToken/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/views/token_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-140">
@@ -724,16 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/models/nano_models/account.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/token_api/models/nano_models/transaction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -757,25 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="30" selection-end-column="31" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -880,6 +777,142 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_bootstrap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_device_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_export_import.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_node_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_priority.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_simple_device_token_scenarios.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_token_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_transaction_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/tests/test_wallet_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/nano_models/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/account_policy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/token_api/models/token_models/action_policy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/NanoToken/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2490">
+          <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
         </state>
       </provider>
     </entry>

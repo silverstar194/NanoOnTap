@@ -31,8 +31,8 @@ class Action(models.Model):
         ordering = ['priority']
 
     def __str__(self):
-        return "{0}: {1} NANO from {2} to {3}".format(self.action_name, self.amount, self.from_account.address,
-                                                               self.to_account.address)
+        return "{0}: {1} NANO from {2} to {3}".format(self.action_name, self.amount, self.from_account.account_name,
+                                                               self.to_account.account_name)
 
     def natural_key(self):
         return (self.action_name,)

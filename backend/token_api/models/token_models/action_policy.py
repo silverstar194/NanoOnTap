@@ -28,7 +28,7 @@ class ActionPolicy(models.Model):
 
     action_limit = models.IntegerField(default=-1)
 
-    transaction_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
+    transaction_limit = models.DecimalField(decimal_places=16, max_digits=64, default=-1)
 
     objects = ActionPolicyManager()
 

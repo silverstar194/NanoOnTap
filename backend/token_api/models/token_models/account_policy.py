@@ -19,9 +19,9 @@ class AccountPolicy(models.Model):
 
     receive_action_limit = models.IntegerField(default=-1)
 
-    send_amount_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
+    send_amount_limit = models.DecimalField(default=-1, decimal_places=16, max_digits=64)
 
-    receive_amount_limit = models.DecimalField(default=0, decimal_places=16, max_digits=64)
+    receive_amount_limit = models.DecimalField(default=-1, decimal_places=16, max_digits=64)
 
     objects = AccountPolicyManager()
 

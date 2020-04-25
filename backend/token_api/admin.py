@@ -17,7 +17,7 @@ from .models.custom_action_policies.example_custom_action_policy import CustomAc
 
 
 class AccountAdmin(admin.ModelAdmin):
-    #readonly_fields = ('POW', 'address', 'current_balance')
+    readonly_fields = ('POW', 'address', 'current_balance')
     pass
 admin.site.register(Account, AccountAdmin)
 
@@ -67,5 +67,5 @@ class TokenAdmin(admin.ModelAdmin):
 admin.site.register(Token, TokenAdmin)
 
 
-admin.site.site_header = "NanoToken API"
-admin.site.index_title = "NanoToken API"
+admin.site.site_header = "Nano On Tap API"
+admin.site.index_title = "Nano On Tap API"
