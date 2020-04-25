@@ -15,10 +15,16 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+<<<<<<< HEAD
+DPOW_API_KEY = os.environ["NANO_ST__DPOW__API_KEY"]
+DPOW_API_USER = os.environ["NANO_ST__DPOW__API_USER"]
+DPOW_ENDPOINT = os.environ["NANO_ST__DPOW__ENDPOINT"]
+=======
 DPOW_API_KEY = os.environ["ST__DPOW__API_KEY"]
 DPOW_API_USER = os.environ["ST__DPOW__API_USER"]
 DPOW_ENDPOINT = os.environ["ST__DPOW__ENDPOINT"]
 DEVELOPER_MODE = eval(os.environ["ST__DEVELOPER_MODE"])
+>>>>>>> 34299db7758d56f978ce8f136224cc73831fc2e0
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/

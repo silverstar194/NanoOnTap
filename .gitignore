@@ -5,7 +5,10 @@ __pycache__/
 # C extensions
 *.so
 **/.DS_Store
+<<<<<<< HEAD
+=======
 *.env
+>>>>>>> 34299db7758d56f978ce8f136224cc73831fc2e0
 
 # Distribution / packaging
 bin/
