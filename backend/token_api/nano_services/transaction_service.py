@@ -25,6 +25,11 @@ class InsufficientNanoException(Exception):
         Exception.__init__(self, "The Nano account did not have enough RAW to make a transaction.")
 
 
+class NegativeNanoException(Exception):
+    def __init__(self):
+        Exception.__init__(self, "The send amount must be positive")
+
+
 class AddressDoesNotExistException(Exception):
     def __init__(self, account, wallet):
         Exception.__init__(self, "The Nano address {0} does not exist on wallet {1}".format(account, wallet))
@@ -49,6 +54,10 @@ class NoAccountsException(Exception):
     def __init__(self, node='NA'):
         Exception.__init__(self, "The specified node (%s) does not have any accounts." % node)
 
+class RCPException(Exception):
+    def __init__(self, node='NA'):
+        Exception.__init__(self, "Failed to communicate with nodes" % node)
+
 class TransactionService:
 
     def __init__(self):
@@ -58,7 +67,7 @@ class TransactionService:
 
         if amount < 0:
             logger.exception("Cannot send negative amount %s." % amount)
-            raise ValueError("Amount sent must be positive.")
+            raise NegativeNanoException()
 
         transaction = Transaction(
             origin=origin_account,
@@ -94,7 +103,7 @@ class TransactionService:
 
             if not sent_done:
                 logger.error("Error in create and process send")
-                raise nano.rpc.RPCException()
+                raise RCPException()
 
             logger.info("Transaction in status send to node %s " % transaction.transaction_hash_sending)
 
@@ -105,7 +114,7 @@ class TransactionService:
 
         except nano.rpc.RPCException as e:
             logger.exception("RPCException one %s" % e)
-            raise nano.rpc.RPCException(e)
+            raise RCPException()
 
         retry(lambda: transaction.origin.save())
         retry(lambda: transaction.destination.save())
@@ -137,7 +146,7 @@ class TransactionService:
             receive_done, hash_value = self.create_and_process(transaction, transaction.destination.current_balance, account_info, "receive")
             if not receive_done:
                 logger.exception("Error in create and process receive")
-                raise nano.rpc.RPCException()
+                raise RCPException()
 
         except nano.rpc.RPCException as e:
             logger.exception("RPCException two %s" % e)
@@ -146,7 +155,7 @@ class TransactionService:
             frontier = retry(lambda: rpc_destination_node.frontiers(account=transaction.destination.address, count=1)[transaction.destination.address])
             POWService.enqueue_account(account=transaction.destination, frontier=frontier)
 
-            raise nano.rpc.RPCException()
+            raise RCPException()
 
         transaction.transaction_hash_receiving = hash_value
 

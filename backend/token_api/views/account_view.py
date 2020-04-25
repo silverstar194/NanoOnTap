@@ -16,10 +16,10 @@ def get_accounts(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     return JsonResponse({'message': serialize_accounts(Account.objects.filter(application__application_name=application_name))})
 
@@ -31,18 +31,18 @@ def get_account(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         account_name = parse_arg(request, "account_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not account_name:
-        return JsonResponse({'message': "No account_name provided"})
+        return JsonResponse({'message': "No account_name provided"}, status=400)
 
     try:
         account = Account.objects.get(application__application_name=application_name, account_name=account_name)
@@ -59,18 +59,18 @@ def get_account_balance(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         account_name = parse_arg(request, "account_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not account_name:
-        return JsonResponse({'message': "No account_name provided"})
+        return JsonResponse({'message': "No account_name provided"}, status=400)
 
     try:
         account = Account.objects.get(application__application_name=application_name, account_name=account_name)
@@ -87,18 +87,18 @@ def get_account_address(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         account_name = parse_arg(request, "account_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not account_name:
-        return JsonResponse({'message': "No account_name provided"})
+        return JsonResponse({'message': "No account_name provided"}, status=400)
 
     try:
         account = Account.objects.get(application__application_name=application_name, account_name=account_name)
@@ -115,12 +115,12 @@ def update_account(request):
     try:
         account = parse_json(request)
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     try:
         deserializer_accounts([account])
     except Exception:
-        return JsonResponse({"message": "Invalid account object"})
+        return JsonResponse({"message": "Invalid account object"}, status=400)
 
     return JsonResponse({"message": "Account updated"})
 
@@ -131,18 +131,18 @@ def remove_account(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         account_name = parse_arg(request, "account_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not account_name:
-        return JsonResponse({'message': "No account_name provided"})
+        return JsonResponse({'message': "No account_name provided"}, status=400)
 
     try:
         Account.objects.get(application__application_name=application_name, account_name=account_name).delete()

@@ -17,10 +17,10 @@ def get_tokens(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     return JsonResponse({'message': serialize_tokens(Token.objects.filter(application__application_name=application_name))})
 
@@ -32,18 +32,18 @@ def get_token(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         token_name = parse_arg(request, "token_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not token_name:
-        return JsonResponse({'message': "No token_name provided"})
+        return JsonResponse({'message': "No token_name provided"}, status=400)
 
     try:
         device = Token.objects.get(application__application_name=application_name, token_name=token_name)
@@ -60,12 +60,12 @@ def update_token(request):
     try:
         token = parse_json(request)
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     try:
         deserializer_tokens([token])
     except Exception:
-        return JsonResponse({"message": "Invalid token object"})
+        return JsonResponse({"message": "Invalid token object"}, status=400)
 
     return JsonResponse({"message": "Token updated"})
 
@@ -76,18 +76,18 @@ def remove_token(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         token_name = parse_arg(request, "token_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not token_name:
-        return JsonResponse({'message': "No token_name provided"})
+        return JsonResponse({'message': "No token_name provided"}, status=400)
 
     try:
         Token.objects.get(application__application_name=application_name, token_name=token_name).delete()

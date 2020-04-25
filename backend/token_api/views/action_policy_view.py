@@ -60,12 +60,12 @@ def update_action_policy(request):
     try:
         action_policy = parse_json(request)
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     try:
         deserializer_action_polices([action_policy])
     except Exception:
-        return JsonResponse({"message": "Invalid action policy object"})
+        return JsonResponse({"message": "Invalid action policy object"}, status=400)
 
     return JsonResponse({"message": "Action Policy updated"})
 
@@ -76,18 +76,18 @@ def remove_action_policy(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         policy_name = parse_arg(request, "policy_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not policy_name:
-        return JsonResponse({'message': "No policy_name provided"})
+        return JsonResponse({'message': "No policy_name provided"}, status=400)
 
     try:
         ActionPolicy.objects.get(application__application_name=application_name, policy_name=policy_name).delete()

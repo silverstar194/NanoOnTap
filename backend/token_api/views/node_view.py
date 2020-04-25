@@ -17,10 +17,10 @@ def get_nodes(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     return JsonResponse({'message': serialize_nodes(Node.objects.filter(application__application_name=application_name))})
 
@@ -32,18 +32,18 @@ def get_node(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         node_name = parse_arg(request, "node_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not node_name:
-        return JsonResponse({'message': "No node_name provided"})
+        return JsonResponse({'message': "No node_name provided"}, status=400)
 
     try:
         node = Node.objects.get(application__application_name=application_name, node_name=node_name)
@@ -60,12 +60,12 @@ def update_node(request):
     try:
         node = parse_json(request)
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     try:
         deserializer_nodes([node])
     except Exception:
-        return JsonResponse({"message": "Invalid node object"})
+        return JsonResponse({"message": "Invalid node object"}, status=400)
 
     return JsonResponse({"message": "Node updated"})
 
@@ -76,18 +76,18 @@ def remove_node(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not application_name:
-        return JsonResponse({'message': "No application provided"})
+        return JsonResponse({'message': "No application provided"}, status=400)
 
     try:
         node_name = parse_arg(request, "node_name")
     except Exception:
-        return JsonResponse({"message": "Invalid json"})
+        return JsonResponse({"message": "Invalid json"}, status=400)
 
     if not node_name:
-        return JsonResponse({'message': "No node_name provided"})
+        return JsonResponse({'message': "No node_name provided"}, status=400)
 
     try:
         Node.objects.get(application__application_name=application_name, node_name=node_name).delete()
