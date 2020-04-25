@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_action_policies(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_action_policies(ActionPolicy.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_action_policies(request):
 @require_http_methods(["POST"])
 def get_action_policy(request):
 
-    application_name = parse_arg(request, "application")
-    policy_name = parse_arg(request, "policy_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        policy_name = parse_arg(request, "policy_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not policy_name:
+        return JsonResponse({'message': "No policy_name provided"})
 
     try:
         account_policy = ActionPolicy.objects.get(application__application_name=application_name, policy_name=policy_name)
@@ -38,8 +57,15 @@ def get_action_policy(request):
 @require_http_methods(["POST"])
 def update_action_policy(request):
 
-    action_policy = parse_json(request)
-    deserializer_action_polices([action_policy])
+    try:
+        action_policy = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_action_polices([action_policy])
+    except Exception:
+        return JsonResponse({"message": "Invalid action policy object"})
 
     return JsonResponse({"message": "Action Policy updated"})
 
@@ -47,8 +73,21 @@ def update_action_policy(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_action_policy(request):
-    application_name = parse_arg(request, "application")
-    policy_name = parse_arg(request, "policy_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        policy_name = parse_arg(request, "policy_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not policy_name:
+        return JsonResponse({'message': "No policy_name provided"})
 
     try:
         ActionPolicy.objects.get(application__application_name=application_name, policy_name=policy_name).delete()

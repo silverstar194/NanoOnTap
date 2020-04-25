@@ -14,7 +14,13 @@ from django.views.decorators.http import require_http_methods
 @require_http_methods(["POST"])
 def get_account_policies(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_account_policies(AccountPolicy.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_account_policies(request):
 @require_http_methods(["POST"])
 def get_account_policy(request):
 
-    application_name = parse_arg(request, "application")
-    policy_name = parse_arg(request, "policy_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        policy_name = parse_arg(request, "policy_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not policy_name:
+        return JsonResponse({'message': "No policy_name provided"})
 
     try:
         account_policy = AccountPolicy.objects.get(application__application_name=application_name, policy_name=policy_name)
@@ -37,9 +56,15 @@ def get_account_policy(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def update_account_policy(request):
+    try:
+        account_policy = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
 
-    account_policy = parse_json(request)
-    deserializer_account_policies([account_policy])
+    try:
+        deserializer_account_policies([account_policy])
+    except Exception:
+        return JsonResponse({"message": "Invalid account policy object"})
 
     return JsonResponse({"message": "Account Policy updated"})
 
@@ -47,8 +72,21 @@ def update_account_policy(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_account_policy(request):
-    application_name = parse_arg(request, "application")
-    policy_name = parse_arg(request, "policy_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        policy_name = parse_arg(request, "policy_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not policy_name:
+        return JsonResponse({'message': "No policy_name provided"})
 
     try:
         AccountPolicy.objects.get(application__application_name=application_name, policy_name=policy_name).delete()

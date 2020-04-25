@@ -1,20 +1,25 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models.deletion import ProtectedError
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.views.decorators.http import require_http_methods
 
 from ..models.nano_models.account import Account
 from ..token_services.template_serializer import serialize_accounts
 from ..token_services.template_deserializer import deserializer_accounts
 from ..common.util import *
-from django.views.decorators.http import require_http_methods
 
 
 @csrf_exempt
 @require_http_methods(["POST"])
 def get_accounts(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_accounts(Account.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +28,21 @@ def get_accounts(request):
 @require_http_methods(["POST"])
 def get_account(request):
 
-    application_name = parse_arg(request, "application")
-    account_name = parse_arg(request, "account_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        account_name = parse_arg(request, "account_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not account_name:
+        return JsonResponse({'message': "No account_name provided"})
 
     try:
         account = Account.objects.get(application__application_name=application_name, account_name=account_name)
@@ -36,10 +54,73 @@ def get_account(request):
 
 @csrf_exempt
 @require_http_methods(["POST"])
+def get_account_balance(request):
+
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        account_name = parse_arg(request, "account_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not account_name:
+        return JsonResponse({'message': "No account_name provided"})
+
+    try:
+        account = Account.objects.get(application__application_name=application_name, account_name=account_name)
+    except ObjectDoesNotExist:
+        return JsonResponse({'message': []})
+
+    return JsonResponse({'message': {'current_balance': convert_raw_to_NANO_output(account.current_balance)}})
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def get_account_address(request):
+
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        account_name = parse_arg(request, "account_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not account_name:
+        return JsonResponse({'message': "No account_name provided"})
+
+    try:
+        account = Account.objects.get(application__application_name=application_name, account_name=account_name)
+    except ObjectDoesNotExist:
+        return JsonResponse({'message': []})
+
+    return JsonResponse({'message': {'address': account.address}})
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
 def update_account(request):
 
-    account = parse_json(request)
-    deserializer_accounts([account])
+    try:
+        account = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_accounts([account])
+    except Exception:
+        return JsonResponse({"message": "Invalid account object"})
 
     return JsonResponse({"message": "Account updated"})
 
@@ -47,8 +128,21 @@ def update_account(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_account(request):
-    application_name = parse_arg(request, "application")
-    account_name = parse_arg(request, "account_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        account_name = parse_arg(request, "account_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not account_name:
+        return JsonResponse({'message': "No account_name provided"})
 
     try:
         Account.objects.get(application__application_name=application_name, account_name=account_name).delete()

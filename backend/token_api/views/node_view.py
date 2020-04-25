@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_nodes(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_nodes(Node.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_nodes(request):
 @require_http_methods(["POST"])
 def get_node(request):
 
-    application_name = parse_arg(request, "application")
-    node_name = parse_arg(request, "node_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        node_name = parse_arg(request, "node_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not node_name:
+        return JsonResponse({'message': "No node_name provided"})
 
     try:
         node = Node.objects.get(application__application_name=application_name, node_name=node_name)
@@ -38,8 +57,15 @@ def get_node(request):
 @require_http_methods(["POST"])
 def update_node(request):
 
-    account = parse_json(request)
-    deserializer_nodes([account])
+    try:
+        node = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_nodes([node])
+    except Exception:
+        return JsonResponse({"message": "Invalid node object"})
 
     return JsonResponse({"message": "Node updated"})
 
@@ -47,8 +73,21 @@ def update_node(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_node(request):
-    application_name = parse_arg(request, "application")
-    node_name = parse_arg(request, "node_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        node_name = parse_arg(request, "node_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not node_name:
+        return JsonResponse({'message': "No node_name provided"})
 
     try:
         Node.objects.get(application__application_name=application_name, node_name=node_name).delete()

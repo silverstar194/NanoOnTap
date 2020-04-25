@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_actions(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_actions(Action.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_actions(request):
 @require_http_methods(["POST"])
 def get_action(request):
 
-    application_name = parse_arg(request, "application")
-    action_name = parse_arg(request, "action_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        action_name = parse_arg(request, "action_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not action_name:
+        return JsonResponse({'message': "No action_name provided"})
 
     try:
         account = Action.objects.get(application__application_name=application_name, action_name=action_name)
@@ -38,8 +57,15 @@ def get_action(request):
 @require_http_methods(["POST"])
 def update_action(request):
 
-    account = parse_json(request)
-    deserializer_actions([account])
+    try:
+        action = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_actions([action])
+    except Exception:
+        return JsonResponse({"message": "Invalid action object"})
 
     return JsonResponse({"message": "Action updated"})
 
@@ -47,8 +73,21 @@ def update_action(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_action(request):
-    application_name = parse_arg(request, "application")
-    action_name = parse_arg(request, "action_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        action_name = parse_arg(request, "action_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not action_name:
+        return JsonResponse({'message': "No action_name provided"})
 
     try:
         Action.objects.get(application__application_name=application_name, action_name=action_name).delete()

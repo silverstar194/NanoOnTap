@@ -11,7 +11,20 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_action_history(request):
 
-    application_name = parse_arg(request, "application")
-    action_name = parse_arg(request, "action_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        action_name = parse_arg(request, "action_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not action_name:
+        return JsonResponse({'message': "No action_name provided"})
 
     return JsonResponse({'message': serialize_general(ActionHistory.objects.filter(application__application_name=application_name, action__action_name=action_name))})

@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_applications(request):
 
-    application_name = parse_arg(request, "application_name")
+    try:
+        application_name = parse_arg(request, "application_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application_name provided"})
 
     return JsonResponse({'message': serialize_applications(Application.objects.filter(application_name=application_name))})
 
@@ -23,7 +29,13 @@ def get_applications(request):
 @require_http_methods(["POST"])
 def get_application(request):
 
-    application_name = parse_arg(request, "application_name")
+    try:
+        application_name = parse_arg(request, "application_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application_name provided"})
 
     try:
         application = Application.objects.get(application_name=application_name)
@@ -37,8 +49,15 @@ def get_application(request):
 @require_http_methods(["POST"])
 def update_application(request):
 
-    application = parse_json(request)
-    deserializer_applications([application])
+    try:
+        application = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_applications([application])
+    except Exception:
+        return JsonResponse({"message": "Invalid application object"})
 
     return JsonResponse({"message": "Application updated"})
 
@@ -46,7 +65,13 @@ def update_application(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_application(request):
-    application_name = parse_arg(request, "application_name")
+    try:
+        application_name = parse_arg(request, "application_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application_name provided"})
 
     try:
         Application.objects.get(application_name=application_name).delete()

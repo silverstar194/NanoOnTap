@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_wallets(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_wallets(Wallet.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_wallets(request):
 @require_http_methods(["POST"])
 def get_wallet(request):
 
-    application_name = parse_arg(request, "application")
-    wallet_name = parse_arg(request, "wallet_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        wallet_name = parse_arg(request, "wallet_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not wallet_name:
+        return JsonResponse({'message': "No wallet_name provided"})
 
     try:
         wallet = Wallet.objects.get(application__application_name=application_name, wallet_name=wallet_name)
@@ -38,8 +57,15 @@ def get_wallet(request):
 @require_http_methods(["POST"])
 def update_wallet(request):
 
-    wallet = parse_json(request)
-    deserializer_wallets([wallet])
+    try:
+        wallet = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_wallets([wallet])
+    except Exception:
+        return JsonResponse({"message": "Invalid wallet object"})
 
     return JsonResponse({"message": "Wallet updated"})
 
@@ -47,8 +73,21 @@ def update_wallet(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_wallet(request):
-    application_name = parse_arg(request, "application")
-    wallet_name = parse_arg(request, "wallet_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        wallet_name = parse_arg(request, "wallet_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not wallet_name:
+        return JsonResponse({'message': "No wallet_name provided"})
 
     try:
         Wallet.objects.get(application__application_name=application_name, wallet_name=wallet_name).delete()

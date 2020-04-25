@@ -14,7 +14,13 @@ from ..common.util import *
 @require_http_methods(["POST"])
 def get_devices(request):
 
-    application_name = parse_arg(request, "application")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
 
     return JsonResponse({'message': serialize_devices(Device.objects.filter(application__application_name=application_name))})
 
@@ -23,8 +29,21 @@ def get_devices(request):
 @require_http_methods(["POST"])
 def get_device(request):
 
-    application_name = parse_arg(request, "application")
-    device_name = parse_arg(request, "device_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        device_name = parse_arg(request, "device_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not device_name:
+        return JsonResponse({'message': "No device_name provided"})
 
     try:
         device = Device.objects.get(application__application_name=application_name, device_name=device_name)
@@ -38,8 +57,15 @@ def get_device(request):
 @require_http_methods(["POST"])
 def update_device(request):
 
-    device = parse_json(request)
-    deserializer_devices([device])
+    try:
+        device = parse_json(request)
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    try:
+        deserializer_devices([device])
+    except Exception:
+        return JsonResponse({"message": "Invalid device object"})
 
     return JsonResponse({"message": "Device updated"})
 
@@ -47,8 +73,21 @@ def update_device(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def remove_device(request):
-    application_name = parse_arg(request, "application")
-    device_name = parse_arg(request, "device_name")
+    try:
+        application_name = parse_arg(request, "application")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not application_name:
+        return JsonResponse({'message': "No application provided"})
+
+    try:
+        device_name = parse_arg(request, "device_name")
+    except Exception:
+        return JsonResponse({"message": "Invalid json"})
+
+    if not device_name:
+        return JsonResponse({'message': "No device_name provided"})
 
     try:
         Device.objects.get(application__application_name=application_name, device_name=device_name).delete()

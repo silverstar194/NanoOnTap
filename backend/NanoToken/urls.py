@@ -24,6 +24,8 @@ urlpatterns = [
     path('action/execute', views.attempt_action),
 
     path('action/account/get', views.get_account, name='action/account/get'),
+    path('action/account/get/balance', views.get_account_balance, name='action/account/get/balance'),
+    path('action/account/get/address', views.get_account_address, name='action/account/get/address'),
     path('action/account/get/all', views.get_accounts, name='action/account/get/all'),
     path('action/account/update', views.update_account, name='action/account/update'),
     path('action/account/remove', views.remove_account, name='action/account/remove'),
