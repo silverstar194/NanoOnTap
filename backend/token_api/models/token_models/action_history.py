@@ -17,3 +17,8 @@ class ActionHistory(models.Model):
 
     application = models.ForeignKey(Application, related_name="action_history_application", on_delete=models.SET_NULL, null=True)
 
+<<<<<<< HEAD:backend/token_api/models/token_models/action_history.py
+=======
+    class Meta:
+        ordering = ['-executed_time']
+>>>>>>> 34299db7758d56f978ce8f136224cc73831fc2e0:backend/token_api/models/action_history.py

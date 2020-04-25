@@ -15,9 +15,16 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+<<<<<<< HEAD
 DPOW_API_KEY = os.environ["NANO_ST__DPOW__API_KEY"]
 DPOW_API_USER = os.environ["NANO_ST__DPOW__API_USER"]
 DPOW_ENDPOINT = os.environ["NANO_ST__DPOW__ENDPOINT"]
+=======
+DPOW_API_KEY = os.environ["ST__DPOW__API_KEY"]
+DPOW_API_USER = os.environ["ST__DPOW__API_USER"]
+DPOW_ENDPOINT = os.environ["ST__DPOW__ENDPOINT"]
+DEVELOPER_MODE = eval(os.environ["ST__DEVELOPER_MODE"])
+>>>>>>> 34299db7758d56f978ce8f136224cc73831fc2e0
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -26,9 +33,9 @@ DPOW_ENDPOINT = os.environ["NANO_ST__DPOW__ENDPOINT"]
 SECRET_KEY = '@zk7u6!mt8ba=x29260n6hjq@p)ypx0@8jglwbl^bbhrak6&bn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEVELOPER_MODE
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,12 +84,23 @@ WSGI_APPLICATION = 'NanoToken.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEVELOPER_MODE:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
+    }
 
 LOGGING = {
     'version': 1,
@@ -161,5 +179,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
-STATIC_URL = '/static/'
+STATIC_ROOT='/static/'
+STATIC_URL='/static/'

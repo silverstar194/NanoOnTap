@@ -1,0 +1,35 @@
+version: "2"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: ng01
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/backend
+      - ./static:/static
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+  web:
+    build: .
+    container_name: dg01
+    command: bash -c "python manage.py makemigrations token_api && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn NanoToken.wsgi --bind=0.0.0.0:8000"
+    environment:
+      - ST__DEVELOPER_MODE=False
+    env_file:
+      - django.env
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/backend
+      - ./static:/static
+    expose:
+      - "8000"
+
+  db:
+    image: postgres:latest
+    container_name: ps01
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"

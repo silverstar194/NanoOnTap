@@ -9,7 +9,11 @@ import json
 from token_api.token_services.template_deserializer import import_template
 
 
+<<<<<<< HEAD
 class TestActiontView(TestCase):
+=======
+class TestActionView(TestCase):
+>>>>>>> 34299db7758d56f978ce8f136224cc73831fc2e0
 
     """
     Test valid setup between account_one and account_two. One device, one token, sending allowed.
