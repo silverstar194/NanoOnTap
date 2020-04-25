@@ -36,7 +36,7 @@ class TestWalletView(TestCase):
 
     def test_get_wallet_not_exists(self):
         client = Client()
-        response = client.post(reverse('action/wallet/get'), data=json.dumps({"application": "app_one", "wallet_one": "NONE" }), content_type='application/json')
+        response = client.post(reverse('action/wallet/get'), data=json.dumps({"application": "app_one", "wallet_name": "NONE" }), content_type='application/json')
         content = json.loads(response.content)
 
         # check message
