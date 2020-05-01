@@ -2,6 +2,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models.deletion import ProtectedError
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
 
 from ..models.nano_models.account import Account
 from ..token_services.template_serializer import serialize_accounts
@@ -77,7 +78,7 @@ def get_account_balance(request):
     except ObjectDoesNotExist:
         return JsonResponse({'message': []})
 
-    return JsonResponse({'message': {'current_balance': convert_raw_to_NANO_output(account.current_balance)}})
+    return JsonResponse({'message': {'current_balance': account.current_balance}})
 
 
 @csrf_exempt

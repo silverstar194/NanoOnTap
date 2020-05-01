@@ -21,5 +21,6 @@ class TokenApiConfig(AppConfig):
             logger.info('Starting sync accounts')
             BalanceAccount().sync_accounts()
             AccountService.clear_receive_accounts()
-        except Exception:
+        except Exception as E:
             logger.error("Could not run start up script...")
+            raise E

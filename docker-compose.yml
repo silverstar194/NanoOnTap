@@ -14,7 +14,7 @@ services:
   web:
     build: .
     container_name: dg01
-    command: bash -c "python manage.py makemigrations token_api && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn NanoToken.wsgi --bind=0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations token_api && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn NanoToken.wsgi --log-level=debug --timeout=30 --workers=4 --bind=0.0.0.0:8000"
     environment:
       - ST__DEVELOPER_MODE=False
     env_file:

@@ -1,16 +1,20 @@
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 
-from ..models.token_models.transaction import Transaction
-from ..token_services.template_serializer import serialize_general
+import logging
+
+from ..nano_services.balance_accounts_service import BalanceAccount
+from ..nano_services.account_service import AccountService
+
 from ..common.util import *
 
+logger = logging.getLogger(__name__)
 
 @csrf_exempt
 @require_http_methods(["POST"])
-def get_transactions(request):
-
+def sync(request):
     try:
         application_name = parse_arg(request, "application")
     except Exception:
@@ -19,4 +23,7 @@ def get_transactions(request):
     if not application_name:
         return JsonResponse({'message': "No application provided"}, status=400)
 
-    return JsonResponse({'message': serialize_general(Transaction.objects.filter(application__application_name=application_name))})
+    BalanceAccount().sync_accounts()
+    AccountService.clear_receive_accounts()
+
+    return JsonResponse({'message': "Sync complete"})

@@ -7,7 +7,6 @@ import logging
 
 
 from ..models.nano_models.account import Account
-from ..common.util import convert_raw_to_NANO
 
 
 logger = logging.getLogger(__name__)
@@ -32,7 +31,7 @@ class BalanceAccount:
 
         rpc = retry(lambda: nano.rpc.Client(account.wallet.node.URL))
 
-        new_balance = convert_raw_to_NANO(retry(lambda: rpc.account_balance(account=account.address)['balance']))
+        new_balance = retry(lambda: rpc.account_balance(account=account.address)['balance'])
 
         if not account.current_balance == new_balance:
             account.current_balance = new_balance

@@ -70,7 +70,7 @@ class POWService:
     def get_pow(cls, account, hash_value):
         POW = None
         try:
-            POW = retry(lambda: cls._get_dpow(hash_value)['work'], retries=5, pause=.5)
+            POW = retry(lambda: cls._get_dpow(hash_value)['work'])
         except:
             logger.error('dPoW failure account %s' % account.address)
 

@@ -2,6 +2,7 @@ from django.core import serializers
 
 import re
 import json
+import datetime
 from decimal import Decimal
 
 
@@ -15,12 +16,15 @@ from ..models.nano_models.wallet import Wallet
 from ..models.nano_models.node import Node
 from ..models.token_models.application import Application
 from ..models.token_models.action_set import ActionSet
+from ..models.token_models.transaction import Transaction
 
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Decimal):
             return float(obj)
+        if isinstance(obj, (datetime.date, datetime.datetime)):
+            return obj.isoformat()
         return json.JSONEncoder.default(self, obj)
 
 
@@ -81,6 +85,18 @@ def serialize_account_policies(account_policies):
 
 def serialize_nodes(nodes):
     return serialize_general(nodes)
+
+
+def serialize_action_set_history(action_set_history):
+    if not len(action_set_history) == 1:
+        raise Exception("Only can serialize single action_set_history")
+    actions = serializers.serialize('python', action_set_history, use_natural_foreign_keys=True, use_natural_primary_keys=True, cls=DecimalEncoder)
+    transactions = action_set_history[0].transactions.all()
+
+    if len(actions[0]['fields']['transactions']) > 0:
+        actions[0]['fields']['transactions'] = serializers.serialize('python', transactions, use_natural_foreign_keys=True, use_natural_primary_keys=True, cls=DecimalEncoder)
+
+    return strip_text(actions, "token_api.")
 
 
 def serialize_actions(actions):

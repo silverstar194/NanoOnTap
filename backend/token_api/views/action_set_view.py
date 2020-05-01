@@ -1,7 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models.deletion import ProtectedError
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.http import JsonResponse
 
 from ..models.token_models.action_set import ActionSet
 from ..token_services.template_serializer import serialize_action_set

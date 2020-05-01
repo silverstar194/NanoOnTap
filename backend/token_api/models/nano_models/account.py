@@ -19,7 +19,7 @@ class Account(models.Model):
 
     address = models.CharField(max_length=65)
 
-    current_balance = models.DecimalField(default=0, decimal_places=16, max_digits=64)
+    current_balance = models.DecimalField(default=0, decimal_places=0, max_digits=64)
 
     POW = models.CharField(max_length=16, null=True, default=None)
 

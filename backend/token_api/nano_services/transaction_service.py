@@ -1,16 +1,12 @@
 import requests
-import threading
-import json
-import time
 import nano
-import logging
 
 
 from .account_service import AccountService
 from .pow_service import POWService
-from ..common.retry import retry
-from ..common.util import convert_NANO_to_RAW
-from ..models.nano_models.transaction import Transaction
+from ..common.retry import *
+from ..models.token_models.transaction import Transaction
+
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +31,7 @@ class AddressDoesNotExistException(Exception):
         Exception.__init__(self, "The Nano address {0} does not exist on wallet {1}".format(account, wallet))
 
 
-class NoIncomingBlocksException(Exception):
+class NoIncomingBlocksExceFDeption(Exception):
     def __init__(self, account):
         Exception.__init__(self, "There were no incoming blocks to receive for the account: %s." % account)
 
@@ -55,8 +51,8 @@ class NoAccountsException(Exception):
         Exception.__init__(self, "The specified node (%s) does not have any accounts." % node)
 
 class RCPException(Exception):
-    def __init__(self, node='NA'):
-        Exception.__init__(self, "Failed to communicate with nodes" % node)
+    def __init__(self):
+        Exception.__init__(self, "Failed to communicate with nodes")
 
 class TransactionService:
 
@@ -64,7 +60,6 @@ class TransactionService:
         self.pow_service = POWService()
 
     def new_transaction(self, application, origin_account, destination_account, amount):
-
         if amount < 0:
             logger.exception("Cannot send negative amount %s." % amount)
             raise NegativeNanoException()
@@ -120,17 +115,15 @@ class TransactionService:
         retry(lambda: transaction.destination.save())
         retry(lambda: transaction.save())
 
-        # Return as soon as transaction_hash_receiving is available
-        # Finish work on 2nd thread
-        t = threading.Thread(target=self.send_receive_block_async, args=(transaction, rpc_destination_node))
-        t.start()
-
         # Regenerate PoW
         POWService.enqueue_account(account=transaction.origin, frontier=transaction.transaction_hash_sending)
+
+        # Return as soon as transaction_hash_receiving is available
+        transaction = self.send_receive_block(transaction, rpc_destination_node)
+
         return transaction
 
-
-    def send_receive_block_async(self, transaction, rpc_destination_node):
+    def send_receive_block(self, transaction, rpc_destination_node):
 
         if not AccountService.ad_hoc_validation_or_regeneration(transaction.destination):
             logger.error('Total failure of dPoW. Aborting transaction account %s' % transaction.destination.address)
@@ -163,15 +156,9 @@ class TransactionService:
         retry(lambda: transaction.save())
         POWService.enqueue_account(account=transaction.destination, frontier=transaction.transaction_hash_receiving)
 
+        return transaction
+
     def get_transaction(self, id):
-        """
-        Get a transaction by id
-
-        @param id: Id of the transaction to search for
-        @return: None if not found or Transaction object
-        @raise: MultipleObjectsReturned: If more than one object exists, this is raised
-        """
-
         try:
             return retry(lambda: Transaction.objects.get(id=id))
         except Transaction.DoesNotExist:
@@ -182,6 +169,7 @@ class TransactionService:
     def create_and_process(self, transaction, account_balance, account_info, type):
 
         if not type == "receive" and not type == "send":
+            logger.error("block type not receive or send")
             return False
 
         if type == "send":
@@ -190,7 +178,7 @@ class TransactionService:
             wallet = transaction.origin.wallet.wallet_id
             account = transaction.origin.address
             link = transaction.destination.address
-            amount = convert_NANO_to_RAW(account_balance - transaction.amount)
+            amount = int(account_balance - transaction.amount)
 
         if type == "receive":
             node_url = transaction.destination.wallet.node.URL
@@ -203,7 +191,7 @@ class TransactionService:
                 link = transaction.transaction_hash_sending
                 transaction = self.get_transaction(transaction.id)
                 time.sleep(.1)
-            amount = convert_NANO_to_RAW(account_balance)
+            amount = account_balance
 
         headers = {
             'Content-Type': 'application/json',
@@ -215,31 +203,39 @@ class TransactionService:
             "previous": account_info['frontier'],
             "account": account,
             "representative": account_info['representative'],
-            "balance": amount,
+            "balance": int(amount),
             "link": link,
             "wallet": wallet,
             "work": work,
             "id": str(transaction.id),
         }
 
-        logger.info(data_create_block)
+        logger.info("Type {0} Block {1}".format(type, json.dumps(data_create_block)))
         sent_successful = False
 
-        response = retry(lambda: requests.post(node_url, headers=headers, data=json.dumps(data_create_block)), retries=5)
+        response = retry_post(lambda: requests.post(node_url, headers=headers, data=json.dumps(data_create_block)), item="block")
 
         if response.status_code == requests.codes.ok:
             sent_successful = True
+        else:
+            logger.info("Block failed to be created {}".format(response.text))
 
         create_block_response = json.loads(response.text)
 
         block_for_proccessing = {
             "action": "process",
             "block": create_block_response['block'],
-            "watch_work": False
         }
 
-        response = retry(lambda: requests.post(node_url, headers=headers, data=json.dumps(block_for_proccessing)), retries=5)
+        response = retry_post(lambda: requests.post(node_url, headers=headers, data=json.dumps(block_for_proccessing)), item="hash")
+
+        if response.status_code != requests.codes.ok:
+            sent_successful = False
+            logger.info("Block failed to be processed {0}".format(response.text))
+
         response_json = json.loads(response.text)
+        if 'hash' not in response_json:
+            logger.error("Create and process error {0}".format(response_json))
 
         hash_value = response_json['hash']
 
@@ -252,8 +248,5 @@ class TransactionService:
             logger.info("Receive hash %s", hash_value)
 
         retry(lambda: transaction.save())
-
-        if response.status_code != requests.codes.ok:
-            sent_successful = False
 
         return sent_successful, hash_value

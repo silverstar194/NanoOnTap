@@ -1,4 +1,4 @@
-from .execute_view import *
+from .template_view import *
 from .account_view import *
 from .node_view import *
 from .transaction_view import *
@@ -11,3 +11,6 @@ from .action_set_view import *
 from .application_view import *
 from .device_view import *
 from .token_view import *
+from .bootstrap_view import *
+from .execute_view import *
+from .sync_view import *

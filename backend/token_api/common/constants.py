@@ -1,4 +1,4 @@
-DPOW_DELAY = 5
+DPOW_DELAY = 1
 
 account_serialize_pre_string = r'"model": "account"'
 account_serialize_post_string = r'"model": "token_api.account"'

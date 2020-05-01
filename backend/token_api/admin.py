@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from .models.nano_models.account import Account
 from .models.nano_models.node import Node
-from .models.nano_models.transaction import Transaction
+from .models.token_models.transaction import Transaction
 from .models.nano_models.wallet import Wallet
 from .models.token_models.action import Action
 from .models.token_models.action_set import ActionSet
@@ -14,10 +14,11 @@ from .models.token_models.device import Device
 from .models.token_models.token import Token
 from .models.token_models.application import Application
 from .models.custom_action_policies.example_custom_action_policy import CustomActionPolicy
+from .models.token_models.action_history import ActionHistory
 
 
 class AccountAdmin(admin.ModelAdmin):
-    readonly_fields = ('POW', 'address', 'current_balance')
+    #readonly_fields = ('POW', 'address', 'current_balance')
     pass
 admin.site.register(Account, AccountAdmin)
 
@@ -38,7 +39,7 @@ class TransactionAdmin(admin.ModelAdmin):
 admin.site.register(Transaction, TransactionAdmin)
 
 class WalletAdmin(admin.ModelAdmin):
-    readonly_fields = ('wallet_id',)
+    #readonly_fields = ('wallet_id',)
     pass
 admin.site.register(Wallet, WalletAdmin)
 
@@ -49,6 +50,10 @@ admin.site.register(Action, ActionAdmin)
 class ActionSetAdmin(admin.ModelAdmin):
     pass
 admin.site.register(ActionSet, ActionAdmin)
+
+class ActionHistoryAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(ActionHistory, ActionAdmin)
 
 class AllowedActionPolicyAdmin(admin.ModelAdmin):
     pass

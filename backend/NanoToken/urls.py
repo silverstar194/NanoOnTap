@@ -22,6 +22,9 @@ urlpatterns = [
     path('action/template/import', views.import_template_view),
     path('action/template/export', views.export_template_view),
     path('action/execute', views.attempt_action),
+    path('action/bootstrap', views.bootstrap_all),
+    path('action/sync', views.sync),
+    path('action/ping', views.ping),
 
     path('action/account/get', views.get_account, name='action/account/get'),
     path('action/account/get/balance', views.get_account_balance, name='action/account/get/balance'),

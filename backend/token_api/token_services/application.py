@@ -10,7 +10,7 @@ from ..models.token_models.application import Application
 
 
 def application_exists(application):
-    return Application.objects.filter(application_name=application).count() > 0 or Token.objects.filter(application__application_id=application).count() > 0 or Device.objects.filter(application__application_id=application).count() > 0
+    return Application.objects.filter(application_name=application).count() > 0 or Token.objects.filter(application__application_name=application).count() > 0 or Device.objects.filter(application__application_name=application).count() > 0
 
 
 def clean_up_failed_template(application):

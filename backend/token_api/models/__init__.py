@@ -1,8 +1,8 @@
 from .nano_models.account import Account
 from .nano_models.node import Node
-from .nano_models.transaction import Transaction
 from .nano_models.wallet import Wallet
 
+from .token_models.transaction import Transaction
 from .token_models.action import Action
 from .token_models.account_policy import AccountPolicy
 from .token_models.action_policy import ActionPolicy

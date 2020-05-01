@@ -2,7 +2,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.db.models.deletion import ProtectedError
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.http import JsonResponse
 
 from ..models.nano_models.node import Node
 from ..token_services.template_serializer import serialize_nodes

@@ -7,7 +7,7 @@ import nano
 
 
 from .. import models as models
-from ..common.retry import retry
+from ..common.retry import *
 
 logger = logging.getLogger(__name__)
 
@@ -50,29 +50,21 @@ class AccountService:
 
     @staticmethod
     def clear_receive_accounts():
-        accounts_list = AccountService.get_accounts() # Not great all threads will vaildate TODO
+        accounts_list = AccountService.get_accounts()
 
         thread_pool = ThreadPool(processes=4)
 
         try:
             for account in accounts_list:
-                thread_pool.apply_async(AccountService.clear_frontier_async, (account,))
+                AccountService.clear_frontier(account)
         except OperationalError:
             pass
 
         thread_pool.close()
         thread_pool.join()
 
-
-    def unlock_all_accounts(self):
-        retry(lambda: models.Account.objects.all().update(in_use=False))
-
-
-    def lock_all_accounts(self):
-        retry(lambda: models.Account.objects.all().update(in_use=True))
-
     @staticmethod
-    def clear_frontier_async(self, account):
+    def clear_frontier(account):
         logger.info('Clearing possible receive blocks from account %s' % account.address)
 
         pending_blocks = None
@@ -80,7 +72,10 @@ class AccountService:
             rpc = nano.rpc.Client(account.wallet.node.URL)
             pending_blocks = retry(lambda: rpc.accounts_pending([account.address])[account.address])
         except Exception as e:
-            logger.exception('RCP call failed during receive %s' % str(e.message))
+            logger.exception('RCP call failed during receive %s' % str(e))
+
+        if not pending_blocks:
+            return
 
         for block in pending_blocks:
             logger.info("Found block %s to receive for %s " % (block, account.address))
@@ -90,21 +85,16 @@ class AccountService:
                 continue
 
             try:
-                received_block = retry(lambda: rpc.receive(wallet=account.wallet.wallet_id, account=account.address, work=account.POW, block=block))
+                received_block = retry(lambda: rpc.receive(wallet=account.wallet.wallet_id, account=account.address,work=account.POW, block=block))
                 logger.info('Received block %s to %s' % (received_block, account.address))
             except nano.rpc.RPCException as e:
-                logger.exception('Error during clean up receive account %s block %s ' % (account.address, block, str(e)))
+                logger.exception('Error during clean up receive account %s block %s ' % (account.address, block))
 
 
     @staticmethod
     def validate_PoW(account):
-        """
-        Check for valid PoW.
-        :param account:
-        :returns PoW valid on account
-        """
         rpc = nano.rpc.Client(account.wallet.node.URL)
-        frontier = retry(lambda: list(rpc.frontiers(account=account.address, count=1).values())[0])
+        frontier = retry(lambda: rpc.frontiers(account=account.address, count=1)[account.address], retries=5, pause=.25)
         valid_PoW = False
 
         if not account.POW:
@@ -112,7 +102,7 @@ class AccountService:
             return valid_PoW, frontier
 
         try:
-            valid_PoW = retry(lambda: rpc.work_validate(work=account.POW, hash=frontier))
+            valid_PoW = retry(lambda: rpc.work_validate(work=account.POW, hash=frontier), retries=5, pause=.25)
         except Exception as e:
             logger.exception('PoW invalid during validate_PoW %s' % str(e))
 
