@@ -4,6 +4,8 @@ Nano On Tap is a stateless flow control and orchestration system for nano transa
 
 Additionally flow state systems can be modeld, exported and imported through json templates. This allows for creation of complex use cases.
 
+The core advantage of Nano On Tap TODO
+
 ### Simple Example
 
 ### Nano Poker Example
@@ -15,7 +17,6 @@ Create Django Superuser
 ```sh
 docker exec -it $(docker inspect --format="{{.Id}}" dg01) python manage.py createsuperuser
 ```
-
 ## DFo Usage
 ### Setup
 TODO
