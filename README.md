@@ -11,6 +11,11 @@ The core advantage of Nano On Tap TODO
 ### Nano Poker Example
 
 ## Production
+### Prerequisites
+* Docker
+* [Nano Node](https://docs.nano.org/running-a-node/node-setup/)
+* [PoW Provider](https://nanocenter.org/projects/dpow) 
+
 ### Docker usage
 TODO
 Create Django Superuser
