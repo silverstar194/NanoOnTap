@@ -8,6 +8,7 @@ __pycache__/
 *.env
 **/.idea/
 **/.Rhistory
+**/db.sqlite3
 # Distribution / packaging
 bin/
 build/
