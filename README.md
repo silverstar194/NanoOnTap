@@ -33,7 +33,7 @@ git clone https://github.com/silverstar194/NanoOnTap.git
 ```sd
 docker-compose build && docker-compose up -d
 ```
-3. Check everything deployed. Go to lhttp://localhost:8000/admin/. You should see a login screen.
+3. Check everything deployed. Go to http://localhost:8000/admin/. You should see a login screen.
 ![Login Screen](https://i.imgur.com/OFRk9Dg.png)
 4. Create Django superuser
 ```sh
