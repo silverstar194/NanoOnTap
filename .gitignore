@@ -9,6 +9,8 @@ __pycache__/
 **/.idea/
 **/.Rhistory
 **/db.sqlite3
+**/migrations/*
+
 # Distribution / packaging
 bin/
 build/
