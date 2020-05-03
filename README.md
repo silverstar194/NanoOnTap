@@ -16,7 +16,7 @@ The core advantage of Nano On Tap TODO
 * [Nano Node](https://docs.nano.org/running-a-node/node-setup/)
 * [PoW Provider](https://nanocenter.org/projects/dpow) 
 
-### Docker usage
+### Docker usage **RECOMMENDED**
 The provided production stack is dockerized and includes:
 * gunicorn (dg01 container)
 * nginx (ng01 container)
@@ -29,18 +29,23 @@ The dockerized setup is meant to be used as a drop in backend. A admin UI is inc
 ```sh
 git clone https://github.com/silverstar194/NanoOnTap.git
 ```
-2. Create and start containers. Database will be created and initalized automatically.
+2. Create and start containers. Database will be created automatically.
 ```sd
 docker-compose build && docker-compose up -d
 ```
-3. Check everything deployed. Go to http://localhost:8000/admin/. You should see a login screen.
-![Login Screen](https://i.imgur.com/OFRk9Dg.png)
+3. Check everything deployed. Go to http://localhost:8001/admin/. You should see a login screen.
+![Login Screen](https://i.imgur.com/i4q54M4.png)
 4. Create Django superuser
 ```sh
 docker exec -it $(docker inspect --format="{{.Id}}" dg01) python manage.py createsuperuser
 ```
-5. You can now login and see flow state components.
+5. Import Nano Poker JSON template by sending a POST request `POST action/template/import` including the JSON in `poker_template.json` as the request bobdy. This imports and defines the Poker flow state.
+```
+POST action/template/import
+```
+6. Restart the docker container to bootstrap the Nano Wallet and Nano Accounts from Nano Node. This automaticlly creates a new wallet and needed accounts on the Node.
 
-## DFo Usage
+## Developer Usage
+
 ### Setup
 TODO
