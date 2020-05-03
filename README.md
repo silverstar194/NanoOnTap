@@ -39,11 +39,7 @@ docker-compose build && docker-compose up -d
 ```sh
 docker exec -it $(docker inspect --format="{{.Id}}" dg01) python manage.py createsuperuser
 ```
-5. Import Nano Poker JSON template by sending a POST request `POST action/template/import` including the JSON in `poker_template.json` as the request bobdy. This imports and defines the Poker flow state.
-```
-POST action/template/import
-```
-6. Restart the docker container to bootstrap the Nano Wallet and Nano Accounts from Nano Node. This automaticlly creates a new wallet and needed accounts on the Node.
+5. You can now login and see flow state components.
 
 ## Developer Usage
 
