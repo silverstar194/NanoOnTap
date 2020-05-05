@@ -26,11 +26,12 @@ The dockerized setup is meant to be used as a drop in backend. A admin UI is inc
 
 #### Setup
 1. Clone NanoOnTap repo
+
 ```sh
 git clone https://github.com/silverstar194/NanoOnTap.git
 ```
 2. Create and start containers. Database will be created automatically.
-```sd
+```sh
 docker-compose build && docker-compose up -d
 ```
 3. Check everything deployed. Go to http://localhost:8000/admin/. You should see a login screen.
@@ -41,7 +42,19 @@ docker exec -it $(docker inspect --format="{{.Id}}" dg01) python manage.py creat
 ```
 5. You can now login and see flow state components.
 
-## Developer Usage
+## Developer Usage Setup
+1. Clone NanoOnTap repo
+```sh
+git clone https://github.com/silverstar194/NanoOnTap.git
+```
 
-### Setup
-TODO
+2. Install requirements 
+```sh
+ pip3 install config/requirements.pip 
+```
+
+3. Start development webserver
+```sh
+python3 backend/manage.py runserver
+```
+
