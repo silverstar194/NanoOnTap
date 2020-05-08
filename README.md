@@ -1,14 +1,26 @@
 # Nano On Tap
 ## Overview
-Nano On Tap is a stateless flow control and orchestration system for nano transactions. It introduces a 2nd layer ACL system to easily implement flow rules for the transfer of Nano from account to account within the system you design. It provides an API for programmatic interactions along with a UI for quick inspection and easy modeling.
+Nano On Tap is a stateless flow control and orchestration system for Nano transactions. It introduces a 2nd layer ACL system to easily implement flow rules for the transfer of Nano from account to account within the system you design. It provides an API for programmatic interactions along with a UI for quick inspection and easy modeling.
 
-Additionally flow state systems can be modeld, exported and imported through json templates. This allows for creation of complex use cases.
+Additionally flow state systems can be modeled, exported and imported through json templates. This allows for creation of complex use cases with ease.
 
-The core advantage of Nano On Tap TODO
+The core advantage of Nano On Tap is allowing any developer to quickly build and scale out a Nano based application. It reduces the need to deal in the details of transaction generation, proccessing, PoW mangement or manage business rules around where and how transaction should or can take place.
+
+## Architecture
+Nano On Tap uses small modular components to define complexy flow states. The below outlines the indiviual components and provides an example flow state system.
+
+### Components
+#### Application
+An Application holds all objects defined in the system. One Nano On Tap backend can support multiple different applications.
+
+#### Action Set
+Each element has a priority and a list of Actions.
+....
+
 
 ### Simple Example
 
-### Nano Poker Example
+For a complete and more complex read world example visit [Nano Poker - Play Nano with NFC stickers and readers](https://github.com/silverstar194/NanoPoker)
 
 ## Production
 ### Prerequisites
