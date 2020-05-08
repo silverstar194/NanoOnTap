@@ -34,7 +34,15 @@ To initial trigger an action a token has to interact with a device. Once the int
 * Number of Action(s) from or from a Nano account is below account Nano send/receive transferred limit
 * The highest priority Action Set on the device to met all the above criteria is executed. Only a single action set is ever executed per device token interaction.
 
-### Simple Example
+## Flow State Programming 
+A flow state can be reprogrammed in real time using below API calls. This allows dynamic updates to your defined system.
+
+### Example Scenario
+Bob uses his Token to interact with a Device to send 1 Nano in order to enter a raffle. Bob's token can now be reprogrammed to remove the Action Policy allowing Bob to trigger any additional 1 Nano Actions.
+
+The reprogramming would utilize the `action/token/update` POST endpoint.
+
+## Real World Example
 
 For a complete and more complex read world example visit [Nano Poker - Play Nano with NFC stickers and readers](https://github.com/silverstar194/NanoPoker)
 
