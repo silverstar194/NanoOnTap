@@ -34,7 +34,7 @@ To initial trigger an action a token has to interact with a device. Once the int
 * Number of Action(s) from or from a Nano account is below account Nano send/receive transferred limit
 * The highest priority Action Set on the device to met all the above criteria is executed. Only a single action set is ever executed per device token interaction.
 
-### Flow State Programming API
+## Flow State Programming API
 Each flow state component has a corresponding POST endpoint allows for adding, removing and updating the flow state objects. Please see additional wiki pages for specifics. This allows dynamic updates to your defined system.
 
 ### Example Scenario
@@ -45,52 +45,5 @@ The reprogramming would utilize the `action/token/update` POST endpoint.
 ## Real World Example
 
 For a complete and more complex read world example visit [Nano Poker - Play Nano with NFC stickers and readers](https://github.com/silverstar194/NanoPoker)
-
-## Production
-### Prerequisites
-* Docker
-* [Nano Node](https://docs.nano.org/running-a-node/node-setup/)
-* [PoW Provider](https://nanocenter.org/projects/dpow) 
-
-### Docker usage **RECOMMENDED**
-The provided production stack is dockerized and includes:
-* gunicorn (dg01 container)
-* nginx (ng01 container)
-* postgres (ps01 container)
-
-The dockerized setup is meant to be used as a drop in backend. A admin UI is included for non-programic setup experience.
-
-#### Setup
-1. Clone NanoOnTap repo
-
-```sh
-git clone https://github.com/silverstar194/NanoOnTap.git
-```
-2. Create and start containers. Database will be created automatically.
-```sh
-docker-compose build && docker-compose up -d
-```
-3. Check everything deployed. Go to http://localhost:8000/admin/. You should see a login screen.
-![Login Screen](https://i.imgur.com/OFRk9Dg.png)
-4. Create Django superuser
-```sh
-docker exec -it $(docker inspect --format="{{.Id}}" dg01) python manage.py createsuperuser
-```
-5. You can now login and see flow state components.
-
-## Developer Usage Setup
-1. Clone NanoOnTap repo
-```sh
-git clone https://github.com/silverstar194/NanoOnTap.git
-```
-
-2. Install requirements 
-```sh
- pip3 install config/requirements.pip 
-```
-
-3. Start development webserver
-```sh
-python3 backend/manage.py runserver
 ```
 
