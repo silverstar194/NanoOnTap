@@ -52,6 +52,11 @@ Bob uses his Token to interact with a Device to send 1 Nano in order to enter a 
 
 The reprogramming would utilize the `action/token/update` POST endpoint.
 
+## Import and Export Flow State Definitions
+### Import
+
+### Export
+
 ## Real World Example
 
 For a complete and more complex read world example visit [Nano Poker - Play Nano with NFC stickers and readers](https://github.com/silverstar194/NanoPoker)
