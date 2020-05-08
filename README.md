@@ -11,10 +11,20 @@ Nano On Tap uses small modular components to define complexy flow states. The be
 
 ### Components
 #### Application
-An Application holds all objects defined in the system. One Nano On Tap backend can support multiple different applications.
+The highest level component is the Application. An Application holds all objects defined in the flow state system. One _Nano On Tap_ backend can support multiple different applications.
 
-#### Action Set
-Each element has a priority and a list of Actions.
+#### Account
+Model for a Nano account. Holds information about the Nano wallet, Nano address, the current balance of that account in raw. It also contains its Account Policies.
+
+#### Account Policy
+These are the limits set for the Accounts. This involves how much Nano can be sent from and received to the Account. The Account can also have an Action limit for how many times it will send Nano from the account and receive money to the Account.
+
+#### Device
+Devices hold Action Sets that contain actions that can be triggered as a whole.
+
+#### Token
+Tokens hold action policies that determine if an action can be triggered .
+
 ....
 
 ### Flow State Execution
