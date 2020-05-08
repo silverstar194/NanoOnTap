@@ -17,6 +17,22 @@ An Application holds all objects defined in the system. One Nano On Tap backend 
 Each element has a priority and a list of Actions.
 ....
 
+### Flow State Execution
+Once the flow state system is defined: how does a transaction actually go through?
+
+To initial trigger an action a token has to interact with a device. Once the interaction has been initiated, account and action polices are evaluated to determine if the an action set can execute. The following policy rules are evaluated on each device token interaction:
+
+#### Action Policy Rules
+* Device whitelisting and blacklisted
+* Origin account(s) whitelisting and blacklisted
+* Destination account(s) whitelisting and blacklisted
+* Number of Action(s) in Action Set in below action # threshold
+* Total Nano transferred is below Nano transferred limit
+
+#### Account Policy Rules
+* Total Nano transferred to or from a Nano account if below account send/receive transferred limit
+* Number of Action(s) from or from a Nano account is below account Nano send/receive transferred limit
+* The highest priority Action Set on the device to met all the above criteria is executed. Only a single action set is ever executed per device token interaction.
 
 ### Simple Example
 
