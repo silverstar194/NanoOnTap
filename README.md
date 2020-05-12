@@ -51,8 +51,8 @@ Bob uses his Token to interact with a Device to send 1 Nano in order to enter a 
 
 The reprogramming would utilize the `action/token/update` POST endpoint.
 
-# [Import and Export Flow State Definitions](https://github.com/silverstar194/NanoOnTap/wiki)
-Flow states can be imported and exported via JSON templates. This allows for easy modeling, transfer, modification and acrhiving of real world scenarios. See Wiki for details.
+# Import and Export Flow State Definitions
+Flow states can be imported and exported via JSON templates. This allows for easy modeling, transfer, modification and acrhiving of real world scenarios. [See Wiki for details.](https://github.com/silverstar194/NanoOnTap/wiki)
 
 # Real World Example
 
