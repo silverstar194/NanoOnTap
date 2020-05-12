@@ -44,7 +44,7 @@ To initial trigger an action a token has to interact with a device. Once the int
 * The highest priority Action Set on the device to met all the above criteria is executed. Only a single action set is ever executed per device token interaction.
 
 # Flow State Programming API
-Each flow state component has a corresponding POST endpoint allows for adding, removing and updating the flow state objects. Please see additional wiki pages for specifics. This allows dynamic updates to your defined system.
+Each flow state component has a corresponding POST endpoint allows for adding, removing and updating the flow state objects. Please see additional [wiki pages](https://github.com/silverstar194/NanoOnTap/wiki) for specifics. This allows dynamic updates to your defined system.
 
 ### Example Scenario
 Bob uses his Token to interact with a Device to send 1 Nano in order to enter a raffle. Bob's token can now be reprogrammed to remove the Action Policy allowing Bob to trigger any additional 1 Nano Actions.
