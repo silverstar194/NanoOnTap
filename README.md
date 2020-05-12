@@ -57,5 +57,3 @@ Flow states can be imported and exported via JSON templates. This allows for eas
 # Real World Example
 
 For a complete and more complex read world example visit [Nano Poker - Play Nano with NFC stickers and readers](https://github.com/silverstar194/NanoPoker)
-```
-
