@@ -16,15 +16,22 @@ The highest level component is the Application. An Application holds all objects
 Model for a Nano account. Holds information about the Nano wallet, Nano address, the current balance of that account in raw. It also contains its Account Policies.
 
 ### Account Policy
-These are the limits set for the Accounts. This involves how much Nano can be sent from and received to the Account. The Account can also have an Action limit for how many times it will send Nano from the account and receive money to the Account.
+These are the limits set for the Accounts. This includes how much Nano can be sent from and received to the Account. The Account can also have an Action limit for how many times it will send Nano from the account and receive money to the Account.
+
+### Action Policy
+These are the limits set for the action set. This includes where Nano can be sent, how much Nano can be sent, how mand transaction can be sent and more. Action sets only execute if there is a action policy with proper permissions.
 
 ### Device
 Devices hold Action Sets that contain actions that can be triggered as a whole.
 
 ### Token
-Tokens hold action policies that determine if an action can be triggered .
+Tokens hold action policies that determine if an action can be triggered.
 
-....
+### Node
+Nano node to publish transactions to the Nano network.
+
+### Wallet
+Holds Nano accounts. Relates 1-1 with the wallet on Nano nodes.
 
 # Flow State Execution
 Once the flow state system is defined: how does a transaction actually go through?
@@ -38,7 +45,7 @@ To initial trigger an action a token has to interact with a device. Once the int
 * Number of Action(s) in Action Set in below action # threshold
 * Total Nano transferred is below Nano transferred limit
 
-### Account Policy Rules
+### Action Policy Rules
 * Total Nano transferred to or from a Nano account if below account send/receive transferred limit
 * Number of Action(s) from or from a Nano account is below account Nano send/receive transferred limit
 * The highest priority Action Set on the device to met all the above criteria is executed. Only a single action set is ever executed per device token interaction.
