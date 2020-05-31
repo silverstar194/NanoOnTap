@@ -1,3 +1,5 @@
+![Logo](https://i.imgur.com/A9uFrQt.jpg)
+
 # Overview
 Nano On Tap is a stateless flow control and orchestration system for Nano transactions. It introduces a 2nd layer ACL system to easily implement flow rules for the transfer of Nano from account to account within the system you design. It provides an API for programmatic interactions along with a UI for quick inspection and easy modeling.
 
