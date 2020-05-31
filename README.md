@@ -8,24 +8,40 @@ The core advantage of Nano On Tap is allowing any developer to quickly build and
 # Architecture
 Nano On Tap uses small modular components to define complexy flow states. The below outlines the indiviual components and provides an example flow state system.
 
+[Please see our Wiki for extensive flow state examples](https://github.com/silverstar194/NanoOnTap/wiki)
+
 ## Components
 ### Application
 The highest level component is the Application. An Application holds all objects defined in the flow state system. One _Nano On Tap_ backend can support multiple different applications.
+![Application](https://i.imgur.com/PvpHQj7.png)
 
 ### Account
-Model for a Nano account. Holds information about the Nano wallet, Nano address, the current balance of that account in raw. It also contains its Account Policies.
+Model for a Nano account. Holds information about the Nano wallet, Nano address, the current balance of that account in raw. An account also contains Account Policies.
+![Account](https://i.imgur.com/DCYW5fd.png)
 
 ### Account Policy
 These are the limits set for the Accounts. This includes how much Nano can be sent from and received to the Account. The Account can also have an Action limit for how many times it will send Nano from the account and receive money to the Account.
+![Account Policy](https://i.imgur.com/diWJ7v4.png)
 
 ### Action Policy
 These are the limits set for the action set. This includes where Nano can be sent, how much Nano can be sent, how mand transaction can be sent and more. Action sets only execute if there is a action policy with proper permissions.
+![Action Policy](https://i.imgur.com/KRHBCI1.png)
 
 ### Device
 Devices hold Action Sets that contain actions that can be triggered as a whole.
+![Device](https://i.imgur.com/YcCNLrY.png)
 
 ### Token
-Tokens hold action policies that determine if an action can be triggered.
+Tokens hold Action Policies that determine if an Action Set can be triggered.
+![Token](https://i.imgur.com/652xZTR.png)
+
+### Action Set
+An Action Set contains multiple Actions. When a device interacts with a Token either all Actions in an Action Set execute of none of them do.
+![Action Set](https://i.imgur.com/AodcJDC.png)
+
+### Action
+An Action defines a Nano transaction between two accounts. Multiple Actions make up an Action Set.
+![Action](https://i.imgur.com/PO6sLsK.png)
 
 ### Node
 Nano node to publish transactions to the Nano network.
